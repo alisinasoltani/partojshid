@@ -1,6 +1,6 @@
 export default function Stat() {
     return (
-        <div className="stat text-black h-[230px] flex flex-row justify-center items-center absolute">
+        <div className="stat text-black h-[230px] flex flex-row justify-center items-center">
             <div className="flex flex-row justify-center items-center gap-[6rem] relative top-[5rem]">
                 <div className="w-[15rem] aspect-square flex flex-col gap-4 justify-center items-center
                 rounded-2xl bg-gray-200 text-[30px] font-bold text-center">

@@ -32,3 +32,23 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+.services-title::before {
+  content: '';
+  width: calc(3rem + 5px);
+  height: 4px;
+  background-color: black;
+  display: inline-flex;
+  position: relative;
+  left: 5px;
+}
+
+.services-title::after {
+  content: '';
+  width: calc(3rem + 13px);
+  height: 4px;
+  background-color: black;
+  display: inline-flex;
+  position: relative;
+  right: 13px;
+}
