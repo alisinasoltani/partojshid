@@ -21,8 +21,17 @@
   src: url('../public/fonts/BTitrBold_0.ttf');
 }
 
+@font-face {
+  font-family: 'roya';
+  src: url('../public/fonts/BRoya.ttf');
+}
+
 .titr {
   font-family: 'titr';
+}
+
+.roya {
+  font-family: 'roya';
 }
 
 body {
