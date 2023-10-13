@@ -35,16 +35,18 @@
   display: inline-flex;
   position: relative;
   left: 5px;
+  bottom: 10px;
 }
 
 .services-title::after {
   content: '';
-  width: calc(3rem + 13px);
+  width: calc(3rem + 15px);
   height: 4px;
   background-color: black;
   display: inline-flex;
   position: relative;
-  right: 13px;
+  right: 3px;
+  bottom: 10px;
 }
 
 .swiper-slide {
