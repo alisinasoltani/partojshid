@@ -1,3 +1,4 @@
+import About from "@/components/About"
 import Stat from "@/components/Stat"
 import Services from "@/components/Services"
 import Loj from "@/components/Loj"
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <>
     <main className="">
+      <About />
       <Stat />
       <Services />
       <Loj />
