@@ -21,7 +21,7 @@
 }
 
 .stat {
-  background-image: url('../public/statBg.JPG');
+  background-image: url('../public/images/statbg.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
