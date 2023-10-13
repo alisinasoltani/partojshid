@@ -11,11 +11,11 @@ import slide4 from "@/public/images/iso14001-dejdis.com_.png"
 import slide5 from "@/public/images/iso22000-dejdis.com_.png"
 const Licenses = () => {
   return (
-    <div className="bg-[#303E6D] pt-6">
-        <div className="titr text-3xl text-white font-semibold text-center">
+    <div className="bg-[white] flex flex-col justify-start items-center">
+        <div className="bg-[rgba(12,14,70,1)] py-3 px-8 rounded-b-xl m-0 inline-flex titr text-3xl text-white font-semibold text-center">
             <h2>گواهینامه ها</h2>
         </div>
-        <div className="bg-[#303E6D] w-full py-2">
+        <div className="bg-white w-full py-2">
             <Swiper slidesPerView={5} modules={[Navigation, Autoplay]}  navigation={true} spaceBetween={30} loop={true} autoplay={{delay: 3000, disableOnInteraction: true}}>
                 <SwiperSlide className='pt-4'>
                     <Image src={slide1} width={250} alt="HSE License" />
