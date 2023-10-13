@@ -20,6 +20,16 @@
   font-family: 'roya';
 }
 
+.about-title::after {
+  content: '';
+  width: 4rem;
+  background-color: black;
+  height: 4px;
+  position: relative;
+  top: 35px;
+  right: 1px;
+}
+
 .stat {
   background-image: url('../public/images/statbg.png');
   background-size: cover;

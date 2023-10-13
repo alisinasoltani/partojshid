@@ -14,7 +14,7 @@ export default function About() {
                 </div>
             </div>
             <div className="flex flex-col justify-start items-end gap-5 row-span-1 md:col-span-5 col-span-12 text-right">
-                <h2 className="flex titr text-[45px] h-fit w-fit font-bold mt-[6rem] mr-[7rem]">درباره ما</h2>
+                <h2 className="about-title flex titr text-[45px] h-fit w-fit font-bold mt-[6rem]">درباره ما</h2>
                 <span className="flex roya text-[25px] mr-[4rem]" style={{direction: 'rtl'}}>
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
                 و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
