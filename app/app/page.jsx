@@ -1,3 +1,4 @@
+import Slider from "@/components/Slider"
 import About from "@/components/About"
 import Stat from "@/components/Stat"
 import Services from "@/components/Services"
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
     <main className="">
+      <Slider />
       <About />
       <Stat />
       <Services />
