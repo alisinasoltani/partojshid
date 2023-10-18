@@ -2,12 +2,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Autoplay, Navigation } from "swiper/modules"
-import Image from "next/image"
-import slide1 from "@/public/images/iao-9001.png"
-import slide2 from "@/public/images/iso-14001.png"
-import slide3 from "@/public/images/iso-22000.png"
-import slide4 from "@/public/images/iso-9003.png"
+import { Autoplay, Navigation } from "swiper/modules";
+import Image from "next/image";
+import slide1 from "@/public/images/iso9001.jpg";
+import slide2 from "@/public/images/iso14001.jpg";
+import slide3 from "@/public/images/iso22000.jpg";
+import slide4 from "@/public/images/iso9003.jpg";
 const Licenses = () => {
   return (
     <div className="bg-[white] flex flex-col justify-start items-center">
@@ -46,4 +46,4 @@ const Licenses = () => {
   )
 }
 
-export default Licenses
+export default Licenses;
