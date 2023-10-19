@@ -15,7 +15,6 @@ export default function About() {
                 scrub: true,
                 start: 'top-=500px top',
                 end: 'bottom bottom',
-                markers: true
             },
             y: 0,
         });
@@ -25,7 +24,6 @@ export default function About() {
                 scrub: true,
                 start: 'top-=500px top',
                 end: 'bottom bottom',
-                markers: true
             },
             y: 0,
         });
