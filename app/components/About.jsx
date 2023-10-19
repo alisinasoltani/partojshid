@@ -1,15 +1,52 @@
+'use client'
+import { useEffect } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
 import ejals from "@/public/images/ejlas2_about.png"
 import field from "@/public/images/field_about.png"
 
 export default function About() {
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger)
+        gsap.to("#fromBottom", {
+            scrollTrigger: {
+                trigger: "#about",
+                scrub: true,
+                start: 'top-=500px top',
+                end: 'bottom bottom',
+                markers: true
+            },
+            y: 0,
+        });
+        gsap.to("#fromTop", {
+            scrollTrigger: {
+                trigger: "#about",
+                scrub: true,
+                start: 'top-=500px top',
+                end: 'bottom bottom',
+                markers: true
+            },
+            y: 0,
+        });
+        gsap.to(".about-title", {
+            scrollTrigger: {
+                trigger: "#about",
+                scrub: true,
+                start: 'top-=500px top',
+                end: 'bottom bottom',
+            },
+            '--titleAfter': '4rem',
+            marginRight: '0rem',
+        });
+    }, [])
     return (
-        <div className="grid grid-rows-1 grid-cols-12 bg-white text-black">
+        <div id="about" className="grid grid-rows-1 grid-cols-12 bg-white text-black">
             <div className="md:grid grid-rows-1 grid-cols-2 hidden row-span-1 md:col-span-7 gap-10">
-                <div className="grid justify-end pt-[8rem]">
+                <div id="fromBottom" className="grid justify-end pt-[8rem]">
                     <Image src={ejals} height={500} alt="Ejlas Project by Parto Jeyshid" />
                 </div>
-                <div className="grid pb-[8rem]">
+                <div id="fromTop" className="grid pb-[8rem]">
                     <Image src={field} height={500} alt="Ejlas Project by Parto Jeyshid" />
                 </div>
             </div>

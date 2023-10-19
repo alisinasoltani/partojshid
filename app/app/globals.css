@@ -22,12 +22,25 @@
 
 .about-title::after {
   content: '';
-  width: 4rem;
+  width: var(--titleAfter);
   background-color: black;
   height: 4px;
   position: relative;
   top: 35px;
   right: 1px;
+}
+
+.about-title {
+  margin-right: 4rem;
+}
+
+#fromBottom {
+  position: relative;
+  transform: translateY(-128px);
+}
+#fromTop {
+  position: relative;
+  transform: translateY(128px);
 }
 
 .stat {
