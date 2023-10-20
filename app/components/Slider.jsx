@@ -12,7 +12,7 @@ import Slide6 from'@/public/images/Slide6.jpg';
 
 export default function Slider() {
   return (
-      <Swiper className='h-[90vh]' style={{zIndex: 0}}>
+      <Swiper className='h-[100vh]' style={{zIndex: 0}}>
         <SwiperSlide>
           <Image src={Slide6} fill={true} />
         </SwiperSlide>

@@ -10,7 +10,7 @@ export default function Nav() {
         gsap.registerPlugin(ScrollTrigger);
         gsap.to(".navbar", {
             scrollTrigger: {
-                scrub: 0.5,
+                scrub: 0.8,
                 start: "top+=200px",
                 end: "+=1",
             },
