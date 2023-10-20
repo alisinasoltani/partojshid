@@ -60,7 +60,7 @@
 
 .services-title::before {
   content: '';
-  width: calc(3rem + 5px);
+  width: var(--serviceTitleBefore);
   height: 4px;
   background-color: black;
   display: inline-flex;
@@ -71,7 +71,7 @@
 
 .services-title::after {
   content: '';
-  width: calc(3rem + 15px);
+  width: var(--serviceTitleAfter); /* calc(3rem + 15px) */
   height: 4px;
   background-color: black;
   display: inline-flex;
