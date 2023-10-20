@@ -12,8 +12,7 @@ import Slide6 from'@/public/images/Slide6.jpg';
 
 export default function Slider() {
   return (
-    <>
-      <Swiper className='h-[90vh]'>
+      <Swiper className='h-[90vh]' style={{zIndex: 0}}>
         <SwiperSlide>
           <Image src={Slide6} fill={true} />
         </SwiperSlide>
@@ -30,6 +29,5 @@ export default function Slider() {
           <Image src={Slide4} fill={true} />
         </SwiperSlide>
       </Swiper>
-    </>
   );
 }

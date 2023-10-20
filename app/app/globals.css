@@ -20,6 +20,14 @@
   font-family: 'roya';
 }
 
+.navbar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  color: "#ffffff";
+}
+
 .about-title::after {
   content: '';
   width: var(--titleAfter);
