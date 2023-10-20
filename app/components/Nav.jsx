@@ -1,5 +1,5 @@
-import Image from "next/image"
-import partoLogo from "@/public/partoLogo.png"
+import Image from "next/image";
+import partoLogo from "@/public/partoLogo.png";
 
 export default function Nav() {
     return (
@@ -17,5 +17,5 @@ export default function Nav() {
                 <h3>تماس با ما</h3>
             </div>
         </div>
-    )
+    );
 }

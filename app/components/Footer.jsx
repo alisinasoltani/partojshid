@@ -4,7 +4,7 @@ function Footer() {
             <h5 className="cursor-pointer after:content-copy bg-copy font-sans">Designed by Alisina</h5>
             <h5 className="cursor-pointer">&copy; تمامی حقوق محفوظ است</h5>
         </div>
-    )
+    );
 }
 
-export default Footer
+export default Footer;

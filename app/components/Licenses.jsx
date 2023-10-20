@@ -43,7 +43,7 @@ const Licenses = () => {
             </Swiper>
         </div>
     </div>
-  )
+  );
 }
 
 export default Licenses;

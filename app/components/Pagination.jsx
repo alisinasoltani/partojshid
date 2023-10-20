@@ -1,10 +1,10 @@
-import Image from "next/image"
-import email from "@/public/logos/email.svg"
-import phone from "@/public/logos/phone.svg"
-import link from "@/public/logos/link.svg"
-import address from "@/public/logos/address.svg"
-import instagram from "@/public/logos/instagram.svg"
-import whatsapp from "@/public/logos/whatsapp.svg"
+import Image from "next/image";
+import email from "@/public/logos/email.svg";
+import phone from "@/public/logos/phone.svg";
+import link from "@/public/logos/link.svg";
+import address from "@/public/logos/address.svg";
+import instagram from "@/public/logos/instagram.svg";
+import whatsapp from "@/public/logos/whatsapp.svg";
 
 const Pagination = () => {
   return (
@@ -69,7 +69,7 @@ const Pagination = () => {
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1375.0500542923319!2d51.66216259501566!3d32.62799382677744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfa!2s!4v1692269303420!5m2!1sfa!2s" width="300" height="300" style={{'border': 0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-  )
+  );
 }
 
-export default Pagination
+export default Pagination;

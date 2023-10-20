@@ -1,10 +1,10 @@
 'use client'
-import { useEffect } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Image from "next/image"
-import ejals from "@/public/images/ejlas2_about.png"
-import field from "@/public/images/field_about.png"
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import ejals from "@/public/images/ejlas2_about.png";
+import field from "@/public/images/field_about.png";
 
 export default function About() {
     useEffect(() => {
