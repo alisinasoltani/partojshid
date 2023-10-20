@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'titr';
+  src: url('../public/fonts/BTitrBold_0.ttf');
+}
+
+@font-face {
+  font-family: 'roya';
+  src: url('../public/fonts/BRoya.ttf');
+}
+
+.titr {
+  font-family: 'titr';
+}
+
+.roya {
+  font-family: 'roya';
+}
+
+.about-title::after {
+  content: '';
+  width: var(--titleAfter);
+  background-color: black;
+  height: 4px;
+  position: relative;
+  top: 35px;
+  right: 1px;
+}
+
+.about-title {
+  margin-right: 4rem;
+}
+
+#fromBottom {
+  position: relative;
+  transform: translateY(-128px);
+}
+#fromTop {
+  position: relative;
+  transform: translateY(128px);
+}
+
+.stat {
+  background-image: url('../public/images/statbg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.services-title::before {
+  content: '';
+  width: calc(3rem + 5px);
+  height: 4px;
+  background-color: black;
+  display: inline-flex;
+  position: relative;
+  left: 5px;
+  bottom: 10px;
+}
+
+.services-title::after {
+  content: '';
+  width: calc(3rem + 15px);
+  height: 4px;
+  background-color: black;
+  display: inline-flex;
+  position: relative;
+  right: 3px;
+  bottom: 10px;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #ffffff !important;
+  width: 1rem;
+  --swiper-navigation-size: 1.4rem;
+  font-weight: 900;
+}
+.swiper-button-next {
+  margin-right: 1rem;
+}
+.swiper-button-prev {
+  margin-left: 1rem;
+}
+
+.service-container {
+  background-image: url('../public/images/Golden-Gate-Bridge.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.loj {
+  background-image: linear-gradient(0deg, rgba(12,14,70,1) 40%, rgba(255,255,255,0) 100%), url('../public/images/LojBackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#instagram, #whatsapp {background-position: left; transition: background-position 1s; -webkit-transition: background-position 1s; border-radius: 7px; margin-inline: 5px;}
+#instagram {background-image: linear-gradient(76deg, rgba(64,93,230,1) 10%, rgba(88,81,219,1) 24%, rgba(131,58,180,1) 39%, rgba(193,53,132,1) 61%, rgba(225,48,108,1) 89%, rgba(253,29,29,1) 100%); background-size: 120%;}
+#whatsapp {background-image: linear-gradient(76deg, rgba(37,211,102,1) 25%, rgba(34,195,93,1) 50%, rgba(34,185,93,1) 75%, rgba(34,160,93,1) 100%); background-size: 200%;}
+#instagram:hover, #whatsapp:hover {background-position: right;}
+#instagram a, #whatsapp a {color: black; text-decoration: none; font-weight: 700; font-size: 20px;}
