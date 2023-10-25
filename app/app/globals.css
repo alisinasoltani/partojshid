@@ -12,13 +12,23 @@
   src: url('../public/fonts/BRoya.ttf');
 }
 
-.titr {
-  font-family: 'titr';
+@font-face {
+  font-family: 'yekan';
+  src: url('../public/fonts/BYekan.ttf');
 }
 
-.roya {
-  font-family: 'roya';
+@font-face {
+  font-family: 'yekanb';
+  src: url('../public/fonts/BYekanBold.ttf');
 }
+
+.titr { font-family: 'titr' }
+
+.roya { font-family: 'roya' }
+
+.yekan { font-family: 'yekan'}
+
+.yekanb { font-family: 'yekanb'}
 
 .navbar {
   position: fixed;
