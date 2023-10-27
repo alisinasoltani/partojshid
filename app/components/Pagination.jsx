@@ -19,34 +19,12 @@ const Pagination = () => {
           <div className="flex flex-row-reverse gap-8 mt-10">
             <div className="flex flex-col gap-2 text-lg text-white border-white border-l-2 pl-8">
               <div className="flex flex-row justify-end items-center gap-2">
-                <h5>09010669227</h5>
+                <h5>09013682870</h5>
                 <Image src={phone} width={20} alt="phone logo" unoptimized />
               </div>
               <div className="flex flex-row justify-end items-center gap-2">
-                <h5>09909090999</h5>
-                <Image src={phone} width={20} alt="phone logo" unoptimized />
-              </div>
-              <div className="flex flex-row justify-end items-center gap-2">
-                <h5 className="font-sans">info@jshid.com</h5>
+                <h5 className="font-sans">pjs_civil@gmail.com</h5>
                 <Image src={email} width={20} alt="phone logo" unoptimized />
-              </div>
-            </div>
-            <div className="flex flex-col gap-2 text-lg text-white">
-              <div className="flex flex-row justify-end items-center gap-2">
-                <h5>لینک های مرتبط</h5>
-                <Image src={link} width={20} alt="link logo" unoptimized />
-              </div>
-              <div className="flex flex-row justify-end items-center gap-2">
-                <h5>لینک های مرتبط</h5>
-                <Image src={link} width={20} alt="link logo" unoptimized />
-              </div>
-              <div className="flex flex-row justify-end items-center gap-2">
-                <h5>لینک های مرتبط</h5>
-                <Image src={link} width={20} alt="link logo" unoptimized />
-              </div>
-              <div className="flex flex-row justify-end items-center gap-2">
-                <h5>لینک های مرتبط</h5>
-                <Image src={link} width={20} alt="link logo" unoptimized />
               </div>
             </div>
             <div className="flex flex-col justify-center items-center gap-4 mt-[10px]">
