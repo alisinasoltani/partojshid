@@ -39,10 +39,15 @@ export default function Services() {
         });
         switch (service[0]) {
             case 0:
-                console.log(0);
                 tl.to('#activeService', {
                     height: '100%',
-                });
+                }, '<').to('#designService', {
+                    height: '0%',
+                }, '<').to('#contributionService', {
+                    height: '0%',
+                }, '<').to('#preorderService', {
+                    height: '0%',
+                }, '<');
                 // tl.to('.service-container', {
                 //     duration: 2,
                 //     ease: Linear.easeInOut,
@@ -51,10 +56,15 @@ export default function Services() {
                 // });
                 break;
             case 1:
-                console.log(1);
-                tl.to('#designService', {
+                tl.to('#activeService', {
+                    height: '0%',
+                }, '<').to('#designService', {
                     height: '100%',
-                });
+                }, '<').to('#contributionService', {
+                    height: '0%',
+                }, '<').to('#preorderService', {
+                    height: '0%',
+                }, '<');
                 // tl.to('.service-container', {
                 //     duration: 2,
                 //     ease: Linear.easeInOut,
@@ -63,10 +73,15 @@ export default function Services() {
                 // });
                 break;
             case 2:
-                console.log(2);
-                tl.to('#contributionService', {
+                tl.to('#activeService', {
+                    height: '0%',
+                }, '<').to('#designService', {
+                    height: '0%',
+                }, '<').to('#contributionService', {
                     height: '100%',
-                });
+                }, '<').to('#preorderService', {
+                    height: '0%',
+                }, '<');
                 // tl.to('.service-container', {
                 //     duration: 2,
                 //     ease: Linear.easeInOut,
@@ -75,10 +90,15 @@ export default function Services() {
                 // });
                 break;
             case 3:
-                console.log(3);
-                tl.to('#preorderService', {
+                tl.to('#activeService', {
+                    height: '0%',
+                }, '<').to('#designService', {
+                    height: '0%',
+                }, '<').to('#contributionService', {
+                    height: '0%',
+                }, '<').to('#preorderService', {
                     height: '100%',
-                });
+                }, '<');
                 // tl.to('.service-container', {
                 //     duration: 2,
                 //     ease: Linear.easeInOut,
@@ -110,19 +130,19 @@ export default function Services() {
             <h2 className="services-title text-[53px] font-bold pt-[4rem] titr text-black">خدمات ما</h2>
             <div className="service-container grid grid-cols-9 grid-rows-1 gap-[3px] text-center place-content-center
             my-[4rem] h-[40rem] text-[25px] roya">
-                <div className="service grid col-span-2 place-content-center bg-[rgba(20,20,20,0.2)] px-10" onClick={setDesignService}>
+                <div className="service grid col-span-2 place-content-center bg-[rgba(20,20,20,0.2)] px-10" onMouseEnter={setDesignService}>
                     <div className="service-overlay" id="designService"></div>
                     <h3 className="z-[1]">طراحی و اجرا</h3>
                 </div>
-                <div className="service grid col-span-3 place-content-center bg-[rgba(20,20,20,0.2)] transition-colors" onClick={setPreorderService}>
+                <div className="service grid col-span-3 place-content-center bg-[rgba(20,20,20,0.2)] transition-colors" onMouseEnter={setPreorderService}>
                     <div className="service-overlay" id="preorderService"></div>
                     <h3 className="z-[1]">پروژه های پیش فروش</h3>
                 </div>
-                <div className="service grid col-span-2 place-content-center bg-[rgba(20,20,20,0.2)] transition-colors" onClick={setActiveService}>
+                <div className="service grid col-span-2 place-content-center bg-[rgba(20,20,20,0.2)] transition-colors" onMouseEnter={setActiveService}>
                     <div className="service-overlay" id="activeService"></div>
                     <h3 className="z-[1]">پروژه های فعال</h3>
                 </div>
-                <div className="service grid col-span-2 place-content-center bg-[rgba(20,20,20,0.2)] transition-colors" onClick={setContributionService}>
+                <div className="service grid col-span-2 place-content-center bg-[rgba(20,20,20,0.2)] transition-colors" onMouseEnter={setContributionService}>
                     <div className="service-overlay" id="contributionService"></div>
                     <h3 className="z-[1]">مشارکت در ساخت</h3>
                 </div>
