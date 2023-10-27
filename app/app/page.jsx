@@ -6,6 +6,7 @@ import Services from "@/components/Services";
 import Loj from "@/components/Loj";
 import Licenses from "@/components/Licenses";
 import Pagination from "@/components/Pagination";
+import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
@@ -22,6 +23,7 @@ export default function Home() {
   return (
     <>
     <main>
+      <Nav type={'transparent'} />
       <Slider />
       <About />
       <Stat />
