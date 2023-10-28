@@ -51,7 +51,7 @@ const Projects = () => {
       </div>
       <div className="grid grid-rows-1 place-content-center bg-white">
         <div className="projectXl grid row-span-1 xl:w-[53rem] w-[100vh] h-[25rem] place-content-center xl:relative xl:top-[-120px]">
-          <h3 className="titr text-[50px]">پروژه فلان</h3>
+          <h3 className="titr text-[50px]">پروژه ساختمانی</h3>
         </div>
       </div>
       <Pagination />

@@ -70,7 +70,7 @@ export default function Services() {
                 //     ease: Linear.easeInOut,
                 // }, {
                 //     backgroundImage: design,
-                // });
+                // });8
                 break;
             case 2:
                 tl.to('#activeService', {
