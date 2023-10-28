@@ -1,5 +1,5 @@
 import './globals.css';
-import Head from 'next/head';
+// import Head from 'next/head';
 
 export const metadata = {
   title: 'Parto Jshid',
@@ -9,9 +9,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
+      {/* <Head>
         <link rel="shortcut icon" href="/public/logos/jeyshidLogo.png" />  
-      </Head>
+      </Head> */}
       <body>
         {children}
       </body>
