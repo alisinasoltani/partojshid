@@ -49,7 +49,7 @@ export default function About() {
                 </div>
             </div>
             <div className="flex flex-col justify-start items-end gap-5 row-span-1 md:col-span-5 col-span-12 text-right">
-                <h2 className="about-title flex titr text-[45px] h-fit w-fit font-bold mt-[6rem]">درباره ما</h2>
+                <h2 className="about-title flex yekanb text-[45px] h-fit w-fit font-bold mt-[6rem]">درباره ما</h2>
                 <span className="flex yekan text-[25px] mr-[4rem]" style={{direction: 'rtl'}}>
                 شرکت مهندسی پرتو جی شید با بیش  از  20  سال  سابقه و با نیت خدمت و کمک به عمران و آبادانی کشور
                 و با بکارگیری پرسنل مجرب و توانمند در زمینه   پروژه های عمرانی  با موضوع  ابنیه ، تاسیسات ،

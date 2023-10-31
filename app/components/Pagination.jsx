@@ -10,13 +10,13 @@ const Pagination = () => {
   return (
     <div className="flex flex-row-reverse koodak py-12 px-12 gap-5 text-right justify-between bg-slate-900">
         <div className="flex flex-col items-end">
-          <h2 className="text-3xl text-white titr underline underline-offset-[0.9rem] mb-10">شرکت پرتو جی شید (سهامی خاص)</h2>
+          <h2 className="text-3xl text-white yekanb underline underline-offset-[0.9rem] mb-10">شرکت پرتو جی شید (سهامی خاص)</h2>
           <div className="lg:w-[25rem] flex flex-row justify-center items-start gap-2">
-            <h3 className="text-lg text-white">اصفهان، چهارباغ بالا، کوچه بیستون(12)، 
+            <h3 className="yekanb text-lg text-white">اصفهان، چهارباغ بالا، کوچه بیستون(12)، 
               خیابان دکتر شریعتی، پلاک 124 ساختمان الماس، طبقه سوم واحد 12</h3>
             <Image src={address} width={20} alt="address logo" unoptimized />
           </div>
-          <div className="flex flex-row-reverse gap-8 mt-10">
+          <div className="flex flex-row-reverse gap-8 mt-10 yekanb">
             <div className="flex flex-col gap-2 text-lg text-white border-white border-l-2 pl-8">
               <div className="flex flex-row justify-end items-center gap-2">
                 <h5>09013682870</h5>

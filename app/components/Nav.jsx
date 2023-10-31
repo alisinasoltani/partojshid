@@ -38,7 +38,7 @@ export default function Nav({ type }) {
                     <Image src={partoLogo} width={55} />
                 </a>
             </div>
-            <div className="flex flex-row gap-[3.5rem] text-lg">
+            <div className="flex flex-row gap-[3.5rem] yekanb text-lg">
                 <h3>درباره ما</h3>
                 <h3>خدمات</h3>
                 <Link href={"/projects"}><h3>پروژه ها</h3></Link>

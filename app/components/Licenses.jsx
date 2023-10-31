@@ -11,7 +11,7 @@ import slide4 from "@/public/images/iso9003.jpg";
 const Licenses = () => {
   return (
     <div className="bg-[white] flex flex-col justify-start items-center">
-        <div className="bg-[rgba(12,14,70,1)] py-3 px-8 rounded-b-xl m-0 inline-flex titr text-3xl text-white font-semibold text-center">
+        <div className="bg-[rgba(12,14,70,1)] py-3 px-8 rounded-b-xl m-0 inline-flex yekanb text-3xl text-white font-semibold text-center">
             <h2>گواهینامه ها</h2>
         </div>
         <div className="bg-white w-full py-2">
