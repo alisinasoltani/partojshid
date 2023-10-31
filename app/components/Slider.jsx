@@ -25,9 +25,6 @@ export default function Slider() {
         <SwiperSlide>
           <Image src={Slide3} fill={true} />
         </SwiperSlide>
-        <SwiperSlide>
-          <Image src={Slide4} fill={true} />
-        </SwiperSlide>
       </Swiper>
   );
 }
