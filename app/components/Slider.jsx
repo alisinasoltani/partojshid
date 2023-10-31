@@ -12,7 +12,7 @@ import Slide6 from'@/public/images/Slide6.jpg';
 export default function Slider() {
   return (
       <Swiper className='h-[100vh]' modules={[Navigation, Autoplay]} navigation={true} style={{zIndex: 0}}
-      loop={true} autoplay={{delay: 3000, disableOnInteraction: false}}>
+      loop={true} autoplay={{delay: 5000, disableOnInteraction: false}}>
         <SwiperSlide>
           <Image src={Slide6} fill={true} />
         </SwiperSlide>
