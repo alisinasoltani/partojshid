@@ -30,7 +30,7 @@ const Pagination = () => {
             <div className="flex flex-col justify-center items-center gap-4 mt-[10px]">
                 <button type="button" className="border-none flex flex-row justify-center gap-2 items-center py-3 px-5 font-sans" id="instagram">
                   <Image className="flex" src={instagram} width={24} />
-                  <a className="flex" href="#">
+                  <a className="flex" href="https://www.instagram.com/lodge_co/">
                     Instagram
                   </a>
                 </button>
