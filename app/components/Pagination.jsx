@@ -8,7 +8,7 @@ import whatsapp from "@/public/logos/whatsapp.svg";
 
 const Pagination = () => {
   return (
-    <div className="flex md:flex-row-reverse flex-col koodak py-12 px-12 gap-10 text-right justify-between bg-slate-900">
+    <div id="contact" className="flex md:flex-row-reverse flex-col koodak py-12 px-12 gap-10 text-right justify-between bg-slate-900">
         <div className="flex flex-col items-end">
           <h2 className="md:text-3xl text-2xl text-white yekanb underline underline-offset-[0.9rem] mb-10">شرکت پرتو جی شید (سهامی خاص)</h2>
           <div className="lg:w-[25rem] flex flex-row justify-center items-start gap-2">

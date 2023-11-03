@@ -14,11 +14,14 @@ import ListItemButton from '@mui/material/ListItemButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
 export default function Nav({ type }) {
-    const [state, setState] = useState({
-        top: false,
+    const [mobileMenu, setMobileMenu] = useState({
         left: false,
         bottom: false,
         right: false,
+    });
+    const [itemsMenu, setItemsMenu] = useState({
+        aboutUs: false,
+        services: false,
     });
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -53,12 +56,18 @@ export default function Nav({ type }) {
             });
         }
     }, []);
-    const toggleDrawer = (anchor, open) => (event) => {
+    const toggleMobileMenu = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
           return;
         }
-    
-        setState({ ...state, [anchor]: open });
+        setMobileMenu({ ...mobileMenu, [anchor]: open });
+    };
+
+    const toggleItemsMenu = (item, open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+          return;
+        }
+        setItemsMenu({ ...mobileMenu, [item]: open });
     };
     return (
         <>
@@ -69,22 +78,22 @@ export default function Nav({ type }) {
                 </a>
             </div>
             <div className="hidden lg:flex lg:flex-row lg:gap-[3.5rem] yekanb text-lg">
-                <h3>درباره ما</h3>
-                <h3>خدمات</h3>
+                <h3 onClick={toggleItemsMenu('aboutUs', true)} className="cursor-pointer">درباره ما</h3>
+                <h3 onClick={toggleItemsMenu('services', true)} className="cursor-pointer">خدمات</h3>
                 <Link href={"/projects"}><h3>پروژه ها</h3></Link>
-                <h3>گروه ساختمانی لژ</h3>
-                <h3>تماس با ما</h3>
+                <Link href={"#loj"}><h3 className="cursor-pointer">گروه ساختمانی لژ</h3></Link>
+                <Link href={"#contact"}><h3 className="cursor-pointer">تماس با ما</h3></Link>
             </div>
-            <Button className="lg:hidden flex flex-row gap-[3.5rem] yekanb text-lg text-white" style={{boxShadow: 'none'}} sx={{boxShadow: 'none'}} onClick={toggleDrawer('right', true)}><MenuIcon className="menuIcon" /></Button>
+            <Button className="lg:hidden flex flex-row gap-[3.5rem] yekanb text-lg text-white" style={{boxShadow: 'none'}} sx={{boxShadow: 'none'}} onClick={toggleMobileMenu('right', true)}><MenuIcon className="menuIcon" /></Button>
         </div>
-        <Drawer anchor={'right'} open={state['right']} onClose={toggleDrawer('right', false)}>
+        <Drawer anchor={'right'} open={mobileMenu['right']} onClose={toggleMobileMenu('right', false)}>
             <List sx={{width: '70vw', height: '100vh', direction: 'rtl', backgroundColor: 'rgb(20,20,20)', color: '#ffffff'}} className="text-2xl yekan">
                 <ListItem disablePadding>
-                    <ListItemButton><h3 className="py-2">درباره ما</h3></ListItemButton>
+                    <ListItemButton><h3 className="py-2 cursor-pointer">درباره ما</h3></ListItemButton>
                 </ListItem>
                 <Divider />
                 <ListItem disablePadding>
-                    <ListItemButton><h3 className="py-2">خدمات</h3></ListItemButton>
+                    <ListItemButton><h3 className="py-2 cursor-pointer">خدمات</h3></ListItemButton>
                 </ListItem>
                 <Divider />
                 <ListItem disablePadding>
@@ -92,13 +101,29 @@ export default function Nav({ type }) {
                 </ListItem>
                 <Divider />
                 <ListItem disablePadding>
-                    <ListItemButton><h3 className="py-2">گروه ساختمانی لژ</h3></ListItemButton>
+                    <ListItemButton><h3 className="py-2 cursor-pointer">گروه ساختمانی لژ</h3></ListItemButton>
                 </ListItem>
                 <Divider />
                 <ListItem disablePadding>
-                    <ListItemButton><h3 className="py-2">تماس با ما</h3></ListItemButton>
+                    <ListItemButton><h3 className="py-2 cursor-pointer">تماس با ما</h3></ListItemButton>
                 </ListItem>
             </List>
+        </Drawer>
+        <Drawer anchor={'top'} open={itemsMenu['aboutUs']} onClose={toggleItemsMenu('aboutUs', false)} style={{zIndex: 20}}>
+            <div className="h-[70vh] py-[10rem] bg-[rgba(12,14,70,1)] text-white flex flex-col gap-7 px-[12rem]">
+                <h3 className="text-2xl"><span className="pr-6">1</span> At a Glance</h3>
+                <h3 className="text-2xl"><span className="pr-6">2</span> History</h3>
+                <h3 className="text-2xl"><span className="pr-6">3</span> Strategy</h3>
+                <h3 className="text-2xl"><span className="pr-6">4</span> Leadership</h3>
+            </div>
+        </Drawer>
+        <Drawer anchor={'top'} open={itemsMenu['services']} onClose={toggleItemsMenu('services', false)} style={{zIndex: 20}}>
+            <div className="h-[70vh] py-[10rem] bg-[rgba(12,14,70,1)] text-white flex flex-col gap-7 px-[12rem] yekan" style={{direction: 'rtl'}}>
+                <h3 className="text-2xl"><span className="pl-6">1</span> طراحی و اجرا </h3>
+                <h3 className="text-2xl"><span className="pl-6">2</span> پروژه های پیش فروش </h3>
+                <h3 className="text-2xl"><span className="pl-6">3</span> پروژه های فعال </h3>
+                <h3 className="text-2xl"><span className="pl-6">4</span> مشارکت در ساخت </h3>
+            </div>
         </Drawer>
         </>
     );
