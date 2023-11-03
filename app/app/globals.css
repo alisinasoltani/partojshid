@@ -55,6 +55,10 @@ body {
   margin-right: 4rem;
 }
 
+.css-i4bv87-MuiSvgIcon-root {
+  box-shadow: none !important;
+}
+
 #fromBottom {
   position: relative;
   transform: translateY(-128px);
