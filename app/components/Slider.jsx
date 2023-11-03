@@ -11,7 +11,7 @@ import Slide6 from"@/public/images/Slide6.jpg";
 
 export default function Slider() {
   return (
-      <Swiper className="md:h-[100vh] h-[40vh]" modules={[Navigation, Autoplay]} navigation={true} style={{zIndex: 0}}
+      <Swiper className="lg:h-[100vh] md:h-[40vh] h-[30vh]" modules={[Navigation, Autoplay]} navigation={true} style={{zIndex: 0}}
       loop={true} autoplay={{delay: 7000, disableOnInteraction: false}}>
         <SwiperSlide>
           <Image src={Slide6} fill={true} />
