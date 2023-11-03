@@ -15,7 +15,21 @@ const Licenses = () => {
             <h2>گواهینامه ها</h2>
         </div>
         <div className="bg-white w-full py-2">
-            <Swiper slidesPerView={5} modules={[Navigation, Autoplay]} navigation={true} spaceBetween={30} loop={true} autoplay={{delay: 3000, disableOnInteraction: true}}>
+            <Swiper modules={[Navigation, Autoplay]} navigation={true} loop={true} autoplay={{delay: 3000, disableOnInteraction: true}}
+            breakpoints={{
+                576: {
+                    spaceBetween: 0,
+                    slidesPerView: 1,
+                },
+                700: {
+                    spaceBetween: 30,
+                    slidesPerView: 2,
+                },
+                960: {
+                    spaceBetween: 30,
+                    slidesPerView: 5,
+                },
+            }}>
                 <SwiperSlide className='pt-4'>
                     <Image src={slide1} width={250} alt="HSE License" />
                 </SwiperSlide>
