@@ -28,9 +28,9 @@ export default function Loj() {
         })
     }, []);
     return (
-        <div className="loj flex md:flex-row flex-col justify-between md:items-end items-center h-[35rem] px-[6rem]">
-            <Image className="pb-[6rem]" src={LojLogo} width={300} alt="Loj Logo" />
-            <h2 className="text-[68px] pb-[12rem] yekanb">گروه ساختمانی لژ</h2>
+        <div className="loj flex md:flex-row flex-col md:justify-between justify-center gap-[6rem] items-center md:h-[35rem] h-[90vh] px-[6rem]">
+            <Image className="" src={LojLogo} width={300} alt="Loj Logo" />
+            <h2 className="md:text-[68px] text-[40px] yekanb">گروه ساختمانی لژ</h2>
         </div>
     );
 }
