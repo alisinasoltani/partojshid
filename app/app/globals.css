@@ -22,6 +22,10 @@
   src: url('../public/fonts/BYekanBold.ttf');
 }
 
+body {
+  background-color: #ffffff !important;
+}
+
 .titr { font-family: 'titr' }
 
 .roya { font-family: 'roya' }

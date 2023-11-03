@@ -8,8 +8,8 @@ export default function Stat() {
         triggerOnce: true,
     });
     return (
-        <div className="stat text-black h-[230px] flex flex-row justify-center items-center">
-            <div className="flex flex-row justify-center items-center gap-[6rem] relative top-[5rem]">
+        <div className="stat text-black md:h-[230px] h-[60vh] md:mt-0 mt-[10rem] flex flex-col justify-center items-center">
+            <div className="flex md:flex-row flex-col justify-center items-center md:gap-[6rem] gap-[2.5rem] relative md:top-[5rem]">
                 <div className="w-[15rem] aspect-square flex flex-col gap-4 justify-center items-center
                 rounded-2xl bg-gray-200 text-[30px] font-bold text-center shadow-xl yekanb">
                     <h4>ساختمان و ابنیه</h4>
