@@ -16,8 +16,8 @@ const Pagination = () => {
               خیابان دکتر شریعتی، پلاک 124 ساختمان الماس، طبقه سوم واحد 12</h3>
             <Image src={address} width={20} alt="address logo" unoptimized />
           </div>
-          <div className="flex flex-row-reverse gap-8 mt-10 yekanb">
-            <div className="flex flex-col gap-2 text-lg text-white border-white border-l-2 pl-8">
+          <div className="flex md:flex-row-reverse flex-col md:gap-8 gap-4 mt-10 yekanb">
+            <div className="flex flex-col gap-2 text-lg text-white md:border-white md:border-l-2 pl-8">
               <div className="flex flex-row justify-end items-center gap-2">
                 <h5>09013682870</h5>
                 <Image src={phone} width={20} alt="phone logo" unoptimized />
