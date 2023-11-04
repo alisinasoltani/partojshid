@@ -84,7 +84,7 @@ export default function Nav({ type }) {
                 <Link href={"#loj"}><h3 className="cursor-pointer">گروه ساختمانی لژ</h3></Link>
                 <Link href={"#contact"}><h3 className="cursor-pointer">تماس با ما</h3></Link>
             </div>
-            <Button className="lg:hidden md:flex flex flex-row gap-[3.5rem] yekanb text-lg text-white" style={{boxShadow: 'none'}} sx={{boxShadow: 'none'}} onClick={toggleMobileMenu('right', true)}><MenuIcon className="menuIcon" /></Button>
+            <Button className="xl:hidden lg:hidden md:flex flex flex-row gap-[3.5rem] yekanb text-lg text-white" style={{boxShadow: 'none'}} sx={{boxShadow: 'none'}} onClick={toggleMobileMenu('right', true)}><MenuIcon className="menuIcon" /></Button>
         </div>
         <Drawer anchor={'right'} open={mobileMenu['right']} onClose={toggleMobileMenu('right', false)}>
             <List sx={{width: '70vw', height: '100vh', direction: 'rtl', backgroundColor: 'rgb(20,20,20)', color: '#ffffff'}} className="text-2xl yekan">
