@@ -8,11 +8,15 @@ import Image from "next/image";
 import Slide1 from"@/public/images/Slide1.jpg";
 import Slide2 from"@/public/images/Slide2.jpg";
 import Slide6 from"@/public/images/Slide6.jpg";
+import Slide7 from"@/public/images/Slide7.jpg";
 
 export default function Slider() {
   return (
       <Swiper className="lg:h-[100vh] md:h-[40vh] h-[30vh]" modules={[Navigation, Autoplay]} navigation={true} style={{zIndex: 0}}
       loop={true} autoplay={{delay: 7000, disableOnInteraction: false}}>
+        <SwiperSlide>
+          <Image src={Slide7} fill={true} />
+        </SwiperSlide>
         <SwiperSlide>
           <Image src={Slide6} fill={true} />
         </SwiperSlide>
