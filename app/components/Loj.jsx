@@ -30,8 +30,8 @@ export default function Loj() {
     return (
         <div className="loj flex md:flex-row flex-col lg:justify-between justify-center gap-[6rem] items-center md:h-[35rem] h-[90vh] px-[6rem]"
         id="loj">
-            <Image src={LojLogo} width={300} alt="Loj Logo" />
-            <h2 className="lg:text-[68px] md:text-[40px] text-[40px] text-right yekanb">گروه ساختمانی لژ</h2>
+            <Image src={LojLogo} width={290} alt="Loj Logo" />
+            <h2 className="lg:text-[58px] md:text-[40px] text-[40px] text-right yekanb">گروه ساختمانی لژ</h2>
         </div>
     );
 }
