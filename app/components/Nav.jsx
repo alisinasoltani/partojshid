@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -79,12 +79,12 @@ export default function Nav({ type }) {
             </div>
             <div className="hidden md:hidden lg:flex lg:flex-row lg:gap-[3.5rem] yekanb text-lg">
                 <h3 onClick={toggleItemsMenu('aboutUs', itemsMenu.aboutUs ? false : true)} className="cursor-pointer">درباره ما</h3>
-                <h3 onClick={toggleItemsMenu('services', itemsMenu.services ? false : true)} className="cursor-pointer">خدمات</h3>
+                <h3 onClick={toggleItemsMenu('services', itemsMenu.services ? false : true)} className="cursor-pointer">فعالیت ها</h3>
                 <Link href={"/projects"}><h3>پروژه ها</h3></Link>
                 <Link href={"#loj"}><h3 className="cursor-pointer">گروه ساختمانی لژ</h3></Link>
                 <Link href={"#contact"}><h3 className="cursor-pointer">تماس با ما</h3></Link>
             </div>
-            <Button className="xl:hidden lg:hidden md:flex flex flex-row gap-[3.5rem] yekanb text-lg text-white" style={{boxShadow: 'none'}} sx={{boxShadow: 'none'}} onClick={toggleMobileMenu('right', true)}><MenuIcon className="menuIcon" /></Button>
+            <button className="xl:hidden lg:hidden md:flex flex flex-row gap-[3.5rem] yekanb text-lg text-white" style={{boxShadow: 'none'}} sx={{boxShadow: 'none'}} onClick={toggleMobileMenu('right', true)}><MenuIcon className="menuIcon" /></button>
         </div>
         <Drawer anchor={'right'} open={mobileMenu['right']} onClose={toggleMobileMenu('right', false)}>
             <List sx={{width: '70vw', height: '100vh', direction: 'rtl', backgroundColor: 'rgb(20,20,20)', color: '#ffffff'}} className="text-2xl yekan">
@@ -93,7 +93,7 @@ export default function Nav({ type }) {
                 </ListItem>
                 <Divider />
                 <ListItem disablePadding>
-                    <ListItemButton><h3 className="py-2 cursor-pointer">خدمات</h3></ListItemButton>
+                    <ListItemButton><h3 className="py-2 cursor-pointer">فعالیت ها</h3></ListItemButton>
                 </ListItem>
                 <Divider />
                 <ListItem disablePadding>
