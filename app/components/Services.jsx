@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Linear, gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import golden from "../public/images/Golden-Gate-Bridge.jpg";
 import design from "../public/images/design.jpg";
 import constructionContribution from "../public/images/constructionContribution.jpg";
 import activeProjects from "../public/images/activeProjects.jpg";
@@ -20,12 +21,12 @@ export default function Services() {
             left: 0,
         })
         const tl = gsap.timeline();
-        // gsap.set('.service-container', {
-        //     backgroundImage: 'url(../public/images/activeProjects.jpg)',
-        // });
-        // gsap.set('.service', {
-        //     backgroundColor: 'rgba(20,20,20,0.2)',
-        // });
+        gsap.set('.service-container', {
+            backgroundImage: "url(/images/activeProjects.jpg)",
+        });
+        gsap.set('.service', {
+            backgroundColor: 'rgba(20,20,20,0.2)',
+        });
         gsap.to('.service-trigger', {
             scrollTrigger: {
                 trigger: '.service-trigger',
@@ -48,57 +49,69 @@ export default function Services() {
                 }, '<').to('#preorderService', {
                     height: '0%',
                 }, '<');
-                // tl.to('.service-container', {
+                // .to('.service-container', {
                 //     duration: 2,
                 //     ease: Linear.easeInOut,
                 // }, {
-                //     backgroundImage: 'url(../public/images/activeProjects.jpg)',
+                //     backgroundImage: "url(/images/activeProjects.jpg)",
                 // });
+                gsap.set('.service-container', {
+                    backgroundImage: "url(/images/activeProjects.jpg)",
+                });
                 break;
-            case 1:
-                tl.to('#activeService', {
-                    height: '0%',
-                }, '<').to('#designService', {
-                    height: '100%',
-                }, '<').to('#contributionService', {
+                case 1:
+                    tl.to('#activeService', {
+                        height: '0%',
+                    }, '<').to('#designService', {
+                        height: '100%',
+                    }, '<').to('#contributionService', {
+                        height: '0%',
+                    }, '<').to('#preorderService', {
+                        height: '0%',
+                    }, '<');
+                    gsap.set('.service-container', {
+                        backgroundImage: "url(/images/DesignAndExe.jpg)",
+                    });
+                    // tl.to('.service-container', {
+                        //     duration: 2,
+                        //     ease: Linear.easeInOut,
+                        // }, {
+                            //     backgroundImage: design,
+                            // });
+                            break;
+                            case 2:
+                                tl.to('#activeService', {
+                                    height: '0%',
+                                }, '<').to('#designService', {
+                                    height: '0%',
+                                }, '<').to('#contributionService', {
+                                    height: '100%',
+                                }, '<').to('#preorderService', {
+                                    height: '0%',
+                                }, '<');
+                                gsap.set('.service-container', {
+                                    backgroundImage: "url(/images/Coperation.jpg)",
+                                });
+                                // tl.to('.service-container', {
+                                    //     duration: 2,
+                                    //     ease: Linear.easeInOut,
+                                    // }, {
+                                        //     backgroundImage: constructionContribution,
+                                        // });
+                                        break;
+                                        case 3:
+                                            tl.to('#activeService', {
+                                                height: '0%',
+                                            }, '<').to('#designService', {
+                                                height: '0%',
+                                            }, '<').to('#contributionService', {
                     height: '0%',
                 }, '<').to('#preorderService', {
-                    height: '0%',
-                }, '<');
-                // tl.to('.service-container', {
-                //     duration: 2,
-                //     ease: Linear.easeInOut,
-                // }, {
-                //     backgroundImage: design,
-                // });
-                break;
-            case 2:
-                tl.to('#activeService', {
-                    height: '0%',
-                }, '<').to('#designService', {
-                    height: '0%',
-                }, '<').to('#contributionService', {
-                    height: '100%',
-                }, '<').to('#preorderService', {
-                    height: '0%',
-                }, '<');
-                // tl.to('.service-container', {
-                //     duration: 2,
-                //     ease: Linear.easeInOut,
-                // }, {
-                //     backgroundImage: constructionContribution,
-                // });
-                break;
-            case 3:
-                tl.to('#activeService', {
-                    height: '0%',
-                }, '<').to('#designService', {
-                    height: '0%',
-                }, '<').to('#contributionService', {
-                    height: '0%',
-                }, '<').to('#preorderService', {
                     height: '100%',
                 }, '<');
+                gsap.set('.service-container', {
+                    backgroundImage: "url(/images/LodgeBg.jpg)",
+                });
                 // tl.to('.service-container', {
                 //     duration: 2,
                 //     ease: Linear.easeInOut,

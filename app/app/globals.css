@@ -118,8 +118,9 @@ body {
 }
 
 .service-container {
-  background-image: url('../public/images/Golden-Gate-Bridge.jpg');
+  background-image: var(--backgroundImage);
   background-size: cover;
+  transition: all 3s;
   background-repeat: no-repeat;
 }
 
