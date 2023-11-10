@@ -2,11 +2,6 @@
 import { useEffect, useState } from "react";
 import { Linear, gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import golden from "../public/images/Golden-Gate-Bridge.jpg";
-import design from "../public/images/design.jpg";
-import constructionContribution from "../public/images/constructionContribution.jpg";
-import activeProjects from "../public/images/activeProjects.jpg";
-import preorderProjects from "../public/images/preorderProjects.jpg";
 
 export default function Services() {
     const [service, setService] = useState([0]);
