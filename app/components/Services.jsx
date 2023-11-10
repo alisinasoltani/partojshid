@@ -53,53 +53,53 @@ export default function Services() {
                 gsap.set('.service-container', {
                     backgroundImage: "url(/images/activeProjects.jpg)",
                 });
-                break;
-                case 1:
-                    tl.to('#activeService', {
-                        height: '0%',
-                    }, '<').to('#designService', {
-                        height: '100%',
-                    }, '<').to('#contributionService', {
-                        height: '0%',
-                    }, '<').to('#preorderService', {
-                        height: '0%',
-                    }, '<');
-                    gsap.set('.service-container', {
-                        backgroundImage: "url(/images/DesignAndExe.jpg)",
-                    });
-                    // tl.to('.service-container', {
-                        //     duration: 2,
-                        //     ease: Linear.easeInOut,
-                        // }, {
-                            //     backgroundImage: design,
-                            // });
-                            break;
-                            case 2:
-                                tl.to('#activeService', {
-                                    height: '0%',
-                                }, '<').to('#designService', {
-                                    height: '0%',
-                                }, '<').to('#contributionService', {
-                                    height: '100%',
-                                }, '<').to('#preorderService', {
-                                    height: '0%',
-                                }, '<');
-                                gsap.set('.service-container', {
-                                    backgroundImage: "url(/images/Coperation.jpg)",
-                                });
-                                // tl.to('.service-container', {
-                                    //     duration: 2,
-                                    //     ease: Linear.easeInOut,
-                                    // }, {
-                                        //     backgroundImage: constructionContribution,
-                                        // });
-                                        break;
-                                        case 3:
-                                            tl.to('#activeService', {
-                                                height: '0%',
-                                            }, '<').to('#designService', {
-                                                height: '0%',
-                                            }, '<').to('#contributionService', {
+            break;
+            case 1:
+                tl.to('#activeService', {
+                    height: '0%',
+                }, '<').to('#designService', {
+                    height: '100%',
+                }, '<').to('#contributionService', {
+                    height: '0%',
+                }, '<').to('#preorderService', {
+                    height: '0%',
+                }, '<');
+                gsap.set('.service-container', {
+                    backgroundImage: "url(/images/DesignAndExe.jpg)",
+                });
+                // tl.to('.service-container', {
+                    //     duration: 2,
+                    //     ease: Linear.easeInOut,
+                    // }, {
+                        //     backgroundImage: design,
+                        // });
+            break;
+            case 2:
+                tl.to('#activeService', {
+                    height: '0%',
+                }, '<').to('#designService', {
+                    height: '0%',
+                }, '<').to('#contributionService', {
+                    height: '100%',
+                }, '<').to('#preorderService', {
+                    height: '0%',
+                }, '<');
+                gsap.set('.service-container', {
+                    backgroundImage: "url(/images/Coperation.jpg)",
+                });
+                // tl.to('.service-container', {
+                    //     duration: 2,
+                    //     ease: Linear.easeInOut,
+                    // }, {
+                        //     backgroundImage: constructionContribution,
+                        // });
+            break;
+            case 3:
+                tl.to('#activeService', {
+                    height: '0%',
+                }, '<').to('#designService', {
+                    height: '0%',
+                }, '<').to('#contributionService', {
                     height: '0%',
                 }, '<').to('#preorderService', {
                     height: '100%',
@@ -113,7 +113,7 @@ export default function Services() {
                 // }, {
                 //     backgroundImage: preorderProjects,
                 // });
-                break;
+            break;
             default:
                 break;
         }
