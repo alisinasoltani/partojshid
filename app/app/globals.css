@@ -164,3 +164,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.projectCover {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.412) 40%, rgba(0, 0, 0, 0.412) 100%), url('/images/projects/projectsCover.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
