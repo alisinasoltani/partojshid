@@ -73,15 +73,15 @@ export default function Nav({ type }) {
         <>
             <div className="navbar xl:flex flex-row justify-between lg:px-[7rem] px-[3rem] py-4" style={{direction: "rtl"}}>
             <div className="flex-1">
-                <a className="normal-case text-xl">
+                <Link className="normal-case text-xl" href={"/"}>
                     <Image src={partoLogo} width={55} />
-                </a>
+                </Link>
             </div>
             <div className="hidden md:hidden lg:flex lg:flex-row lg:gap-[3.5rem] yekanb text-lg">
                 <h3 onClick={toggleItemsMenu('aboutUs', itemsMenu.aboutUs ? false : true)} className="cursor-pointer">درباره ما</h3>
                 <h3 onClick={toggleItemsMenu('services', itemsMenu.services ? false : true)} className="cursor-pointer">فعالیت ها</h3>
                 <Link href={"/projects"}><h3>پروژه ها</h3></Link>
-                <Link href={"#loj"}><h3 className="cursor-pointer">گروه ساختمانی لژ</h3></Link>
+                <Link href={"/#loj"}><h3 className="cursor-pointer">گروه ساختمانی لژ</h3></Link>
                 <Link href={"#contact"}><h3 className="cursor-pointer">تماس با ما</h3></Link>
             </div>
             <button className="xl:hidden lg:hidden md:flex flex flex-row gap-[3.5rem] yekanb text-lg text-white" style={{boxShadow: 'none'}} sx={{boxShadow: 'none'}} onClick={toggleMobileMenu('right', true)}><MenuIcon className="menuIcon" /></button>
