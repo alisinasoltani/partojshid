@@ -105,7 +105,7 @@ export default function Services() {
                     height: '100%',
                 }, '<');
                 gsap.set('.service-container', {
-                    backgroundImage: "url(/images/LodgeBg.jpg)",
+                    backgroundImage: "url(/images/PreOrder.jpg)",
                 });
                 // tl.to('.service-container', {
                 //     duration: 2,
