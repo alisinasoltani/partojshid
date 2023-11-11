@@ -42,7 +42,7 @@ const Projects = () => {
                 <Image src={jeyshidkousarProject} alt="Parto Jeyshid Ejlas Project" width={411} />
               </div>
             </div>
-            <h3 className="yekanb text-3xl text-right">پروژه کوثر</h3>
+            <h3 className="yekanb text-3xl text-right">2 پروژه کوثر</h3>
           </div>
           <div className="project flex flex-col justify-end lg:items-end items-center mb-12 lg:h-[30rem] lg:relative lg:top-[-100px]">
           <div className="overflow-hidden mb-6 lg:w-[411px] w-[100vh] h-[285px]">
@@ -50,13 +50,13 @@ const Projects = () => {
                 <Image src={jeyshidPoolProject} alt="Parto Jeyshid Ejlas Project" width={411} />
               </div>
             </div>
-            <h3 className="yekanb text-3xl text-right">پروژه استخر</h3>
+            <h3 className="yekanb text-3xl text-right">پروژه استخر 9 دی</h3>
           </div>
         </div>
       </div>
       <div className="flex flex-row bg-white justify-center items-center">
         <div className="projectXl lg:w-[60rem] flex flex-row justify-center items-center max-w-[80vw] lg:h-[25rem] lg:relative lg:top-[-120px]">
-          <h3 className="yekanb text-[50px]">پروژه ساختمانی</h3>
+          <h3 className="yekanb text-[50px]">پروژه حسین آباد</h3>
         </div>
       </div>
       <Pagination />
