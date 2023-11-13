@@ -6,11 +6,23 @@ import JeyshidEjlasProject from "@/public/images/projects/JeyshidEjlasProject.jp
 import jeyshidSportProject from "@/public/images/projects/JeyshidFieldProject.jpg";
 import jeyshidkousarProject from "@/public/images/projects/jeyshidkousarProject.jpg";
 import jeyshidPoolProject from "@/public/images/projects/jeyshidPoolProject.jpg";
+import Lenis from "@studio-freight/lenis";
+import { useEffect, useState } from "react";
 
 const Projects = () => {
+  const [lenis, setLenis] = useState();
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+    setLenis(lenis);
+  }, []);
   return (
     <>
-      <Nav type={'solid'} />
+      <Nav type={'solid'} lenis={lenis} />
       <div className="flex flex-row justify-center items-center w-[100%] mt-[7rem]">
         <div className="flex flex-row justify-center items-center projectCover w-[60rem] max-w-[60vw] h-[25rem]">
           <h3 className="yekanb text-[50px]">پروژه های پرتو جی شید</h3>

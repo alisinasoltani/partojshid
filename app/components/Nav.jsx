@@ -13,7 +13,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export default function Nav({ type }) {
+export default function Nav({ type, lenis }) {
     const [mobileMenu, setMobileMenu] = useState({
         left: false,
         bottom: false,
@@ -56,6 +56,18 @@ export default function Nav({ type }) {
             });
         }
     }, []);
+    const scrollToLodge = () => {
+        lenis.scrollTo('#loj', {
+            offset: -120,
+            duration: 3,
+        });
+    };
+    const scrollToContact = () => {
+        lenis.scrollTo('#contact', {
+            offset: -120,
+            duration: 3,
+        });
+    };
     const toggleMobileMenu = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
           return;
@@ -81,8 +93,8 @@ export default function Nav({ type }) {
                 <h3 onClick={toggleItemsMenu('aboutUs', itemsMenu.aboutUs ? false : true)} className="cursor-pointer">درباره ما</h3>
                 <h3 onClick={toggleItemsMenu('services', itemsMenu.services ? false : true)} className="cursor-pointer">فعالیت ها</h3>
                 <Link href={"/projects"}><h3>پروژه ها</h3></Link>
-                <Link href={"/#loj"}><h3 className="cursor-pointer">گروه ساختمانی لژ</h3></Link>
-                <Link href={"#contact"}><h3 className="cursor-pointer">تماس با ما</h3></Link>
+                <Link href={"/#loj"} onClick={scrollToLodge}><h3 className="cursor-pointer">گروه ساختمانی لژ</h3></Link>
+                <Link href={"#contact"} onClick={scrollToContact}><h3 className="cursor-pointer">تماس با ما</h3></Link>
             </div>
             <button className="xl:hidden lg:hidden md:flex flex flex-row gap-[3.5rem] yekanb text-lg text-white" style={{boxShadow: 'none'}} sx={{boxShadow: 'none'}} onClick={toggleMobileMenu('right', true)}><MenuIcon className="menuIcon" /></button>
         </div>
@@ -101,11 +113,11 @@ export default function Nav({ type }) {
                 </ListItem>
                 <Divider />
                 <ListItem disablePadding>
-                    <ListItemButton><h3 className="py-2 cursor-pointer">گروه ساختمانی لژ</h3></ListItemButton>
+                    <ListItemButton><Link href={"/#loj"} onClick={scrollToLodge} ><h3 className="py-2 cursor-pointer">گروه ساختمانی لژ</h3></Link></ListItemButton>
                 </ListItem>
                 <Divider />
                 <ListItem disablePadding>
-                    <ListItemButton><h3 className="py-2 cursor-pointer">تماس با ما</h3></ListItemButton>
+                    <ListItemButton><Link href={"#contact"} onClick={scrollToContact}><h3 className="py-2 cursor-pointer">تماس با ما</h3></Link></ListItemButton>
                 </ListItem>
             </List>
         </Drawer>

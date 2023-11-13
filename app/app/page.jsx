@@ -9,21 +9,23 @@ import Pagination from "@/components/Pagination";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Lenis from "@studio-freight/lenis";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [lenis, setLenis] = useState();
   useEffect(() => {
     const lenis = new Lenis();
     function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
+      lenis.raf(time);
+      requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+    setLenis(lenis);
   }, []);
   return (
     <>
     <main>
-      <Nav type={'transparent'} />
+      <Nav type={'transparent'} lenis={lenis} />
       <Slider />
       <About />
       <Stat />
