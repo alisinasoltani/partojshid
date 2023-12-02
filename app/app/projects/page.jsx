@@ -31,7 +31,7 @@ const Projects = () => {
       <div className="flex flex-col bg-white text-black">
         <div className="flex lg:flex-row flex-col items-center justify-center gap-x-[5rem] mt-12 mb-2">
           <div className="project flex flex-col lg:h-[30rem] mb-12 justify-start lg:items-end items-center">
-            <div className="overflow-hidden mb-6 lg:w-[411px] w-[100vh] h-[285px]">
+            <div className="overflow-hidden mb-6 lg:w-[380px] w-[100vh] h-[200px]">
               <div className="projectImage w-[411] aspect-square">
                 <Image src={JeyshidEjlasProject} alt="Parto Jeyshid Ejlas Project" width={411} />
               </div>
