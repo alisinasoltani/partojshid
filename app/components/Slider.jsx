@@ -8,7 +8,7 @@ import Image from "next/image";
 import Slide1 from"@/public/images/Slide1.jpg";
 import Slide2 from"@/public/images/Slide2.jpg";
 import Slide6 from"@/public/images/Slide6.jpg";
-import Slide9 from"@/public/images/Slide9.jpg";
+import Slide9 from"@/public/images/Slide9.jpeg";
 
 export default function Slider() {
   return (
