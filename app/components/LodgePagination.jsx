@@ -6,7 +6,7 @@ import address from "@/public/logos/address.svg";
 import instagram from "@/public/logos/instagram.svg";
 import whatsapp from "@/public/logos/whatsapp.svg";
 
-const Pagination = () => {
+const LodgePagination = () => {
   return (
     <div id="contact" className="flex md:flex-row-reverse flex-col koodak py-12 px-12 gap-10 text-right justify-between bg-slate-900">
         <div className="flex flex-col items-end">
@@ -19,7 +19,7 @@ const Pagination = () => {
           <div className="flex md:flex-row-reverse flex-col md:gap-8 gap-4 md:mt-10 mt-5 yekanb">
             <div className="flex flex-col gap-2 text-lg text-white md:border-white md:border-l-2 pl-8">
               <div className="flex flex-row justify-end items-center gap-2">
-                <h5>031-36286668</h5>
+                <h5>09013682870</h5>
                 <Image src={phone} width={20} alt="phone logo" unoptimized />
               </div>
               <div className="flex flex-row justify-end items-center gap-2">
@@ -34,12 +34,12 @@ const Pagination = () => {
                     Instagram
                   </a>
                 </button>
-                {/* <button type="button" className="border-none flex flex-row justify-center gap-2 items-center py-3 px-5 font-sans" id="whatsapp">
+                <button type="button" className="border-none flex flex-row justify-center gap-2 items-center py-3 px-5 font-sans" id="whatsapp">
                   <Image className="flex" src={whatsapp} width={24} />
                   <a className="flex" href="#">
                     Whatsapp
                   </a>
-                </button> */}
+                </button>
             </div>
           </div>
         </div>
@@ -50,4 +50,4 @@ const Pagination = () => {
   );
 }
 
-export default Pagination;
+export default LodgePagination;

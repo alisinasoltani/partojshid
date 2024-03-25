@@ -1,0 +1,33 @@
+.lodge-title::before {
+content: '';
+width: calc(3rem + 5px);
+height: 3px;
+background-color: black;
+display: inline-flex;
+position: relative;
+left: 5px;
+bottom: 10px;
+}
+
+.lodge-title::after {
+content: '';
+width: calc(3rem + 15px);
+height: 3px;
+background-color: black;
+display: inline-flex;
+position: relative;
+right: 3px;
+bottom: 10px;
+}
+
+.lodge-title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding-bottom: 16px;
+    gap: 8px;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    font-weight: 600;
+}

@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import partoLogo from "@/public/partoLogo.png";
+import LodgeLogo from "@/public/images/Lodge.png";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
@@ -15,7 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { motion } from "framer-motion";
 import { useAnimate } from "framer-motion"
 
-export default function Nav({ type, lenis }) {
+export default function LodgeNav({ type, lenis }) {
     const [mobileMenu, setMobileMenu] = useState({
         left: false,
         bottom: false,
@@ -100,17 +100,17 @@ export default function Nav({ type, lenis }) {
     }
     return (
         <>
-            <div className="navbar xl:flex flex-row justify-between lg:px-[7rem] px-[3rem] py-4" style={{direction: "rtl"}}>
+            <div className="navbar xl:flex flex-row justify-between lg:px-[7rem] px-[3rem] py-2" style={{direction: "rtl"}}>
             <div className="flex-1">
                 <Link className="normal-case text-xl" href={"/"}>
-                    <Image src={partoLogo} width={55} />
+                    <Image src={LodgeLogo} width={55} />
                 </Link>
             </div>
             <div className="hidden md:hidden lg:flex lg:flex-row lg:gap-[3.5rem] yekanb text-lg">
                 <h3 onClick={toggleItemsMenu('aboutUs', itemsMenu.aboutUs ? false : true)} className="cursor-pointer">درباره ما</h3>
                 <h3 onClick={toggleItemsMenu('services', itemsMenu.services ? false : true)} className="cursor-pointer">فعالیت ها</h3>
                 <Link href={"/projects"}><h3>پروژه ها</h3></Link>
-                <Link href={"/#loj"} onClick={scrollToLodge}><h3 className="cursor-pointer">گروه ساختمانی لژ</h3></Link>
+                <Link href={"/"} onClick={scrollToLodge}><h3 className="cursor-pointer">پرتو جی شید</h3></Link>
                 <Link href={"#contact"} onClick={scrollToContact}><h3 className="cursor-pointer">تماس با ما</h3></Link>
             </div>
             <button className="xl:hidden lg:hidden md:flex flex flex-row gap-[3.5rem] yekanb text-lg text-white" style={{boxShadow: 'none'}} sx={{boxShadow: 'none'}} onClick={toggleMobileMenu('right', true)}><MenuIcon className="menuIcon" /></button>
