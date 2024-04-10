@@ -3,7 +3,7 @@ import Slider from "@/components/Slider";
 import About from "@/components/About";
 import Stat from "@/components/Stat";
 import Services from "@/components/Services";
-import Loj from "@/components/Loj";
+import Lodge from "@/components/Lodge";
 import Licenses from "@/components/Licenses";
 import Pagination from "@/components/Pagination";
 import Nav from "@/components/Nav";
@@ -30,7 +30,7 @@ export default function Home() {
       <About />
       <Stat />
       <Services />
-      <Loj />
+      <Lodge />
       <Licenses />
     </main>
     <footer>

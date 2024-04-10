@@ -6,6 +6,8 @@ import LodgeSlider from "@/components/LodgeSlider";
 import LodgeLicenses from "@/components/LodgeLicenses";
 import LodgeProjects from "@/components/LodgeProjects";
 import LodgePagination from "@/components/LodgePagination";
+import LodgeAbout from "@/components/LodgeAbout";
+import SwiperGallery from "@/components/SwiperGallery";
 
 const Lodge = () => {
     const [lenis, setLenis] = useState();
@@ -22,6 +24,7 @@ const Lodge = () => {
     <>
     <LodgeNav type={'solid'} lenis={lenis} />
     <LodgeSlider />
+    <LodgeAbout />
     <LodgeProjects />
     <div>page</div>
     <LodgeLicenses />

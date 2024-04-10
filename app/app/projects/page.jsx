@@ -62,7 +62,7 @@ const Projects = () => {
             <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" />
           </div>
           <div className="flex flex-col lg:basis-8/12 basis-12/12 text-black items-end justify-center px-8 py-8">
-            <h2 className="font-bold lg:text-2xl text-lg">پروژه استخر دی</h2>
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه استخر 9 دی</h2>
           </div>
         </div>
       </div>

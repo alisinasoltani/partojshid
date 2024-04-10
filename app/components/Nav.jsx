@@ -100,7 +100,7 @@ export default function Nav({ type, lenis }) {
     }
     return (
         <>
-            <div className="navbar xl:flex flex-row justify-between lg:px-[7rem] px-[3rem] py-4" style={{direction: "rtl"}}>
+            <div className="navbar xl:flex flex-row justify-between lg:px-[7rem] px-[3rem] py-2" style={{direction: "rtl"}}>
             <div className="flex-1">
                 <Link className="normal-case text-xl" href={"/"}>
                     <Image src={partoLogo} width={55} />

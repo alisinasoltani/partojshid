@@ -31,3 +31,17 @@ bottom: 10px;
     text-align: center;
     font-weight: 600;
 }
+
+.about-title::after {
+  content: '';
+  width: var(--titleAfter);
+  background-color: black;
+  height: 4px;
+  position: relative;
+  top: 35px;
+  right: 1px;
+}
+
+.about-title {
+  margin-right: 4rem;
+}
