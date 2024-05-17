@@ -140,8 +140,10 @@ export default function Services() {
             <div className="service-container grid grid-cols-9 grid-rows-1 gap-[3px] text-center place-content-center
             my-[4rem] md:h-[42rem] h-[70vh] lg:text-[25px] md:text-[20px] yekanb">
                 <div className="service grid col-span-2 place-content-center bg-[rgba(20,20,20,0.2)] px-10" onMouseEnter={setDesignService}>
-                    <div className="service-overlay" id="designService"></div>
-                    <h3 className="z-[1]">طراحی و اجرا</h3>
+                    <Link href={'/design'}>
+                        <div className="service-overlay" id="designService"></div>
+                        <h3 className="z-[1]">طراحی و اجرا</h3>
+                    </Link>
                 </div>
                 <div className="service grid col-span-3 place-content-center bg-[rgba(20,20,20,0.2)] transition-colors" onMouseEnter={setPreorderService}>
                     <Link href={'/presale'}>
