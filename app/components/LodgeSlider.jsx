@@ -12,7 +12,7 @@ import Slide4 from"@/public/images/lodge/slide4.jpg";
 
 export default function LodgeSlider() {
   return (
-      <Swiper className="xl:h-[100vh] lg:h-[60vh] md:h-[40vh] h-[30vh]" modules={[Navigation, Autoplay]} navigation={true} style={{zIndex: 0}}
+      <Swiper className="xl:h-[110vh] lg:h-[60vh] md:h-[40vh] h-[30vh]" modules={[Navigation, Autoplay]} navigation={true} style={{zIndex: 0}}
       loop={true} autoplay={{delay: 7000, disableOnInteraction: false}}>
         <SwiperSlide>
           <Image src={Slide1} fill={true} alt="Lodge Projects Picture" />

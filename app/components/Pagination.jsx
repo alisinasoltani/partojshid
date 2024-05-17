@@ -1,10 +1,11 @@
 import Image from "next/image";
 import email from "@/public/logos/email.svg";
 import phone from "@/public/logos/phone.svg";
-import link from "@/public/logos/link.svg";
+// import link from "@/public/logos/link.svg";
 import address from "@/public/logos/address.svg";
 import instagram from "@/public/logos/instagram.svg";
 import whatsapp from "@/public/logos/whatsapp.svg";
+import telephone from "@/public/logos/telephone.svg";
 
 const Pagination = () => {
   return (
@@ -18,9 +19,13 @@ const Pagination = () => {
           </div>
           <div className="flex md:flex-row-reverse flex-col md:gap-8 gap-4 md:mt-10 mt-5 yekanb">
             <div className="flex flex-col gap-2 text-lg text-white md:border-white md:border-l-2 pl-8">
-              <div className="flex flex-row justify-end items-center gap-2">
-                <h5>031-36286668</h5>
+            <div className="flex flex-row justify-end items-center gap-2">
+                <h5>09013682870</h5>
                 <Image src={phone} width={20} alt="phone logo" unoptimized />
+              </div>
+              <div className="flex flex-row justify-end items-center gap-2">
+                <h5>03136286668</h5>
+                <Image src={telephone} width={20} alt="phone logo" unoptimized />
               </div>
               <div className="flex flex-row justify-end items-center gap-2">
                 <h5 className="font-sans">pjs_civil@gmail.com</h5>

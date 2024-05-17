@@ -4,7 +4,8 @@ import buildDefinition from '@/public/logos/build-definition.svg';
 import building from '@/public/logos/building.svg';
 import sarvProject from '@/public/images/lodge/sarvProject.png';
 import lodge1Project from '@/public/images/lodge/lodge1Project.png';
-import SwiperGallery from './SwiperGallery';
+import SarvGallery from './SarvGallery';
+import Lodge1Gallery from './Lodge1Gallery';
 
 const LodgeProjects = () => {
   return (
@@ -22,6 +23,16 @@ const LodgeProjects = () => {
             پروژه مجتمع مسکونی لژ ۱ واقع در چشمه توتی اصفهان. <br />
             فرصت سرمایه گذاری و پیش خرید واحد های مسکونی.
             </p>
+            <button className="btn rounded-none bg-slate-900" onClick={()=>document.getElementById('lodge1ProjectModal').showModal()}>اطلاعات بیشتر</button>
+            <dialog id="lodge1ProjectModal" className="modal modal-middle">
+              <div className="modal-box w-11/12 max-w-[80vw] max-h-[100vh]">
+                <h3 className="font-bold text-lg text-center pb-5">پروژه لژ 1</h3>
+                <Lodge1Gallery />
+              </div>
+              <form method="dialog" className="modal-backdrop">
+                <button>close</button>
+              </form>
+            </dialog>
           </div>
           <div className='flex flex-col bg-[#F4F4F4] rounded-2xl overflow-hidden'>
             <h2 className='text-2xl yekanb text-black text-right p-4'>پروژه سرو</h2>
@@ -30,10 +41,10 @@ const LodgeProjects = () => {
             پروژه ساختمان مسکونی سرو واقع در خیابان آزادی اصفهان به سفارش کارفرمای شخصی، پروژه لوکس با معماری مدرن و سیستم های فوق هوشمند.
             </p>
             <button className="btn rounded-none bg-slate-900" onClick={()=>document.getElementById('lodgeSarvProjectModal').showModal()}>اطلاعات بیشتر</button>
-            <dialog id="lodgeSarvProjectModal" className="modal w-full">
-              <div className="modal-box h-[25rem]">
+            <dialog id="lodgeSarvProjectModal" className="modal modal-middle">
+              <div className="modal-box w-11/12 max-w-[80vw] max-h-[100vh]">
                 <h3 className="font-bold text-lg text-center pb-5">پروژه سرو</h3>
-                <SwiperGallery />
+                <SarvGallery />
               </div>
               <form method="dialog" className="modal-backdrop">
                 <button>close</button>

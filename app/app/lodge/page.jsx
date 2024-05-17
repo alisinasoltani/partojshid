@@ -7,7 +7,7 @@ import LodgeLicenses from "@/components/LodgeLicenses";
 import LodgeProjects from "@/components/LodgeProjects";
 import LodgePagination from "@/components/LodgePagination";
 import LodgeAbout from "@/components/LodgeAbout";
-import SwiperGallery from "@/components/SwiperGallery";
+import SwiperGallery from "@/components/SarvGallery";
 
 const Lodge = () => {
     const [lenis, setLenis] = useState();

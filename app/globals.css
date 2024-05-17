@@ -80,7 +80,7 @@
 }
 
 .swiper-button-next, .swiper-button-prev {
-  color: #ffffff !important;
+  color: #000000 !important;
   width: 1rem;
   --swiper-navigation-size: 1.4rem;
   font-weight: 900;
