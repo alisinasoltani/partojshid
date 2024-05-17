@@ -144,8 +144,10 @@ export default function Services() {
                     <h3 className="z-[1]">طراحی و اجرا</h3>
                 </div>
                 <div className="service grid col-span-3 place-content-center bg-[rgba(20,20,20,0.2)] transition-colors" onMouseEnter={setPreorderService}>
-                    <div className="service-overlay" id="preorderService"></div>
-                    <h3 className="z-[1]">پروژه های پیش فروش</h3>
+                    <Link href={'/presale'}>
+                        <div className="service-overlay" id="preorderService"></div>
+                        <h3 className="z-[1]">پروژه های پیش فروش</h3>
+                    </Link>
                 </div>
                 <div className="service grid col-span-2 place-content-center bg-[rgba(20,20,20,0.2)] transition-colors" onMouseEnter={setActiveService}>
                     <Link href={'/active'}>
