@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.about-page-title::before {
+    content: '';
+    display: flex;
+    width: 4rem;
+    background-color: black;
+    height: 4px;
+    position: relative;
+    top: 25px;
+    right: 1px;
+  }

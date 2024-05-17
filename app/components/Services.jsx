@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Linear, gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import Link from "next/link";
 
 export default function Services() {
     const [service, setService] = useState([0]);
@@ -147,12 +148,16 @@ export default function Services() {
                     <h3 className="z-[1]">پروژه های پیش فروش</h3>
                 </div>
                 <div className="service grid col-span-2 place-content-center bg-[rgba(20,20,20,0.2)] transition-colors" onMouseEnter={setActiveService}>
-                    <div className="service-overlay" id="activeService"></div>
-                    <h3 className="z-[1]">پروژه های فعال</h3>
+                    <Link href={'/active'}>
+                        <div className="service-overlay" id="activeService"></div>
+                        <h3 className="z-[1]">پروژه های فعال</h3>
+                    </Link>
                 </div>
                 <div className="service grid col-span-2 place-content-center bg-[rgba(20,20,20,0.2)] transition-colors" onMouseEnter={setContributionService}>
-                    <div className="service-overlay" id="contributionService"></div>
-                    <h3 className="z-[1]">مشارکت در ساخت</h3>
+                    <Link href={'/contribute'}>
+                        <div className="service-overlay" id="contributionService"></div>
+                        <h3 className="z-[1]">مشارکت در ساخت</h3>
+                    </Link>
                 </div>
             </div>
         </div>
