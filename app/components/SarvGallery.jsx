@@ -1,4 +1,3 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Sarv01 from '@/public/images/lodge/Sarv/1.jpg';
 import Sarv02 from '@/public/images/lodge/Sarv/2.jpg';
@@ -16,13 +15,9 @@ import Sarv14 from '@/public/images/lodge/Sarv/14.jpg';
 import Sarv15 from '@/public/images/lodge/Sarv/15.jpg';
 import Sarv16 from '@/public/images/lodge/Sarv/16.jpg';
 import Image from "next/image";
-
-// Import Swiper styles
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-
-// import required modules
-import { Navigation } from 'swiper/modules';
 
 export default function SarvGallery() {
   return (

@@ -9,6 +9,13 @@ import Slide1 from"@/public/images/lodge/slide1.jpg";
 import Slide2 from"@/public/images/lodge/slide2.jpg";
 import Slide3 from"@/public/images/lodge/slide3.jpg";
 import Slide4 from"@/public/images/lodge/slide4.jpg";
+import Slide5 from"@/public/images/lodge/slide5.jpg";
+import Slide6 from"@/public/images/lodge/slide6.jpg";
+import Slide7 from"@/public/images/lodge/slide7.jpg";
+import Slide8 from"@/public/images/lodge/slide8.jpg";
+import Slide9 from"@/public/images/lodge/slide9.jpg";
+import Slide10 from"@/public/images/lodge/slide10.jpg";
+import Slide11 from"@/public/images/lodge/slide11.jpg";
 
 export default function LodgeSlider() {
   return (
@@ -25,6 +32,27 @@ export default function LodgeSlider() {
         </SwiperSlide>
         <SwiperSlide>
           <Image src={Slide4} fill={true} alt="Lodge Projects Picture" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src={Slide5} fill={true} alt="Lodge Projects Picture" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src={Slide6} fill={true} alt="Lodge Projects Picture" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src={Slide7} fill={true} alt="Lodge Projects Picture" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src={Slide8} fill={true} alt="Lodge Projects Picture" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src={Slide9} fill={true} alt="Lodge Projects Picture" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src={Slide10} fill={true} alt="Lodge Projects Picture" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src={Slide11} fill={true} alt="Lodge Projects Picture" />
         </SwiperSlide>
       </Swiper>
   );
