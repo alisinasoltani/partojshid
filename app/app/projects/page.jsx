@@ -30,7 +30,7 @@ const Projects = () => {
             <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={JeyshidEjlasProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Ejlas Saran Project" />
           </div>
           <div className="flex flex-col lg:basis-8/12 basis-12/12 text-black items-end justify-center px-8 py-8">
-            <h2 className="font-bold lg:text-2xl text-lg">پروژه اجلاس سران</h2>
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه احداث فضای کنکور سالن همایش های بین المللی اصفهان</h2>
           </div>
         </div>
         <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
@@ -38,7 +38,7 @@ const Projects = () => {
             <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidFieldProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Sports Field Project" />
           </div>
           <div className="flex flex-col lg:basis-8/12 basis-12/12 text-black items-end justify-center px-8 py-8">
-            <h2 className="font-bold lg:text-2xl text-lg">پروژه ورزشگاه غرب</h2>
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه احداث مجموعه ورزشی غرب اصفهان</h2>
           </div>
         </div>
         <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
@@ -46,7 +46,7 @@ const Projects = () => {
             <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidkousarProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Kousar 2 Project" />
           </div>
           <div className="flex flex-col lg:basis-8/12 basis-12/12 text-black items-end justify-center px-8 py-8">
-            <h2 className="font-bold lg:text-2xl text-lg">پروژه کوثر 2</h2>
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه احداث بازار روز کوثر۲ سپاهانشهر</h2>
           </div>
         </div>
         <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
@@ -54,7 +54,7 @@ const Projects = () => {
             <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidFarhangProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Cultural Center Project" />
           </div>
           <div className="flex flex-col lg:basis-8/12 basis-12/12 text-black items-end justify-center px-8 py-8">
-            <h2 className="font-bold lg:text-2xl text-lg">پروژه فرهنگسرای حسین آباد</h2>
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه احداث مجموعه فرهنگی حسین آباد</h2>
           </div>
         </div>
         <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
@@ -62,7 +62,7 @@ const Projects = () => {
             <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" />
           </div>
           <div className="flex flex-col lg:basis-8/12 basis-12/12 text-black items-end justify-center px-8 py-8">
-            <h2 className="font-bold lg:text-2xl text-lg">پروژه استخر 9 دی</h2>
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه احداث استخر دانشگاه علوم پزشکی اصفهان ( استخر ۹ دی )</h2>
           </div>
         </div>
       </div>
