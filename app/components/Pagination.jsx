@@ -13,8 +13,11 @@ const Pagination = () => {
         <div className="flex flex-col items-end">
           <h2 className="md:text-3xl text-2xl text-white yekanb underline underline-offset-[0.9rem] mb-10">شرکت پرتو جی شید (سهامی خاص)</h2>
           <div className="lg:w-[25rem] flex flex-row justify-center items-start gap-2">
-            <h3 className="yekanb md:text-lg text-base text-white">اصفهان، چهارباغ بالا، کوچه بیستون(12)، 
-              خیابان دکتر شریعتی، پلاک 124 ساختمان الماس، طبقه سوم واحد 12</h3>
+            <h3 className="yekanb md:text-lg text-base text-white">
+              خیابان چهارباغ بالا شریعتی شرقی
+              رو به روی بانک آینده ساختمان الماس
+              طبقه ۳ واحد ۱۲
+            </h3>
             <Image src={address} width={20} alt="address logo" unoptimized />
           </div>
           <div className="flex md:flex-row-reverse flex-col md:gap-8 gap-4 md:mt-10 mt-5 yekanb">
