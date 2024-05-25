@@ -5,7 +5,7 @@ import Lenis from "@studio-freight/lenis";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Lodge1 from '@/public/images/lodge/lodge1Project.png';
-import Lodge1Gallery from "@/components/Lodge1Gallery";
+import Lodge1PresaleGallery from "@/components/Lodge1PresaleGallery";
 
 const Contribute = () => {
     const [lenis, setLenis] = useState();
@@ -30,9 +30,9 @@ const Contribute = () => {
                         <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={Lodge1} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Ejlas Saran Project"
                         onClick={()=>document.getElementById('lodge1ProjectModal').showModal()} />
                         <dialog id="lodge1ProjectModal" className="modal modal-middle">
-                            <div className="modal-box w-11/12 max-w-[80vw] max-h-[100vh]">
+                            <div className="modal-box w-11/12 max-w-[50vw] max-h-[50vw]">
                                 <h3 className="font-bold text-lg text-center pb-5">پروژه لژ 1</h3>
-                                <Lodge1Gallery />
+                                <Lodge1PresaleGallery />
                             </div>
                             <form method="dialog" className="modal-backdrop">
                                 <button>close</button>
