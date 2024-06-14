@@ -31,7 +31,7 @@ const Pagination = () => {
                 <Image src={telephone} width={20} alt="phone logo" unoptimized />
               </div>
               <div className="flex flex-row justify-end items-center gap-2">
-                <h5 className="font-sans">pjs_civil@gmail.com</h5>
+                <h5 className="font-sans">pjs.civil@gmail.com</h5>
                 <Image src={email} width={20} alt="phone logo" unoptimized />
               </div>
             </div>
