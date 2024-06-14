@@ -30,8 +30,8 @@ export default function Lodge() {
     }, []);
     return (
         <div className="loj flex md:flex-row flex-col lg:justify-between justify-center gap-[6rem] items-center md:h-[35rem] h-[90vh] px-[6rem]"
-        id="loj">
-            <Link href={'/lodge'}><Image src={LojLogo} width={290} alt="Loj Logo" /></Link>
+        id="lodge">
+            <Link href={'/lodge'}><Image src={LojLogo} width={290} alt="Lodge Logo" /></Link>
             <Link href={'/lodge'}>
                 <h2 className="lg:text-[58px] md:text-[40px] text-[40px] text-right yekanb">گروه ساختمانی لژ</h2>
             </Link>
