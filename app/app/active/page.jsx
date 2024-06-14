@@ -4,8 +4,8 @@ import Nav from "@/components/Nav";
 import Lenis from "@studio-freight/lenis";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Lodge1 from '@/public/images/lodge/lodge1Project.png';
-import Lodge1Gallery from "@/components/Lodge1Gallery";
+import jeyshidBaharestanProject from '@/public/images/projects/jeyshidBaharestanProject.png';
+import BaharestanGallery from '@/components/BaharestanGallery';
 
 const Contribute = () => {
     const [lenis, setLenis] = useState();
@@ -27,12 +27,12 @@ const Contribute = () => {
                 </div>
                 <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
                     <div className="flex flex-col lg:basis-4/12 basis-12/12">
-                        <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={Lodge1} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Ejlas Saran Project"
+                        <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidBaharestanProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Ejlas Saran Project"
                         onClick={()=>document.getElementById('lodge1ProjectModal').showModal()} />
                         <dialog id="lodge1ProjectModal" className="modal modal-middle">
                             <div className="modal-box w-11/12 max-w-[80vw] max-h-[100vh]">
                                 <h3 className="font-bold text-lg text-center pb-5">پروژه بهارستان</h3>
-                                <Lodge1Gallery />
+                                <BaharestanGallery />
                             </div>
                             <form method="dialog" className="modal-backdrop">
                                 <button>close</button>
