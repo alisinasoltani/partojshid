@@ -111,6 +111,176 @@ const Projects = () => {
             </h3>
           </div>
         </div>
+        <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
+          <div className="flex flex-col lg:basis-4/12 basis-12/12">
+            {/* <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" /> */}
+          </div>
+          <div className="flex flex-col lg:basis-8/12 basis-12/12 md:gap-8 gap-6 text-right text-black items-end justify-center px-8 py-8">
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه { projectsList.poolad.name }</h2>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ شروع: { projectsList.poolad.start }
+            </h3>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ پایان: { projectsList.poolad.end }
+            </h3>
+            {/* <h3 className="font-bold lg:text-xl text-lg">
+              کارفرما : { projectsList.pool.employer }
+            </h3> */}
+          </div>
+        </div>
+        <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
+          <div className="flex flex-col lg:basis-4/12 basis-12/12">
+            {/* <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" /> */}
+          </div>
+          <div className="flex flex-col lg:basis-8/12 basis-12/12 md:gap-8 gap-6 text-right text-black items-end justify-center px-8 py-8">
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه { projectsList.goltaash.name }</h2>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ شروع: { projectsList.goltaash.start }
+            </h3>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ پایان: { projectsList.goltaash.end }
+            </h3>
+            {/* <h3 className="font-bold lg:text-xl text-lg">
+              کارفرما : { projectsList.pool.employer }
+            </h3> */}
+          </div>
+        </div>
+        <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
+          <div className="flex flex-col lg:basis-4/12 basis-12/12">
+            {/* <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" /> */}
+          </div>
+          <div className="flex flex-col lg:basis-8/12 basis-12/12 md:gap-8 gap-6 text-right text-black items-end justify-center px-8 py-8">
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه { projectsList.engSys.name }</h2>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ شروع: { projectsList.engSys.start }
+            </h3>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ پایان: { projectsList.engSys.end }
+            </h3>
+            {/* <h3 className="font-bold lg:text-xl text-lg">
+              کارفرما : { projectsList.pool.employer }
+            </h3> */}
+          </div>
+        </div>
+        <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
+          <div className="flex flex-col lg:basis-4/12 basis-12/12">
+            {/* <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" /> */}
+          </div>
+          <div className="flex flex-col lg:basis-8/12 basis-12/12 md:gap-8 gap-6 text-right text-black items-end justify-center px-8 py-8">
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه { projectsList.bahaarestan.name }</h2>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ شروع: { projectsList.bahaarestan.start }
+            </h3>
+            <h3 className="font-bold lg:text-xl text-lg">
+              وضعیت: { projectsList.bahaarestan.end }
+            </h3>
+            {/* <h3 className="font-bold lg:text-xl text-lg">
+              کارفرما : { projectsList.pool.employer }
+            </h3> */}
+          </div>
+        </div>
+        <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
+          <div className="flex flex-col lg:basis-4/12 basis-12/12">
+            {/* <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" /> */}
+          </div>
+          <div className="flex flex-col lg:basis-8/12 basis-12/12 md:gap-8 gap-6 text-right text-black items-end justify-center px-8 py-8">
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه { projectsList.saarooj.name }</h2>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ شروع: { projectsList.saarooj.start }
+            </h3>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ پایان: { projectsList.saarooj.end }
+            </h3>
+            {/* <h3 className="font-bold lg:text-xl text-lg">
+              کارفرما : { projectsList.pool.employer }
+            </h3> */}
+          </div>
+        </div>
+        <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
+          <div className="flex flex-col lg:basis-4/12 basis-12/12">
+            {/* <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" /> */}
+          </div>
+          <div className="flex flex-col lg:basis-8/12 basis-12/12 md:gap-8 gap-6 text-right text-black items-end justify-center px-8 py-8">
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه { projectsList.tohid.name }</h2>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ شروع: { projectsList.tohid.start }
+            </h3>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ پایان: { projectsList.tohid.end }
+            </h3>
+            {/* <h3 className="font-bold lg:text-xl text-lg">
+              کارفرما : { projectsList.pool.employer }
+            </h3> */}
+          </div>
+        </div>
+        <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
+          <div className="flex flex-col lg:basis-4/12 basis-12/12">
+            {/* <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" /> */}
+          </div>
+          <div className="flex flex-col lg:basis-8/12 basis-12/12 md:gap-8 gap-6 text-right text-black items-end justify-center px-8 py-8">
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه { projectsList.sadraSchool.name }</h2>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ شروع: { projectsList.sadraSchool.start }
+            </h3>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ پایان: { projectsList.sadraSchool.end }
+            </h3>
+            {/* <h3 className="font-bold lg:text-xl text-lg">
+              کارفرما : { projectsList.pool.employer }
+            </h3> */}
+          </div>
+        </div>
+        <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
+          <div className="flex flex-col lg:basis-4/12 basis-12/12">
+            {/* <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" /> */}
+          </div>
+          <div className="flex flex-col lg:basis-8/12 basis-12/12 md:gap-8 gap-6 text-right text-black items-end justify-center px-8 py-8">
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه { projectsList.growthAndTech.name }</h2>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ شروع: { projectsList.growthAndTech.start }
+            </h3>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ پایان: { projectsList.growthAndTech.end }
+            </h3>
+            {/* <h3 className="font-bold lg:text-xl text-lg">
+              کارفرما : { projectsList.pool.employer }
+            </h3> */}
+          </div>
+        </div>
+        <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
+          <div className="flex flex-col lg:basis-4/12 basis-12/12">
+            {/* <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" /> */}
+          </div>
+          <div className="flex flex-col lg:basis-8/12 basis-12/12 md:gap-8 gap-6 text-right text-black items-end justify-center px-8 py-8">
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه { projectsList.storage.name }</h2>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ شروع: { projectsList.storage.start }
+            </h3>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ پایان: { projectsList.storage.end }
+            </h3>
+            {/* <h3 className="font-bold lg:text-xl text-lg">
+              کارفرما : { projectsList.pool.employer }
+            </h3> */}
+          </div>
+        </div>
+        <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
+          <div className="flex flex-col lg:basis-4/12 basis-12/12">
+            {/* <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidPoolProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Pool Project" /> */}
+          </div>
+          <div className="flex flex-col lg:basis-8/12 basis-12/12 md:gap-8 gap-6 text-right text-black items-end justify-center px-8 py-8">
+            <h2 className="font-bold lg:text-2xl text-lg">پروژه { projectsList.cng.name }</h2>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ شروع: { projectsList.cng.start }
+            </h3>
+            <h3 className="font-bold lg:text-xl text-lg">
+              تاریخ پایان: { projectsList.cng.end }
+            </h3>
+            {/* <h3 className="font-bold lg:text-xl text-lg">
+              کارفرما : { projectsList.pool.employer }
+            </h3> */}
+          </div>
+        </div>
       </div>
       <Pagination />
     </>
