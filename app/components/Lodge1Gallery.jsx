@@ -18,13 +18,13 @@ import { Navigation } from 'swiper/modules';
 export default function Lodge1Gallery() {
   return (
     <>
-      <Swiper navigation={true} loop={true} modules={[Navigation]} className="mySwiper h-[32rem] w-[70vw]">
-        <SwiperSlide><Image src={Lodge03} fill alt='Sarv Project Picture' /></SwiperSlide>
-        <SwiperSlide><Image src={Lodge04} fill alt='Sarv Project Picture' /></SwiperSlide>
-        <SwiperSlide><Image src={Lodge05} fill alt='Sarv Project Picture' /></SwiperSlide>
-        <SwiperSlide><Image src={Lodge06} fill alt='Sarv Project Picture' /></SwiperSlide>
-        <SwiperSlide><Image src={Lodge08} fill alt='Sarv Project Picture' /></SwiperSlide>
-        <SwiperSlide><Image src={Lodge19} fill alt='Sarv Project Picture' /></SwiperSlide>
+      <Swiper navigation={true} loop={true} modules={[Navigation]} className="mySwiper lg:h-[30vw] h-[78vw] lg:w-[30vw] w-[78vw]">
+        <SwiperSlide><Image src={Lodge03} fill alt='Lodge1 Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={Lodge04} fill alt='Lodge1 Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={Lodge05} fill alt='Lodge1 Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={Lodge06} fill alt='Lodge1 Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={Lodge08} fill alt='Lodge1 Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={Lodge19} fill alt='Lodge1 Project Picture' /></SwiperSlide>
       </Swiper>
     </>
   );

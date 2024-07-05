@@ -25,7 +25,7 @@ const LodgeProjects = () => {
             </p>
             <button className="btn rounded-none bg-slate-900" onClick={()=>document.getElementById('lodge1ProjectModal').showModal()}>اطلاعات بیشتر</button>
             <dialog id="lodge1ProjectModal" className="modal modal-middle">
-              <div className="modal-box w-11/12 max-w-[80vw] max-h-[100vh]">
+              <div className="modal-box w-11/12 lg:max-w-[35vw] max-w-[100vw] lg:max-h-[38vw] max-h-[100vw]">
                 <h3 className="font-bold text-lg text-center pb-5">پروژه لژ 1</h3>
                 <Lodge1Gallery />
               </div>
@@ -42,7 +42,7 @@ const LodgeProjects = () => {
             </p>
             <button className="btn rounded-none bg-slate-900" onClick={()=>document.getElementById('lodgeSarvProjectModal').showModal()}>اطلاعات بیشتر</button>
             <dialog id="lodgeSarvProjectModal" className="modal modal-middle">
-              <div className="modal-box w-11/12 max-w-[80vw] max-h-[100vh]">
+              <div className="modal-box w-11/12 lg:max-w-[35vw] max-w-[100vw] lg:max-h-[38vw] max-h-[100vw]">
                 <h3 className="font-bold text-lg text-center pb-5">پروژه سرو</h3>
                 <SarvGallery />
               </div>

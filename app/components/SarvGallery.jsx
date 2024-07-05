@@ -22,7 +22,7 @@ import 'swiper/css/navigation';
 export default function SarvGallery() {
   return (
     <>
-      <Swiper navigation={true} loop={true} modules={[Navigation]} className="mySwiper h-[32rem]">
+      <Swiper navigation={true} loop={true} modules={[Navigation]} className="mySwiper  lg:h-[30vw] h-[78vw] lg:w-[30vw] w-[78vw]">
         <SwiperSlide><Image src={Sarv01} fill alt='Sarv Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={Sarv02} fill alt='Sarv Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={Sarv03} fill alt='Sarv Project Picture' /></SwiperSlide>
