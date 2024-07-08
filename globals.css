@@ -12,33 +12,12 @@
   src: url('../public/fonts/BRoya.ttf');
 }
 
-@font-face {
-  font-family: 'yekan';
-  src: url('../public/fonts/BYekan.ttf');
+.titr {
+  font-family: 'titr';
 }
 
-@font-face {
-  font-family: 'yekanb';
-  src: url('../public/fonts/BYekanBold.ttf');
-}
-
-body {
-  background-color: #ffffff !important;
-}
-
-.titr { font-family: 'titr' }
-
-.roya { font-family: 'roya' }
-
-.yekan { font-family: 'yekan'}
-
-.yekanb { font-family: 'yekanb'}
-
-.navbar {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 50;
+.roya {
+  font-family: 'roya';
 }
 
 .about-title::after {
@@ -51,12 +30,18 @@ body {
   right: 1px;
 }
 
-.about-title {
-  margin-right: 4rem;
+.about-page-title::before {
+  content: '';
+  width: var(--titleAfter);
+  background-color: black;
+  height: 4px;
+  position: relative;
+  top: 35px;
+  right: 1px;
 }
 
-.css-i4bv87-MuiSvgIcon-root {
-  box-shadow: none !important;
+.about-title {
+  margin-right: 4rem;
 }
 
 #fromBottom {
@@ -77,7 +62,7 @@ body {
 
 .services-title::before {
   content: '';
-  width: var(--serviceTitleBefore);
+  width: calc(3rem + 5px);
   height: 4px;
   background-color: black;
   display: inline-flex;
@@ -88,7 +73,7 @@ body {
 
 .services-title::after {
   content: '';
-  width: var(--serviceTitleAfter); /* calc(3rem + 15px) */
+  width: calc(3rem + 15px);
   height: 4px;
   background-color: black;
   display: inline-flex;
@@ -106,7 +91,7 @@ body {
 
 .swiper-button-next, .swiper-button-prev {
   color: #000000 !important;
-  width: 1.5rem;
+  width: 1rem;
   --swiper-navigation-size: 1.4rem;
   font-weight: 900;
 }
@@ -118,28 +103,21 @@ body {
 }
 
 .service-container {
-  background-image: var(--backgroundImage);
+  background-image: url('../public/images/Golden-Gate-Bridge.jpg');
   background-size: cover;
-  transition: all 3s;
   background-repeat: no-repeat;
-}
-
-.service {
-  position: relative;
 }
 
 .loj {
-  background-image: linear-gradient(0deg, rgba(12,14,70,0.8) 20%, rgba(255,255,255,0) 100%), url('../public/images/LodgeBg.jpg');
+  background-image: linear-gradient(0deg, rgba(12,14,70,1) 40%, rgba(255,255,255,0) 100%), url('../public/images/LojBackground.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.loj h2 {
-  transform: translateX(30px);
-}
-
-.loj img {
-  opacity: 0;
+.projectsBg {
+  background-image: linear-gradient(0deg, rgba(12,14,70,1) 40%, rgba(255,255,255,0) 100%), url('../public/images/projects/jeyshidPoolProject.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #instagram, #whatsapp {background-position: left; transition: background-position 1s; -webkit-transition: background-position 1s; border-radius: 7px; margin-inline: 5px;}
@@ -147,26 +125,3 @@ body {
 #whatsapp {background-image: linear-gradient(76deg, rgba(37,211,102,1) 25%, rgba(34,195,93,1) 50%, rgba(34,185,93,1) 75%, rgba(34,160,93,1) 100%); background-size: 200%;}
 #instagram:hover, #whatsapp:hover {background-position: right;}
 #instagram a, #whatsapp a {color: black; text-decoration: none; font-weight: 700; font-size: 20px;}
-
-.projectImage {
-  width: 380px;
-  height: auto;
-  opacity: 0.8;
-  transition: all 3s ease-in-out;
-}
-.projectImage:hover {
-  transform: scale(1.5);
-  opacity: 1;
-}
-
-.projectXl {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.412) 40%, rgba(0, 0, 0, 0.412) 100%), url('../public/images/projects/jeyshidProject.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.projectCover {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.412) 40%, rgba(0, 0, 0, 0.412) 100%), url('/images/projects/projectsCover.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
