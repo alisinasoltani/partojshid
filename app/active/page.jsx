@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import jeyshidBaharestanProject from '@/public/images/projects/jeyshidBaharestanProject.png';
 import sarv1 from '@/public/images/lodge/Sarv/1.jpg';
-import BaharestanGallery from '@/components/BaharestanGallery';
+import BahaarestanGallery from '@/components/BahaarestanGallery';
 import SarvGallery from '@/components/SarvGallery';
 
 const Contribute = () => {
@@ -34,7 +34,7 @@ const Contribute = () => {
                         <dialog id="bahaarestanActiveProjectModal" className="modal modal-middle">
                             <div className="modal-box w-11/12 max-w-[80vw] max-h-[100vh]">
                                 <h3 className="font-bold text-lg text-center pb-5">پروژه بهارستان</h3>
-                                <BaharestanGallery />
+                                <BahaarestanGallery />
                             </div>
                             <form method="dialog" className="modal-backdrop">
                                 <button>close</button>
