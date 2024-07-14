@@ -1,8 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import concStruc1 from '@/public/images/projects/concStruc/concStruc_1.jpg';
-import concStruc2 from '@/public/images/projects/concStruc/concStruc_2.jpg';
-import concStruc3 from '@/public/images/projects/concStruc/concStruc_3.jpg';
-import concStruc4 from '@/public/images/projects/concStruc/concStruc_4.jpg';
+import concStruc1 from '@/public/images/projects/concStruc/ConcStruc_1.jpg';
+import concStruc2 from '@/public/images/projects/concStruc/ConcStruc_2.jpg';
+import concStruc3 from '@/public/images/projects/concStruc/ConcStruc_3.jpg';
+import concStruc4 from '@/public/images/projects/concStruc/ConcStruc_4.jpg';
 import Image from "next/image";
 
 import 'swiper/css';
