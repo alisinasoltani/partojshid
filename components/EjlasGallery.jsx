@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ejlas1 from '@/public/images/projects/ejlas/ejlas1.png';
+import ejlas1 from '@/public/images/projects/ejlas/ejlas1.jpg';
 import ejlas2 from '@/public/images/projects/ejlas/ejlas2.jpg';
 import Image from "next/image";
 

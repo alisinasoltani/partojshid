@@ -6,7 +6,8 @@ import JeyshidEjlasProject from "@/public/images/projects/Ejlas_lg.png";
 import jeyshidFieldProject from "@/public/images/projects/jeyshidFieldProject.jpg";
 import jeyshidkousarProject from "@/public/images/projects/jeyshidkousarProject.jpg";
 import jeyshidPoolProject from "@/public/images/projects/jeyshidPoolProject.jpg";
-import jeyshidFarhangProject from "@/public/images/projects/jeyshidFarhangProject.png";
+// import jeyshidFarhangProject from "@/public/images/projects/jeyshidFarhangProject.png";
+import cultureProject from "@/public/images/projects/culture/culture_1.jpg";
 import jeyshidBaharestanProject from "@/public/images/projects/jeyshidBaharestanProject.png";
 import JeyshidConcStrucProject from "@/public/images/projects/JeyshidConcStrucProject.jpg";
 // import JeyshidCultureProject from "@/public/images/projects/JeyshidCultureProject.jpg";
@@ -30,13 +31,14 @@ import PoolGallery from "@/components/PoolGallery";
 import PooladGallery from "@/components/PooladGallery";
 import TankerGallery from "@/components/TankerGallery";
 import CNGGallery from "@/components/CNGGallery";
-import StorageGallery from "@/components/StorageGallery";
+// import StorageGallery from "@/components/StorageGallery";
 import TechGallery from "@/components/TechGallery";
 import SadraGallery from "@/components/SadraGallery";
 import SaroojGallery from "@/components/SaroojGallery";
 import BahaarestanGallery from "@/components/BahaarestanGallery";
 import EngGallery from "@/components/EngGallery";
 import GoltaashGallery from "@/components/GoltaashGallery";
+import MatPrepGallery from "@/components/MatPrepGallery";
 
 const Projects = () => {
   const [lenis, setLenis] = useState();
@@ -130,7 +132,7 @@ const Projects = () => {
         {/* Culture Project */}
         <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
           <div className="flex flex-col lg:basis-4/12 basis-12/12">
-            <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidFarhangProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Cultural Center Project"
+            <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={cultureProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Cultural Center Project"
             onClick={()=>document.getElementById('cultureProjectModal').showModal()} />
             <dialog id="cultureProjectModal" className="modal modal-middle">
               <div className="modal-box max-w-[40rem]">
@@ -383,11 +385,11 @@ const Projects = () => {
         <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
           <div className="flex flex-col lg:basis-4/12 basis-12/12">
             <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={JeyshidMatPrepProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Storage Project"
-            onClick={()=>document.getElementById('storageProjectModal').showModal()} />
-            <dialog id="storageProjectModal" className="modal modal-middle">
+            onClick={()=>document.getElementById('matPrepProjectModal').showModal()} />
+            <dialog id="matPrepProjectModal" className="modal modal-middle">
               <div className="modal-box max-w-[40rem]">
                   <h3 className="font-bold text-lg text-center pb-5">محور 2 انبار خواروبار</h3>
-                  <StorageGallery />
+                  <MatPrepGallery />
               </div>
               <form method="dialog" className="modal-backdrop">
                   <button>close</button>
