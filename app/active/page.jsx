@@ -5,9 +5,11 @@ import Lenis from "@studio-freight/lenis";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import jeyshidBaharestanProject from '@/public/images/projects/jeyshidBaharestanProject.png';
-import sarv1 from '@/public/images/lodge/Sarv/1.jpg';
+import sarv1 from '@/public/images/lodge/Sarv/1_2.jpg';
 import BahaarestanGallery from '@/components/BahaarestanGallery';
+import lodge1Project from '@/public/images/lodge/lodge1Project.png';
 import SarvGallery from '@/components/SarvGallery';
+import Lodge1Gallery from '@/components/Lodge1Gallery';
 
 const Contribute = () => {
     const [lenis, setLenis] = useState();
@@ -23,7 +25,7 @@ const Contribute = () => {
     return (
         <div className="w-full flex flex-col">
             <Nav lenis={lenis} type={'solid'} />
-            <div className="w-full flex flex-col mt-[8.5rem] px-[3rem]">
+            <div className="w-full flex flex-col gap-8 mt-[8.5rem] px-[3rem]">
                 <div className="w-full about-page-title text-black text-right mb-12 flex flex-row justify-end items-start">
                     <h1 className="text-3xl font-bold">پروژه های فعال</h1>
                 </div>
@@ -61,6 +63,24 @@ const Contribute = () => {
                     </div>
                     <div className="flex flex-col lg:basis-8/12 basis-12/12 text-black items-end justify-center px-8 py-8">
                         <h2 className="font-bold lg:text-2xl text-lg">پروژه سرو</h2>
+                    </div>
+                </div>
+                <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
+                    <div className="flex flex-col lg:basis-4/12 basis-12/12">
+                        <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={lodge1Project} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid lodge 1 Project"
+onClick={()=>document.getElementById('lodge1ActiveProjectModal').showModal()} />
+                        <dialog id="lodge1ActiveProjectModal" className="modal modal-middle">
+                            <div className="modal-box w-11/12 max-w-[80vw] max-h-[100vh]">
+                                <h3 className="font-bold text-lg text-center pb-5">پروژه لژ 1</h3>
+                                <Lodge1Gallery />
+                            </div>
+                            <form method="dialog" className="modal-backdrop">
+                                <button>close</button>
+                            </form>
+                        </dialog>
+                    </div>
+                    <div className="flex flex-col lg:basis-8/12 basis-12/12 text-black items-end justify-center px-8 py-8">
+                        <h2 className="font-bold lg:text-2xl text-lg">پروژه لژ 1</h2>
                     </div>
                 </div>
             </div>

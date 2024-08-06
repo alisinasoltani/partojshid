@@ -1,6 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ejlas1 from '@/public/images/projects/ejlas/ejlas1.jpg';
 import ejlas2 from '@/public/images/projects/ejlas/ejlas2.jpg';
+import ejlas3 from '@/public/images/projects/ejlas/ejlas3.jpg';
+import ejlas4 from '@/public/images/projects/ejlas/ejlas4.jpg';
+import ejlas5 from '@/public/images/projects/ejlas/ejlas5.jpg';
 import Image from "next/image";
 
 import 'swiper/css';
@@ -14,6 +17,9 @@ export default function EjlasGallery() {
       <Swiper navigation={true} loop={true} modules={[Navigation]} className="mySwiper h-[32rem] w-[32rem]">
         <SwiperSlide><Image src={ejlas1} fill alt='Ejlas Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={ejlas2} fill alt='Ejlas Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={ejlas3} fill alt='Ejlas Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={ejlas4} fill alt='Ejlas Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={ejlas5} fill alt='Ejlas Project Picture' /></SwiperSlide>
       </Swiper>
     </>
   );

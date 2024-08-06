@@ -4,6 +4,7 @@ import storage2 from '@/public/images/projects/storage/storage_2.jpg';
 import storage3 from '@/public/images/projects/storage/storage_3.jpg';
 import storage4 from '@/public/images/projects/storage/storage_4.jpg';
 import storage5 from '@/public/images/projects/storage/storage_5.jpg';
+import storage6 from '@/public/images/projects/storage/storage_5.jpg';
 import Image from "next/image";
 
 import 'swiper/css';
@@ -20,6 +21,7 @@ export default function GoltaashGallery() {
         <SwiperSlide><Image src={storage3} fill alt='Storage Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={storage4} fill alt='Storage Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={storage5} fill alt='Storage Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={storage6} fill alt='Storage Project Picture' /></SwiperSlide>
       </Swiper>
     </>
   );
