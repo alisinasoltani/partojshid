@@ -39,6 +39,7 @@ import BahaarestanGallery from "@/components/BahaarestanGallery";
 import EngGallery from "@/components/EngGallery";
 import GoltaashGallery from "@/components/GoltaashGallery";
 import MatPrepGallery from "@/components/MatPrepGallery";
+import WestSportsFieldGallery from "@/components/WestSportsFieldGallery";
 
 const Projects = () => {
   const [lenis, setLenis] = useState();
@@ -86,7 +87,17 @@ const Projects = () => {
         {/* West Sports Field */}
         <div className="w-full flex lg:flex-row flex-col lg:items-start justify-center rounded-2xl overflow-hidden bg-[#f4f4f4]">
           <div className="flex flex-col lg:basis-4/12 basis-12/12">
-            <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidFieldProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Sports Field Project" />
+            <Image className="lg:min-h-[19rem] lg:min-w-[19rem]" src={jeyshidFieldProject} layout={"responsive"} width={300} height={300} sizes="(max-width: 400px) 60vw, (max-width: 960px) 80vw, 95vw" alt="Parto Jeyshid Sports Field Project"
+            onClick={()=>document.getElementById('westSportsFieldProject').showModal()} />
+            <dialog id="westSportsFieldProject" className="modal modal-middle">
+              <div className="modal-box max-w-[40rem]">
+                  <h3 className="font-bold text-lg text-center pb-5">پروژه زمین ورزشی غرب</h3>
+                  <WestSportsFieldGallery />
+              </div>
+              <form method="dialog" className="modal-backdrop">
+                  <button>close</button>
+              </form>
+            </dialog>
           </div>
           <div className="flex flex-col lg:basis-8/12 basis-12/12 md:gap-8 gap-6 text-right text-black items-end justify-center px-8 py-8">
             <h2 className="font-bold lg:text-2xl text-lg">پروژه { projectsList.WestSportsField.name }</h2>
