@@ -6,6 +6,8 @@ import Lodge05 from '@/public/images/lodge/Lodge1/05.jpg';
 import Lodge06 from '@/public/images/lodge/Lodge1/06.jpg';
 import Lodge08 from '@/public/images/lodge/Lodge1/08.jpg';
 import Lodge19 from '@/public/images/lodge/Lodge1/19.jpg';
+import Lodge18 from '@/public/images/lodge/Lodge1/18.jpg';
+import Lodge20 from '@/public/images/lodge/Lodge1/20.jpg';
 import Image from "next/image";
 
 // Import Swiper styles
@@ -25,6 +27,8 @@ export default function Lodge1Gallery() {
         <SwiperSlide><Image src={Lodge06} fill alt='Lodge1 Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={Lodge08} fill alt='Lodge1 Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={Lodge19} fill alt='Lodge1 Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={Lodge18} fill alt='Lodge1 Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={Lodge20} fill alt='Lodge1 Project Picture' /></SwiperSlide>
       </Swiper>
     </>
   );

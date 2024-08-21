@@ -10,7 +10,6 @@ import slide11 from"@/public/images/Slide11.jpg";
 import slide12 from"@/public/images/Slide12.jpg";
 import slide13 from"@/public/images/Slide13.jpg";
 import slide14 from"@/public/images/Slide14.jpg";
-import slide15 from"@/public/images/Slide15.jpg";
 import slide16 from"@/public/images/Slide16.jpg";
 import slide20 from"@/public/images/slide20.png";
 
@@ -29,9 +28,6 @@ export default function Slider() {
         </SwiperSlide>
         <SwiperSlide>
           <Image src={slide20} fill={true} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={slide15} fill={true} />
         </SwiperSlide>
         <SwiperSlide>
           <Image src={slide1} fill={true} />
