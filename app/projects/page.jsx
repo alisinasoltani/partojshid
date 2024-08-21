@@ -5,7 +5,7 @@ import Pagination from "@/components/Pagination";
 import JeyshidEjlasProject from "@/public/images/projects/Ejlas_lg.png";
 import jeyshidFieldProject from "@/public/images/projects/jeyshidFieldProject.jpg";
 import jeyshidkousarProject from "@/public/images/projects/jeyshidkousarProject.jpg";
-import jeyshidPoolProject from "@/public/images/projects/jeyshidPoolProject.jpg";
+import jeyshidPoolProject from "@/public/images/projects/pool/pool_1.jpg";
 // import jeyshidFarhangProject from "@/public/images/projects/jeyshidFarhangProject.png";
 import cultureProject from "@/public/images/projects/culture/culture_1.jpg";
 import jeyshidBaharestanProject from "@/public/images/projects/jeyshidBaharestanProject.png";

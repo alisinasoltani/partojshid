@@ -153,7 +153,7 @@ export default function Nav({ type, lenis }) {
                             x: activeServiceMenu.designAndExe ? 0 : 100,
                         }}
                         transition={{duration: 0.9}}>
-                            <h2 className="text-xl font-bold" >طراحی و اجرا:</h2>
+                            <h2 className="text-xl font-bold">طراحی و اجرا:</h2>
                             <h5 className="text-lg">طراحی و اجرای پروژه از صفر تا صد</h5>
                         </motion.div>
                     </div>
@@ -237,10 +237,26 @@ export default function Nav({ type, lenis }) {
                     </div>
                 </div>
                 <div className="servicesDrawerItems flex flex-col gap-[4rem]" style={{position: 'relative', left: 30, top: 12}}>
-                    <h3 className="text-[30px] cursor-pointer" onClick={toggleActiveServiceMenu("designAndExe")}><span className="pl-2">1</span> طراحی و اجرا </h3>
-                    <h3 className="text-[30px] cursor-pointer" onClick={toggleActiveServiceMenu("preOrderProjects")}><span className="pl-2">2</span> پروژه های پیش فروش </h3>
-                    <h3 className="text-[30px] cursor-pointer" onClick={toggleActiveServiceMenu("activeProjects")}><span className="pl-2">3</span> پروژه های فعال </h3>
-                    <h3 className="text-[30px] cursor-pointer" onClick={toggleActiveServiceMenu("contribute")}><span className="pl-2">4</span> مشارکت در ساخت </h3>
+                    <h3 className="text-[30px] cursor-pointer" onMouseEnter={toggleActiveServiceMenu("designAndExe")}>
+                        <Link href={"/design"}>
+                            <span className="pl-2">1</span> طراحی و اجرا 
+                        </Link>
+                    </h3>
+                    <h3 className="text-[30px] cursor-pointer" onMouseEnter={toggleActiveServiceMenu("preOrderProjects")}>
+                        <Link href={"/presale"}>
+                            <span className="pl-2">2</span> پروژه های پیش فروش 
+                        </Link>
+                    </h3>
+                    <h3 className="text-[30px] cursor-pointer" onMouseEnter={toggleActiveServiceMenu("activeProjects")}>
+                        <Link href={"/active"}>
+                            <span className="pl-2">3</span> پروژه های فعال 
+                        </Link>
+                    </h3>
+                    <h3 className="text-[30px] cursor-pointer" onMouseEnter={toggleActiveServiceMenu("contribute")}>
+                        <Link href={"/contribute"}>
+                            <span className="pl-2">4</span> مشارکت در ساخت 
+                        </Link>
+                    </h3>
                 </div>
             </div>
         </Drawer>
