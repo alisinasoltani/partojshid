@@ -12,7 +12,7 @@ import slide13 from"@/public/images/Slide13.jpg";
 import slide14 from"@/public/images/Slide14.jpg";
 import slide15 from"@/public/images/Slide15.jpg";
 import slide16 from"@/public/images/Slide16.jpg";
-import slide20 from"@/public/images/Slide20.png";
+import slide20 from"@/public/images/slide20.png";
 
 export default function Slider() {
   return (
