@@ -14,6 +14,9 @@ import Sarv13 from '@/public/images/lodge/Sarv/13.jpg';
 import Sarv14 from '@/public/images/lodge/Sarv/14.jpg';
 import Sarv15 from '@/public/images/lodge/Sarv/15.jpg';
 import Sarv16 from '@/public/images/lodge/Sarv/16.jpg';
+import Sarv17 from '@/public/images/lodge/Sarv/17.jpg';
+import Sarv18 from '@/public/images/lodge/Sarv/18.jpg';
+import Sarv19 from '@/public/images/lodge/Sarv/19.jpg';
 import Image from "next/image";
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -23,6 +26,7 @@ export default function SarvGallery() {
   return (
     <>
       <Swiper navigation={true} loop={true} modules={[Navigation]} className="mySwiper  lg:h-[30vw] h-[78vw] lg:w-[30vw] w-[78vw]">
+        <SwiperSlide><Image src={Sarv17} fill alt='Sarv Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={Sarv01} fill alt='Sarv Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={Sarv02} fill alt='Sarv Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={Sarv03} fill alt='Sarv Project Picture' /></SwiperSlide>
@@ -38,6 +42,8 @@ export default function SarvGallery() {
         <SwiperSlide><Image src={Sarv14} fill alt='Sarv Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={Sarv15} fill alt='Sarv Project Picture' /></SwiperSlide>
         <SwiperSlide><Image src={Sarv16} fill alt='Sarv Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={Sarv18} fill alt='Sarv Project Picture' /></SwiperSlide>
+        <SwiperSlide><Image src={Sarv19} fill alt='Sarv Project Picture' /></SwiperSlide>
       </Swiper>
     </>
   );
