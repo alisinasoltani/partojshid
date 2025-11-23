@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tw-animate-css";
+
+@font-face {
+  font-family: "irsans_light";
+  src: url("./../public/fonts/IRANSansX-Light.woff");
+}
+@font-face {
+  font-family: "irsans_med";
+  src: url("./../public/fonts/IRANSansX-Medium.woff");
+}
+@font-face {
+  font-family: "irsans_reg";
+  src: url("./../public/fonts/IRANSansX-Regular.woff");
+}
+@font-face {
+  font-family: "irsans_bold";
+  src: url("./../public/fonts/IRANSansX-Bold.woff");
+}
+
+.irsans_bold {
+  font-family: "irsans_bold" !important;
+}
+.irsans_med {
+  font-family: "irsans_med" !important;
+}
+.irsans_reg {
+  font-family: "irsans_reg" !important;
+}
+.irsans_light {
+  font-family: "irsans_light" !important;
+}
+
+.service-card {
+  position: relative; /* Needed for absolute positioning of overlay */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden; /* Ensures gradient doesn't spill out */
+}
+
+/* Overlay with radial gradient */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.27) 0%,
+    /* #000000 with 27% opacity */ rgba(0, 0, 0, 1) 100%
+      /* #000000 with 100% opacity */
+  );
+  opacity: 0.5; /* 50% opacity for the entire gradient overlay */
+  z-index: 1; /* Ensure gradient is above image but below text */
+}
+
+/* Ensure text is above the gradient overlay */
+.service-card h3 {
+  position: relative;
+  z-index: 2; /* Place text above the gradient */
+}

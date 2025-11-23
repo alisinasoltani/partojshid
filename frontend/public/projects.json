@@ -1,0 +1,225 @@
+{
+    "baharestan": {
+        "full_name": "بهارستان",
+        "description": "",
+        "started_at": "بهمن ماه 1401",
+        "ended_at": "",
+        "employer": "",
+        "pictures": [
+            "images/projects/baharestan/baharestan_3.jpg",
+            "images/projects/baharestan/baharestan_3.png",
+            "images/projects/baharestan/baharestan_4.jpg",
+            "images/projects/baharestan/baharestan_5.jpg",
+            "images/projects/baharestan/baharestan_6.jpg"
+        ]
+    },
+    "concStruc": {
+        "full_name": "احداث سازه های بتنی مخازن مازوت سیمان ساروج",
+        "description": "",
+        "started_at": "مهر ماه 1388",
+        "ended_at": "خرداد ماه 1389",
+        "employer": "",
+        "pictures": [
+            "images/projects/concStruc/ConcStruc_1.jpg",
+            "images/projects/concStruc/ConcStruc_2.jpg",
+            "images/projects/concStruc/ConcStruc_3.jpg",
+            "images/projects/concStruc/ConcStruc_4.jpg"
+        ]
+    },
+    "culture": {
+        "full_name": "احداث مجموعه فرهنگی حسین آباد",
+        "description": "",
+        "started_at": "آذر ماه 1399",
+        "ended_at": "شهریور ماه 1402",
+        "employer": "شهرداری اصفهان",
+        "pictures": [
+            "images/projects/culture/culture_1.jpg",
+            "images/projects/culture/culture_10.jpg",
+            "images/projects/culture/culture_2.jpg",
+            "images/projects/culture/culture_3.jpg",
+            "images/projects/culture/culture_4.jpg",
+            "images/projects/culture/culture_6.jpg"
+        ]
+    },
+    "ejlas": {
+        "full_name": "تکمیل فضای کنکورس مرکز همایش های بین المللی اصفهان",
+        "description": "",
+        "started_at": "فروردین ماه 1398",
+        "ended_at": "اسفند ماه 1401",
+        "employer": "شهرداری اصفهان",
+        "pictures": [
+            "images/projects/ejlas/ejlas1.jpg",
+            "images/projects/ejlas/ejlas10.jpg",
+            "images/projects/ejlas/ejlas11.jpg",
+            "images/projects/ejlas/ejlas12.jpg",
+            "images/projects/ejlas/ejlas2.jpg",
+            "images/projects/ejlas/ejlas3.jpg",
+            "images/projects/ejlas/ejlas4.jpg",
+            "images/projects/ejlas/ejlas5.jpg",
+            "images/projects/ejlas/ejlas6.jpg",
+            "images/projects/ejlas/ejlas7.jpg",
+            "images/projects/ejlas/ejlas8.jpg",
+            "images/projects/ejlas/ejlas9.jpg"
+        ]
+    },
+    "engSys": {
+        "full_name": "اجرای ساختمان نظام مهندسی شاهین شهر",
+        "description": "",
+        "started_at": "آبان ماه 1393",
+        "ended_at": "فروردین ماه 1395",
+        "employer": "",
+        "pictures": [
+            "images/projects/engSys/engSys_1.jpg",
+            "images/projects/engSys/engSys_2.jpg",
+            "images/projects/engSys/engSys_3.jpg"
+        ]
+    },
+    "grTech": {
+        "full_name": "احداث مرکز رشد و فناوری دانشگاه صنعتی",
+        "description": "",
+        "started_at": "شهریور ماه 1394",
+        "ended_at": "آذر ماه 1395",
+        "employer": "",
+        "pictures": [
+            "images/projects/grTech/GrTech_1.jpg",
+            "images/projects/grTech/GrTech_2.jpg",
+            "images/projects/grTech/GrTech_3.jpg",
+            "images/projects/grTech/GrTech_4.jpg"
+        ]
+    },
+    "kousar2": {
+        "full_name": "کوثر 2",
+        "description": "",
+        "started_at": "آبان ماه 1400",
+        "ended_at": "اسفند ماه 1402",
+        "employer": "سازمان میادین میوه و تره بار و ساماندهی مشاغل شهری",
+        "pictures": [
+            "images/projects/kousar2/kousar_1.jpg",
+            "images/projects/kousar2/kousar_2.jpg",
+            "images/projects/kousar2/kousar_3.jpg",
+            "images/projects/kousar2/kousar_4.jpg",
+            "images/projects/kousar2/kousar_5.jpg",
+            "images/projects/kousar2/kousar_6.jpg",
+            "images/projects/kousar2/kousar_7.jpg",
+            "images/projects/kousar2/kousar_8.jpg"
+        ]
+    },
+    "matPrep": {
+        "full_name": "محور 2 انبار خواروبار",
+        "description": "",
+        "started_at": "اسفند ماه 1398",
+        "ended_at": "بهمن ماه 1399",
+        "employer": "",
+        "pictures": [
+            "images/projects/matPrep/matPrep_1.jpg",
+            "images/projects/matPrep/matPrep_2.jpg"
+        ]
+    },
+    "pool": {
+        "full_name": "احداث استخر دانشگاه علوم پزشکی",
+        "description": "",
+        "started_at": "فروردین ماه 1391",
+        "ended_at": "اسفند ماه 1392 (تا فاز 3)",
+        "employer": "دانشگاه علوم پزشکی اصفهان",
+        "pictures": [
+            "images/projects/pool/pool_1.jpg",
+            "images/projects/pool/pool_10.jpg",
+            "images/projects/pool/pool_11.jpg",
+            "images/projects/pool/pool_12.jpg",
+            "images/projects/pool/pool_13.jpg",
+            "images/projects/pool/pool_2.jpg",
+            "images/projects/pool/pool_3.jpg",
+            "images/projects/pool/pool_4.jpg",
+            "images/projects/pool/pool_5.jpg",
+            "images/projects/pool/pool_6.jpg",
+            "images/projects/pool/pool_7.jpg",
+            "images/projects/pool/pool_8.jpg",
+            "images/projects/pool/pool_9.jpg"
+        ]
+    },
+    "poolad": {
+        "full_name": "احادث ساختمان آموزش مرات پولاد",
+        "description": "",
+        "started_at": "مرداد ماه 1382",
+        "ended_at": "اردیبهشت ماه 1383",
+        "employer": "",
+        "pictures": [
+            "images/projects/poolad/poolad_1.jpg",
+            "images/projects/poolad/poolad_2.jpg"
+        ]
+    },
+    "sadra": {
+        "full_name": "احداث مدرسه صدرا زرین شهر",
+        "description": "",
+        "started_at": "تیر ماه 1398",
+        "ended_at": "دی ماه 1401",
+        "employer": "",
+        "pictures": [
+            "images/projects/sadra/sadra_1.jpg",
+            "images/projects/sadra/sadra_2.jpg"
+        ]
+    },
+    "tanker": {
+        "full_name": "احداث محل تخلیه نفتکش ها",
+        "description": "",
+        "started_at": "تیر ماه 1383",
+        "ended_at": "فروردین 1384",
+        "employer": "",
+        "pictures": [
+            "images/projects/tanker/tanker_1.jpg",
+            "images/projects/tanker/tanker_2.jpg",
+            "images/projects/tanker/tanker_3.jpg"
+        ]
+    },
+    "sportsField": {
+        "full_name": "زمین ورزشی غرب",
+        "description": "",
+        "started_at": "بهمن ماه 1399",
+        "ended_at": "تیر ماه 1401",
+        "employer": "شهرداری اصفهان",
+        "pictures": [
+            "images/projects/sportsField/1.jpg",
+            "images/projects/sportsField/2.jpg",
+            "images/projects/sportsField/3.jpg",
+            "images/projects/sportsField/4.jpg",
+            "images/projects/sportsField/5.jpg",
+            "images/projects/sportsField/6.jpg",
+            "images/projects/sportsField/7.jpg",
+            "images/projects/sportsField/8.jpg"
+        ]
+    },
+    "station": {
+        "full_name": "جایگاه سوخت CNG تیران و قهدریجان",
+        "description": "",
+        "started_at": "دی ماه 1384",
+        "ended_at": "بهمن ماه 1385",
+        "employer": "",
+        "pictures": [
+            "images/projects/station/station_1.jpg",
+            "images/projects/station/station_2.jpg"
+        ]
+    },
+    "goltaash": {
+        "full_name": "احداث سوله انبار گلتاش",
+        "description": "",
+        "started_at": "اردیبهشت ماه 1387",
+        "ended_at": "اردیبهشت ماه 1389",
+        "employer": "",
+        "pictures": [
+            "images/projects/goltaash/goltaash_1.jpg",
+            "images/projects/goltaash/goltaash_2.jpg",
+            "images/projects/goltaash/goltaash_3.jpg",
+            "images/projects/goltaash/goltaash_4.jpg",
+            "images/projects/goltaash/goltaash_5.jpg",
+            "images/projects/goltaash/goltaash_6.jpg"
+        ]
+    },
+    "tohid": {
+        "full_name": "",
+        "description": "",
+        "started_at": "",
+        "ended_at": "",
+        "employer": "",
+        "pictures": []
+    }
+}
