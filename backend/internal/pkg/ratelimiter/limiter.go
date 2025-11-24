@@ -3,6 +3,7 @@ package ratelimiter
 import (
 	"sync"
 	"time"
+	"strconv"
 
 	"github.com/labstack/echo/v4"
 	_ "github.com/labstack/gommon/log"
@@ -117,7 +118,7 @@ func LoginKey(username string) string {
 }
 
 func UserKey(userID uint) string {
-	return "user:" + string(userID)
+	return "user:" + strconv.FormatUint(uint64(userID), 10)
 }
 
 func min(a, b int64) int64 {
