@@ -5,13 +5,13 @@ import (
 	"log"
 	"time"
 
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/alisinasoltani/partojshid/config"
 	"github.com/alisinasoltani/partojshid/internal/database"
 	"github.com/alisinasoltani/partojshid/internal/handler/projecthandler"
 	"github.com/alisinasoltani/partojshid/internal/handler/userhandler"
 	"github.com/alisinasoltani/partojshid/internal/middlewares"
 	"github.com/alisinasoltani/partojshid/internal/pkg/ratelimiter"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -24,8 +24,8 @@ func main() {
 	database.Get()
 
 	// In-memory rate limiter (used by middlewares)
-	limiter := ratelimiter.New()                                  // ← fixed: used
-	rateLimits := middlewares.NewRateLimitMiddleware(limiter)       // ← now limiter is used
+	limiter := ratelimiter.New()                              // ← fixed: used
+	rateLimits := middlewares.NewRateLimitMiddleware(limiter) // ← now limiter is used
 
 	// Echo
 	e := echo.New()
@@ -68,7 +68,7 @@ func main() {
 		editor.POST("", projectH.Create)
 		editor.PUT("/:id", projectH.Update)
 		editor.DELETE("/:id", projectH.Delete)
-		editor.GET("", projectH.List)    // ?editor=1 shows hidden
+		editor.GET("", projectH.List) // ?editor=1 shows hidden
 		editor.GET("/:id", projectH.Get)
 	}
 

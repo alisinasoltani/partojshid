@@ -6,7 +6,6 @@ import (
 	"strconv"
 
 	"github.com/alisinasoltani/partojshid/internal/dto/project"
-	_ "github.com/alisinasoltani/partojshid/internal/middlewares"
 	"github.com/alisinasoltani/partojshid/internal/service/project_service"
 	"github.com/labstack/echo/v4"
 )
@@ -19,8 +18,9 @@ func NewHandler() *Handler {
 	return &Handler{service: project_service.New()}
 }
 
-// GET /api/projects - Public + paginated (only visible)
-// GET /api/projects?editor=1 - Editor/Admin: all projects
+// GET /api/projects
+//   - Public: only visible projects (default)
+//   - Editor/Admin + ?editor=1 → show hidden projects too
 func (h *Handler) List(c echo.Context) error {
 	page, _ := strconv.Atoi(c.QueryParam("page"))
 	if page < 1 {
@@ -31,10 +31,11 @@ func (h *Handler) List(c echo.Context) error {
 		perPage = 10
 	}
 
+	// Detect if caller is editor/admin
 	isEditor := false
-	if c.Get("role") != nil {
-		role := c.Get("role").(string)
-		isEditor = (role == "admin" || role == "editor")
+	if role := c.Get("role"); role != nil {
+		r := role.(string)
+		isEditor = r == "admin" || r == "editor"
 	}
 	editorMode := c.QueryParam("editor") == "1" && isEditor
 
@@ -49,11 +50,10 @@ func (h *Handler) List(c echo.Context) error {
 	if err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, "failed to fetch projects")
 	}
-
 	return c.JSON(http.StatusOK, resp)
 }
 
-// GET /api/projects/:id - Public if visible, always for editor/admin
+// GET /api/projects/:id
 func (h *Handler) Get(c echo.Context) error {
 	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
 	if err != nil {
@@ -65,7 +65,7 @@ func (h *Handler) Get(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusNotFound, "project not found")
 	}
 
-	// Public access check
+	// Hide non-visible projects from public
 	if !p.IsVisible {
 		if role := c.Get("role"); role == nil || (role.(string) != "admin" && role.(string) != "editor") {
 			return echo.NewHTTPError(http.StatusNotFound, "project not found")
@@ -75,7 +75,7 @@ func (h *Handler) Get(c echo.Context) error {
 	return c.JSON(http.StatusOK, p)
 }
 
-// POST /api/projects - Editor+
+// POST /api/projects   (editor+ only)
 func (h *Handler) Create(c echo.Context) error {
 	var req project.CreateProjectRequest
 	if err := c.Bind(&req); err != nil {
@@ -91,7 +91,7 @@ func (h *Handler) Create(c echo.Context) error {
 	return c.JSON(http.StatusCreated, p)
 }
 
-// PUT /api/projects/:id - Editor+
+// PUT /api/projects/:id   (editor+ only)
 func (h *Handler) Update(c echo.Context) error {
 	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
 	if err != nil {
@@ -111,7 +111,7 @@ func (h *Handler) Update(c echo.Context) error {
 	return c.JSON(http.StatusOK, p)
 }
 
-// DELETE /api/projects/:id - Editor+
+// DELETE /api/projects/:id   (editor+ only)
 func (h *Handler) Delete(c echo.Context) error {
 	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
 	if err != nil {
