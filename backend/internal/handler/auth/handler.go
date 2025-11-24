@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/alisinasoltani/partojshid/internal/dto"
-	"github.com/alisinasoltani/partojshid/internal/services/auth"
+	"github.com/alisinasoltani/partojshid/internal/service/auth"
 	"github.com/labstack/echo/v4"
 )
 

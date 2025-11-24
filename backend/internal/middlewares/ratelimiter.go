@@ -1,5 +1,5 @@
 // internal/middleware/ratelimit.go
-package middleware
+package middlewares
 
 import (
 	"encoding/json"

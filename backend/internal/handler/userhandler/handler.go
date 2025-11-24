@@ -1,4 +1,3 @@
-// internal/handler/userhandler/handler.go
 package userhandler
 
 import (
@@ -49,4 +48,38 @@ func (h *Handler) Update(c echo.Context) error {
 	return c.JSON(http.StatusOK, resp)
 }
 
-// ... List, Get, Delete unchanged ...
+// GET /api/users
+func (h *Handler) List(c echo.Context) error {
+	users, err := h.service.List()
+	if err != nil {
+		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
+	}
+	return c.JSON(http.StatusOK, users)
+}
+
+// GET /api/users/:id
+func (h *Handler) Get(c echo.Context) error {
+	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
+	if err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, "invalid user id")
+	}
+
+	resp, err := h.service.Get(uint(id))
+	if err != nil {
+		return echo.NewHTTPError(http.StatusNotFound, "user not found")
+	}
+	return c.JSON(http.StatusOK, resp)
+}
+
+// DELETE /api/users/:id
+func (h *Handler) Delete(c echo.Context) error {
+	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
+	if err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, "invalid user id")
+	}
+
+	if err := h.service.Delete(uint(id)); err != nil {
+		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
+	}
+	return c.NoContent(http.StatusNoContent)
+}
