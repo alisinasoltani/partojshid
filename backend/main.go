@@ -36,7 +36,11 @@ func main() {
 	e.Static("/uploads", "uploads")
 
 	// Global middlewares
-	e.Use(middleware.Logger())
+	e.Use(middleware.RequestID())
+	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+		Format: `{"time":"${time_rfc3339}","id":"${id}","remote_ip":"${remote_ip}",` +
+			`"method":"${method}","uri":"${uri}","status":${status},"error":"${error}"}` + "\n",
+	}))
 	e.Use(middleware.Recover())
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
@@ -44,6 +48,7 @@ func main() {
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAuthorization},
 	}))
 	e.Use(middlewares.ValidationMiddleware())
+	e.Use(middlewares.CustomErrorHandler())
 
 	// Health check
 	e.GET("/health", func(c echo.Context) error {
@@ -98,7 +103,8 @@ func main() {
 
 	// Start server
 	cfg := config.Load()
-	log.Printf("Server starting on http://localhost:%s", cfg.Port)
+	log.Printf("Server starting on http://localhost:%s", config.Load().Port)
+	log.Fatal(e.Start(":" + config.Load().Port))
 	log.Printf("Health → Health:     http://localhost:%s/health", cfg.Port)
 	log.Printf(" → Projects:   http://localhost:%s/api/projects", cfg.Port)
 	log.Printf(" → Admin users: http://localhost:%s/api/users (admin only)", cfg.Port)
