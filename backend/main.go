@@ -13,7 +13,10 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/go-playground/validator/v10"
 )
+
+var validate *validator.Validate
 
 func main() {
 	// Load config
@@ -21,6 +24,8 @@ func main() {
 
 	// Connect to DB
 	database.Get()
+
+	validate = validator.New(validator.WithRequiredStructEnabled())
 
 	// In-memory rate limiter (used by middlewares)
 	limiter := ratelimiter.New()                              // ← fixed: used
@@ -38,6 +43,7 @@ func main() {
 		AllowMethods: []string{echo.GET, echo.POST, echo.PUT, echo.DELETE},
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAuthorization},
 	}))
+	e.Use(middlewares.ValidationMiddleware())
 
 	// Health check
 	e.GET("/health", func(c echo.Context) error {

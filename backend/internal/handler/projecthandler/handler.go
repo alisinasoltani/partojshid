@@ -17,25 +17,13 @@ func NewHandler() *Handler {
 	return &Handler{service: project_service.New()}
 }
 
-// GET /api/projects
-//   - Public: only visible projects (default)
-//   - Editor/Admin + ?editor=1 → show hidden projects too
 func (h *Handler) List(c echo.Context) error {
 	page, _ := strconv.Atoi(c.QueryParam("page"))
-	if page < 1 {
-		page = 1
-	}
+	if page < 1 { page = 1 }
 	perPage, _ := strconv.Atoi(c.QueryParam("per_page"))
-	if perPage < 1 || perPage > 100 {
-		perPage = 10
-	}
+	if perPage < 1 || perPage > 100 { perPage = 10 }
 
-	// Detect if caller is editor/admin
-	isEditor := false
-	if role := c.Get("role"); role != nil {
-		r := role.(string)
-		isEditor = r == "admin" || r == "editor"
-	}
+	isEditor := c.Get("role") != nil && (c.Get("role").(string) == "admin" || c.Get("role").(string) == "editor")
 	editorMode := c.QueryParam("editor") == "1" && isEditor
 
 	params := project_service.ListParams{
@@ -52,33 +40,25 @@ func (h *Handler) List(c echo.Context) error {
 	return c.JSON(http.StatusOK, resp)
 }
 
-// GET /api/projects/:id
 func (h *Handler) Get(c echo.Context) error {
-	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, "invalid project id")
-	}
-
+	id, _ := strconv.ParseUint(c.Param("id"), 10, 32)
 	p, err := h.service.Get(uint(id))
 	if err != nil {
 		return echo.NewHTTPError(http.StatusNotFound, "project not found")
 	}
 
-	// Hide non-visible projects from public
 	if !p.IsVisible {
 		if role := c.Get("role"); role == nil || (role.(string) != "admin" && role.(string) != "editor") {
 			return echo.NewHTTPError(http.StatusNotFound, "project not found")
 		}
 	}
-
 	return c.JSON(http.StatusOK, p)
 }
 
-// POST /api/projects   (editor+ only)
 func (h *Handler) Create(c echo.Context) error {
 	var req project.CreateProjectRequest
 	if err := c.Bind(&req); err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+		return err // ← validation auto-triggered
 	}
 
 	userID := c.Get("userID").(uint)
@@ -86,40 +66,28 @@ func (h *Handler) Create(c echo.Context) error {
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
-
 	return c.JSON(http.StatusCreated, p)
 }
 
-// PUT /api/projects/:id   (editor+ only)
 func (h *Handler) Update(c echo.Context) error {
-	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, "invalid project id")
-	}
+	id, _ := strconv.ParseUint(c.Param("id"), 10, 32)
 
 	var req project.UpdateProjectRequest
 	if err := c.Bind(&req); err != nil {
-		return err
+		return err // ← validation auto-triggered
 	}
 
 	p, err := h.service.Update(uint(id), req)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
-
 	return c.JSON(http.StatusOK, p)
 }
 
-// DELETE /api/projects/:id   (editor+ only)
 func (h *Handler) Delete(c echo.Context) error {
-	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, "invalid project id")
-	}
-
+	id, _ := strconv.ParseUint(c.Param("id"), 10, 32)
 	if err := h.service.Delete(uint(id)); err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, "failed to delete project")
 	}
-
 	return c.NoContent(http.StatusNoContent)
 }

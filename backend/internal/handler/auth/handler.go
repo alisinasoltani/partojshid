@@ -1,4 +1,3 @@
-// internal/handler/auth/handler.go
 package auth
 
 import (
@@ -18,11 +17,10 @@ func NewHandler() *Handler {
 	return &Handler{service: auth.New()}
 }
 
-// POST /api/auth/login
 func (h *Handler) Login(c echo.Context) error {
 	var req dto.LoginRequest
 	if err := c.Bind(&req); err != nil {
-		return err
+		return err // ← validation auto-triggered
 	}
 
 	token, user, err := h.service.Login(req.Username, req.Password)
@@ -38,27 +36,24 @@ func (h *Handler) Login(c echo.Context) error {
 	return c.JSON(http.StatusOK, resp)
 }
 
-// POST /api/auth/register → admin only
 func (h *Handler) Register(c echo.Context) error {
 	var req dto.RegisterRequest
 	if err := c.Bind(&req); err != nil {
-		return err
+		return err // ← validation auto-triggered
 	}
 
 	user, err := h.service.Register(req)
 	if err != nil {
-		return echo.NewHTTPError(400, err.Error())
+		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
-
 	return c.JSON(http.StatusCreated, user)
 }
 
-// GET /api/auth/me
 func (h *Handler) Me(c echo.Context) error {
 	userID := c.Get("userID").(uint)
 	user, err := h.service.GetByID(userID)
 	if err != nil {
-		return echo.NewHTTPError(404, "user not found")
+		return echo.NewHTTPError(http.StatusNotFound, "user not found")
 	}
 
 	resp := dto.MeResponse{
@@ -69,6 +64,5 @@ func (h *Handler) Me(c echo.Context) error {
 		Role:      user.Role,
 		CreatedAt: user.CreatedAt.Format(time.RFC3339),
 	}
-
 	return c.JSON(http.StatusOK, resp)
 }

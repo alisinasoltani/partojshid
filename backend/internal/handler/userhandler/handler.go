@@ -17,10 +17,11 @@ func NewHandler() *Handler {
 	return &Handler{service: user_service.New()}
 }
 
+// POST /api/users
 func (h *Handler) Create(c echo.Context) error {
 	var req user.CreateUserRequest
 	if err := c.Bind(&req); err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+		return err // ← validation happens automatically
 	}
 
 	resp, err := h.service.Create(req)
@@ -30,15 +31,13 @@ func (h *Handler) Create(c echo.Context) error {
 	return c.JSON(http.StatusCreated, resp)
 }
 
+// PUT /api/users/:id
 func (h *Handler) Update(c echo.Context) error {
-	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, "invalid user id")
-	}
+	id, _ := strconv.ParseUint(c.Param("id"), 10, 32)
 
 	var req user.UpdateUserRequest
 	if err := c.Bind(&req); err != nil {
-		return err
+		return err // ← validation auto-triggered
 	}
 
 	resp, err := h.service.Update(uint(id), req)
@@ -59,11 +58,7 @@ func (h *Handler) List(c echo.Context) error {
 
 // GET /api/users/:id
 func (h *Handler) Get(c echo.Context) error {
-	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, "invalid user id")
-	}
-
+	id, _ := strconv.ParseUint(c.Param("id"), 10, 32)
 	resp, err := h.service.Get(uint(id))
 	if err != nil {
 		return echo.NewHTTPError(http.StatusNotFound, "user not found")
@@ -73,11 +68,7 @@ func (h *Handler) Get(c echo.Context) error {
 
 // DELETE /api/users/:id
 func (h *Handler) Delete(c echo.Context) error {
-	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, "invalid user id")
-	}
-
+	id, _ := strconv.ParseUint(c.Param("id"), 10, 32)
 	if err := h.service.Delete(uint(id)); err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 	}

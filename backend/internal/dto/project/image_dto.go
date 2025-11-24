@@ -1,8 +1,8 @@
 package project
 
 type UploadImageRequest struct {
-	AltText   string `form:"alt_text" json:"alt_text,omitempty"`
-	SortOrder *int   `form:"sort_order" json:"sort_order,omitempty"`
+	AltText   string `form:"alt_text" json:"alt_text,omitempty" validate:"max=255"`
+	SortOrder *int   `form:"sort_order" json:"sort_order,omitempty" validate:"omitempty,min=0"`
 }
 
 type ImageResponse struct {
