@@ -1,4 +1,3 @@
-// main.go
 package main
 
 import (
@@ -29,6 +28,7 @@ func main() {
 
 	// Echo
 	e := echo.New()
+	e.Static("/uploads", "uploads")
 
 	// Global middlewares
 	e.Use(middleware.Logger())

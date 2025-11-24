@@ -1,4 +1,3 @@
-// internal/handler/projecthandler/handler.go
 package projecthandler
 
 import (
