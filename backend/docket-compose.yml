@@ -1,0 +1,46 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: partojshid-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: jeyshid
+      MYSQL_USER: jeyshid
+      MYSQL_PASSWORD: secret123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./migrations:/docker-entrypoint-initdb.d  # auto-run migrations on first start
+    command: --default-authentication-plugin=mysql_native_password
+
+  api:
+    build: .
+    container_name: partojshid-api
+    restart: unless-stopped
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=jeyshid
+      - DB_PASSWORD=secret123
+      - DB_NAME=jeyshid
+      - PORT=8080
+      - JWT_SECRET=your-super-secret-jwt-key-change-in-prod
+      - FIRST_ADMIN_USERNAME=jeyshid
+      - FIRST_ADMIN_EMAIL=jeyshid@example.com
+      - FIRST_ADMIN_PASSWORD=YourStrongPass2025!
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    volumes:
+      - ./uploads:/app/uploads  # persist uploaded images
+    entrypoint: >
+      sh -c "
+      go run scripts/create_first_admin.go &&
+      partojshid
+      "
+
+volumes:
+  mysql_data:
