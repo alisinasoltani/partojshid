@@ -1,6 +1,7 @@
 package jwt
 
 import (
+	"errors"
 	"time"
 
 	"github.com/alisinasoltani/partojshid/config"
@@ -51,7 +52,7 @@ func ValidateToken(tokenString string) (*Claims, error) {
 	}
 
 	if !token.Valid {
-		return nil, jwt.ErrTokenInvalid
+		return nil, errors.New("invalid token")
 	}
 
 	return claims, nil
