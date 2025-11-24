@@ -23,6 +23,8 @@ func Get() *sqlx.DB {
 			cfg.DBUser, cfg.DBPassword, cfg.DBHost, cfg.DBPort, cfg.DBName,
 		)
 
+		log.Printf("DB DSN: %s:%s@tcp(%s:%d)/%s", cfg.DBUser, cfg.DBPassword, cfg.DBHost, cfg.DBPort, cfg.DBName)
+
 		var err error
 		db, err = sqlx.Open("mysql", dsn)
 		if err != nil {

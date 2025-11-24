@@ -34,6 +34,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/alisinasoltani/partojshid/internal/handler/auth"
 	"github.com/swaggo/echo-swagger"
 )
 
@@ -89,7 +90,17 @@ func main() {
 
 	// Handlers
 	projectH := projecthandler.NewHandler()
-	userH := userhandler.NewHandler() // ← one instance, reused
+	userH := userhandler.NewHandler()
+	authHandler := auth.NewHandler()
+
+	// Auth routes
+	auth := e.Group("/api/auth")
+	// @tags Auth
+	auth.POST("/login", authHandler.Login, rateLimits["login"])
+	// @tags Auth
+	auth.POST("/register", authHandler.Register, middlewares.AuthJWT(), middlewares.RequireRole("admin"))
+	// @tags Auth
+	auth.GET("/me", authHandler.Me, middlewares.AuthJWT())
 
 	// Public routes
 	public := e.Group("/api/projects")
@@ -116,7 +127,6 @@ func main() {
 		editor.GET("", projectH.List)
 		// @tags Projects (Admin)
 		editor.GET("/:id", projectH.Get)
-		// @tags Projects (Admin)
 	}
 
 	// Admin users
@@ -137,7 +147,6 @@ func main() {
 		admin.PUT("/:id", userH.Update)
 		// @tags Users (Admin)
 		admin.DELETE("/:id", userH.Delete)
-		// @tags Users (Admin)
 	}
 
 	// Start server

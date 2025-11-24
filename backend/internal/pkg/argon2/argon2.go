@@ -1,3 +1,4 @@
+// internal/pkg/argon2/argon2.go
 package argon2
 
 import (
@@ -5,6 +6,7 @@ import (
 	"encoding/base64"
 	"fmt"
 	"log"
+	"strings"
 
 	"github.com/alisinasoltani/partojshid/config"
 	"golang.org/x/crypto/argon2"
@@ -29,76 +31,58 @@ func getParams() Params {
 	}
 }
 
-// Hash creates an Argon2id hash with random salt and returns "$argon2id$v=19$..." format
 func Hash(password string) (string, error) {
 	p := getParams()
 
 	salt := make([]byte, p.SaltLength)
 	if _, err := rand.Read(salt); err != nil {
-		return "", fmt.Errorf("failed to generate salt: %w", err)
+		return "", err
 	}
 
 	hash := argon2.IDKey([]byte(password), salt, p.Iterations, p.Memory, p.Parallelism, p.KeyLength)
 
-	// Encode to standard modular crypt format (same as most tools expect)
 	encoded := fmt.Sprintf("$argon2id$v=19$m=%d,t=%d,p=%d$%s$%s",
-		p.Memory,
-		p.Iterations,
-		p.Parallelism,
+		p.Memory, p.Iterations, p.Parallelism,
 		base64.RawStdEncoding.EncodeToString(salt),
-		base64.RawStdEncoding.EncodeToString(hash),
-	)
+		base64.RawStdEncoding.EncodeToString(hash))
 
 	return encoded, nil
 }
 
-// Verify compares a password against an Argon2id hash in standard format
+// FIXED Verify — uses strings.Split instead of buggy Sscanf
 func Verify(password, encodedHash string) (bool, error) {
-	if err := validateFormat(encodedHash); err != nil {
-		return false, err
+	parts := strings.Split(encodedHash, "$")
+	if len(parts) != 6 {
+		return false, fmt.Errorf("invalid hash format")
 	}
 
-	p := getParams()
-	salt, hash, err := decodeHash(encodedHash)
+	if parts[1] != "argon2id" || parts[2] != "v=19" {
+		return false, fmt.Errorf("unsupported algorithm/version")
+	}
+
+	var m uint32
+	var t uint32
+	var p uint8
+
+	_, err := fmt.Sscanf(parts[3], "m=%d,t=%d,p=%d", &m, &t, &p)
 	if err != nil {
 		return false, err
 	}
 
-	computed := argon2.IDKey([]byte(password), salt, p.Iterations, p.Memory, p.Parallelism, p.KeyLength)
+	salt, err := base64.RawStdEncoding.DecodeString(parts[4])
+	if err != nil {
+		return false, err
+	}
 
+	hash, err := base64.RawStdEncoding.DecodeString(parts[5])
+	if err != nil {
+		return false, err
+	}
+
+	computed := argon2.IDKey([]byte(password), salt, t, m, p, uint32(len(hash)))
 	return string(computed) == string(hash), nil
 }
 
-// validateFormat does basic format checking
-func validateFormat(encoded string) error {
-	if len(encoded) == 0 || encoded[0] != '$' {
-		return fmt.Errorf("invalid argon2 hash format")
-	}
-	return nil
-}
-
-// decodeHash extracts salt and hash from standard Argon2 string
-func decodeHash(encoded string) ([]byte, []byte, error) {
-	parts := [5]string{}
-	n, err := fmt.Sscanf(encoded, "$argon2id$v=19$m=%d,t=%d,p=%d$%s$%s",
-		&parts[0], &parts[1], &parts[2], &parts[3], &parts[4])
-	if err != nil || n != 5 {
-		return nil, nil, fmt.Errorf("failed to parse argon2 hash")
-	}
-
-	salt, err := base64.RawStdEncoding.DecodeString(parts[3])
-	if err != nil {
-		return nil, nil, err
-	}
-	hash, err := base64.RawStdEncoding.DecodeString(parts[4])
-	if err != nil {
-		return nil, nil, err
-	}
-
-	return salt, hash, nil
-}
-
-// Optional: Log params at startup for audit
 func init() {
 	p := getParams()
 	log.Printf("Argon2id initialized: m=%d KiB, t=%d, p=%d, salt=%d, key=%d",

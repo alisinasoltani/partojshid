@@ -1,10 +1,12 @@
-// internal/service/auth/service.go
 package auth
 
 import (
 	"database/sql"
 	"errors"
 	"time"
+	"strings"
+	"fmt"
+	"log"
 
 	"github.com/alisinasoltani/partojshid/internal/database"
 	"github.com/alisinasoltani/partojshid/internal/dto"
@@ -30,15 +32,33 @@ var (
 
 func (s *Service) Login(username, password string) (string, *model.User, error) {
 	var user model.User
-	err := s.db.Get(&user, "SELECT * FROM users WHERE username = ? LIMIT 1", username)
+
+	// DEBUG: Log exactly what we're searching for
+	log.Printf("Login attempt for username: %q (length: %d)", username, len(username))
+
+	// FIXED: case-insensitive + trim + safe query
+	query := `
+		SELECT id, username, email, password_hash, full_name, role, 
+		       failed_attempts, locked_until, created_at, updated_at, last_login_at
+		FROM users 
+		WHERE TRIM(LOWER(username)) = TRIM(LOWER(?))
+		LIMIT 1`
+
+	err := s.db.Get(&user, query, strings.TrimSpace(strings.ToLower(username)))
+
 	if err == sql.ErrNoRows {
+		log.Printf("No user found for username: %q", username)
 		return "", nil, ErrInvalidCredentials
 	}
 	if err != nil {
-		return "", nil, err
+		log.Printf("Database error during login for %q: %v", username, err)
+		return "", nil, fmt.Errorf("login failed")
 	}
 
-	// Check if account is locked (fixed: use .Valid)
+	// User found — log it
+	log.Printf("User found: ID=%d, Role=%s", user.ID, user.Role)
+
+	// Check lockout
 	if user.LockedUntil.Valid && time.Now().Before(user.LockedUntil.Time) {
 		return "", nil, ErrAccountLocked
 	}
@@ -49,35 +69,19 @@ func (s *Service) Login(username, password string) (string, *model.User, error) 
 		return "", nil, err
 	}
 	if !match {
-		// Increment failed attempts + possible lockout
-		_, err := s.db.Exec(`
-		UPDATE users 
-		SET failed_attempts = failed_attempts + 1,
-		    locked_until = CASE 
-		        WHEN failed_attempts + 1 >= 5 
-		        THEN DATE_ADD(NOW(), INTERVAL POW(2, LEAST(failed_attempts, 10)) MINUTE)
-		        ELSE locked_until 
-		    END 
-		WHERE id = ?`, user.ID)
-		if err != nil {
-			// Log it – we don't want to leak DB errors, but we should know
-			// In production you’d use a proper logger
-			// log.Printf("Failed to update failed_attempts for user %d: %v", user.ID, err)
-		}
-
+		// Wrong password
+		s.db.Exec(`
+			UPDATE users 
+			SET failed_attempts = failed_attempts + 1,
+			    locked_until = IF(failed_attempts + 1 >= 5, 
+			        DATE_ADD(NOW(), INTERVAL POW(2, LEAST(failed_attempts, 10)) MINUTE), 
+			        locked_until)
+			WHERE id = ?`, user.ID)
 		return "", nil, ErrInvalidCredentials
 	}
 
-	// Login successful → reset attempts
-	_, err = s.db.Exec(`
-		UPDATE users 
-		SET failed_attempts = 0, 
-		    locked_until = NULL, 
-		    last_login_at = NOW() 
-		WHERE id = ?`, user.ID)
-	if err != nil {
-		return "", nil, err
-	}
+	// Success
+	s.db.Exec("UPDATE users SET failed_attempts = 0, locked_until = NULL, last_login_at = NOW() WHERE id = ?", user.ID)
 
 	token, err := jwt.GenerateToken(user.ID, user.Role)
 	if err != nil {
@@ -86,7 +90,6 @@ func (s *Service) Login(username, password string) (string, *model.User, error) 
 
 	return token, &user, nil
 }
-
 func (s *Service) Register(req dto.RegisterRequest) (*model.User, error) {
 	// Prevent non-admin from creating admin (extra safety – also enforced by route middleware)
 	if req.Role == "admin" {
