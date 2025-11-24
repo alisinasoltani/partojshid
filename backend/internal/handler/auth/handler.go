@@ -17,6 +17,17 @@ func NewHandler() *Handler {
 	return &Handler{service: auth.New()}
 }
 
+// Login godoc
+// @Summary      Login user
+// @Description  Authenticate and receive JWT token
+// @Tags         Auth
+// @Accept       json
+// @Produce      json
+// @Param        credentials  body      dto.LoginRequest  true  "Login credentials"
+// @Success      200  {object}  dto.LoginResponse
+// @Failure      400  {object}  middlewares.ErrorResponse
+// @Failure      401  {object}  middlewares.ErrorResponse
+// @Router       /auth/login [post]
 func (h *Handler) Login(c echo.Context) error {
 	var req dto.LoginRequest
 	if err := c.Bind(&req); err != nil {
@@ -36,6 +47,18 @@ func (h *Handler) Login(c echo.Context) error {
 	return c.JSON(http.StatusOK, resp)
 }
 
+// Register godoc
+// @Summary      Register new user (admin only)
+// @Tags         Auth
+// @Accept       json
+// @Produce      json
+// @Param        user  body      dto.RegisterRequest  true  "User registration data"
+// @Security     BearerAuth
+// @Success      201  {object}  user.UserResponse
+// @Failure      400  {object}  middlewares.ErrorResponse
+// @Failure      401  {object}  middlewares.ErrorResponse
+// @Failure      403  {object}  middlewares.ErrorResponse
+// @Router       /auth/register [post]
 func (h *Handler) Register(c echo.Context) error {
 	var req dto.RegisterRequest
 	if err := c.Bind(&req); err != nil {
@@ -49,6 +72,15 @@ func (h *Handler) Register(c echo.Context) error {
 	return c.JSON(http.StatusCreated, user)
 }
 
+// Me godoc
+// @Summary      Get current user
+// @Description  Returns authenticated user's profile
+// @Tags         Auth
+// @Produce      json
+// @Security     BearerAuth
+// @Success      200  {object}  dto.MeResponse
+// @Failure      401  {object}  middlewares.ErrorResponse
+// @Router       /auth/me [get]
 func (h *Handler) Me(c echo.Context) error {
 	userID := c.Get("userID").(uint)
 	user, err := h.service.GetByID(userID)

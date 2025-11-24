@@ -1,3 +1,22 @@
+// main.go
+// @title           Partojshid API
+// @version         1.0
+// @description     Personal portfolio & project management API
+// @termsOfService  https://partojshid.ir/terms
+
+// @contact.name   Jeyshid
+// @contact.email  jeyshid@example.com
+
+// @license.name   MIT
+// @license.url    https://opensource.org/licenses/MIT
+
+// @host      localhost:8080
+// @BasePath  /api
+
+// @securityDefinitions.apikey BearerAuth
+// @in header
+// @name Authorization
+
 package main
 
 import (
@@ -5,15 +24,17 @@ import (
 	"time"
 
 	"github.com/alisinasoltani/partojshid/config"
+	_ "github.com/alisinasoltani/partojshid/docs"
 	"github.com/alisinasoltani/partojshid/internal/database"
 	"github.com/alisinasoltani/partojshid/internal/handler/projecthandler"
 	"github.com/alisinasoltani/partojshid/internal/handler/userhandler"
 	"github.com/alisinasoltani/partojshid/internal/middlewares"
 	"github.com/alisinasoltani/partojshid/internal/pkg/ratelimiter"
+	"github.com/go-playground/validator/v10"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"github.com/go-playground/validator/v10"
+	"github.com/swaggo/echo-swagger"
 )
 
 var validate *validator.Validate
@@ -34,6 +55,17 @@ func main() {
 	// Echo
 	e := echo.New()
 	e.Static("/uploads", "uploads")
+
+	// Swagger UI
+	e.GET("/swagger/*", echoSwagger.WrapHandler, func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			role := c.Get("role")
+			if role != "admin" {
+				return echo.NewHTTPError(404, "not found")
+			}
+			return next(c)
+		}
+	})
 
 	// Global middlewares
 	e.Use(middleware.RequestID())
@@ -59,46 +91,53 @@ func main() {
 	projectH := projecthandler.NewHandler()
 	userH := userhandler.NewHandler() // ← one instance, reused
 
-	// ================================================================
-	// PUBLIC PROJECT ROUTES
-	// ================================================================
+	// Public routes
 	public := e.Group("/api/projects")
+	// @tags Projects
 	public.GET("", projectH.List, rateLimits["global"])
+	// @tags Projects
 	public.GET("/:id", projectH.Get, rateLimits["global"])
 
-	// ================================================================
-	// EDITOR + ADMIN PROJECT ROUTES
-	// ================================================================
+	// Editor routes
 	editor := e.Group("/api/projects")
 	editor.Use(
 		middlewares.AuthJWT(),
 		middlewares.RequireEditorOrAdmin(),
 		rateLimits["write"],
 	)
+	// @tags Projects (Admin)
 	{
 		editor.POST("", projectH.Create)
+		// @tags Projects (Admin)
 		editor.PUT("/:id", projectH.Update)
+		// @tags Projects (Admin)
 		editor.DELETE("/:id", projectH.Delete)
-		editor.GET("", projectH.List) // ?editor=1 shows hidden
+		// @tags Projects (Admin)
+		editor.GET("", projectH.List)
+		// @tags Projects (Admin)
 		editor.GET("/:id", projectH.Get)
+		// @tags Projects (Admin)
 	}
 
-	// ================================================================
-	// ADMIN USER MANAGEMENT
-	// ================================================================
+	// Admin users
 	admin := e.Group("/api/users")
 	admin.Use(
 		middlewares.AuthJWT(),
 		middlewares.RequireRole("admin"),
 		rateLimits["write"],
 	)
+	// @tags Users (Admin)
 	{
-		// Re-use the same handler instance — all methods exist
 		admin.GET("", userH.List)
+		// @tags Users (Admin)
 		admin.GET("/:id", userH.Get)
+		// @tags Users (Admin)
 		admin.POST("", userH.Create)
+		// @tags Users (Admin)
 		admin.PUT("/:id", userH.Update)
+		// @tags Users (Admin)
 		admin.DELETE("/:id", userH.Delete)
+		// @tags Users (Admin)
 	}
 
 	// Start server
