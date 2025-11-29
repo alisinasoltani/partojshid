@@ -251,7 +251,7 @@ const main_page_json = {
   ],
   "licenses": {
     "title": "گواهینامه ها",
-    "pictures": [
+    "certificates": [
       {
         "id": "1",
         "title": "ISO 9003:2018",
@@ -399,10 +399,6 @@ export default function Home() {
 
   return (
     <>
-      {/* This is the loading screen. It's now *always* rendered,
-        so GSAP has a permanent target to animate.
-        It starts visible by default.
-      */}
       <div
         ref={loadingScreenRef}
         className="fixed inset-0 bg-black flex items-center justify-center z-200 overflow-hidden"
@@ -417,9 +413,6 @@ export default function Home() {
         />
       </div>
 
-      {/* This is your main page content.
-        We apply the visibility style here instead.
-      */}
       <div
         className="overflow-x-hidden bg-white"
         style={{ visibility: isLoading ? "hidden" : "visible" }}
@@ -476,7 +469,7 @@ export default function Home() {
           </div>
           <div className="bg-[linear-gradient(95deg,rgb(230,230,230)_-10%,rgb(250,250,250)_100%)]">
             <News />
-            <Licenses />
+            <Licenses input={main_page_json.licenses} />
           </div>
         </div>
         <Footer />
