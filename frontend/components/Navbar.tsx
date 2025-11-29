@@ -1,12 +1,9 @@
-// /components/Navbar.tsx
-
 "use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/app/favicon.ico";
-import { Menu } from "lucide-react"; // Import the menu icon
+import { Menu } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import {
@@ -22,8 +19,8 @@ import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
+  // DrawerDescription,
+  // DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
@@ -61,8 +58,29 @@ const ListItem = React.forwardRef<
 });
 ListItem.displayName = "ListItem";
 
+interface InputMenuItem {
+  title: string;
+  description: string;
+  url: string;
+}
+
+interface InputMenu {
+  title: string;
+  menu_items: InputMenuItem[];
+  url: string;
+}
+
+interface Input {
+  logo: string;
+  about: InputMenu;
+  activities: InputMenu;
+  projects: InputMenu;
+  lodge: InputMenu;
+  contact: InputMenu;
+}
+
 // Main Navbar Component
-export default function Navbar() {
+export default function Navbar({ input }: { input: Input }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Helper component for mobile nav links to auto-close the drawer
@@ -93,6 +111,7 @@ export default function Navbar() {
             onOpenChange={setMobileMenuOpen}
             direction="left" // Opens from the left
           >
+            <DrawerTitle></DrawerTitle>
             <DrawerTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-5 w-5" />
@@ -107,62 +126,109 @@ export default function Navbar() {
 
                 {/* Accordion for nested links */}
                 <Accordion type="single" collapsible className="w-full">
-                  {/* پروژه ها */}
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger>پروژه ها</AccordionTrigger>
-                    <AccordionContent className="pr-2">
-                      <MobileNavLink href="/projects/residential">
-                        پروژه‌های مسکونی
+                  {
+                    input.projects.menu_items.length ?
+                      <AccordionItem value="item-1">
+                        <AccordionTrigger>{input.projects.title}</AccordionTrigger>
+                        <AccordionContent className="pr-2">
+                          {
+                            input.projects.menu_items.map((project) => (
+                              <MobileNavLink href={project.url}>
+                                {project.title}
+                              </MobileNavLink>
+                            ))
+                          }
+                        </AccordionContent>
+                      </AccordionItem>
+                      :
+                      <MobileNavLink href={input.projects.url}>
+                        {input.projects.title}
                       </MobileNavLink>
-                      <MobileNavLink href="/projects/commercial">
-                        پروژه‌های تجاری
-                      </MobileNavLink>
-                      <MobileNavLink href="/projects/completed">
-                        پروژه‌های تکمیل شده
-                      </MobileNavLink>
-                      <MobileNavLink href="/projects/current">
-                        پروژه‌های در حال ساخت
-                      </MobileNavLink>
-                    </AccordionContent>
-                  </AccordionItem>
+                  }
 
                   {/* فعالیت ها */}
-                  <AccordionItem value="item-2">
-                    <AccordionTrigger>فعالیت ها</AccordionTrigger>
-                    <AccordionContent className="pr-2">
-                      <MobileNavLink href="/activities/construction">
-                        پیمانکاری و ساخت
+                  {
+                    input.activities.menu_items.length ?
+                      <AccordionItem value="item-2">
+                        <AccordionTrigger>{input.activities.title}</AccordionTrigger>
+                        <AccordionContent className="pr-2">
+                          {
+                            input.activities.menu_items.map((project) => (
+                              <MobileNavLink href={project.url}>
+                                {project.title}
+                              </MobileNavLink>
+                            ))
+                          }
+                        </AccordionContent>
+                      </AccordionItem>
+                      :
+                      <MobileNavLink href={input.activities.url}>
+                        {input.activities.title}
                       </MobileNavLink>
-                      <MobileNavLink href="/activities/management">
-                        مدیریت پیمان
-                      </MobileNavLink>
-                      <MobileNavLink href="/activities/consulting">
-                        مشاوره و طراحی
-                      </MobileNavLink>
-                      <MobileNavLink href="/activities/investment">
-                        سرمایه‌گذاری
-                      </MobileNavLink>
-                    </AccordionContent>
-                  </AccordionItem>
+                  }
 
                   {/* درباره ما */}
-                  <AccordionItem value="item-3">
-                    <AccordionTrigger>درباره ما</AccordionTrigger>
-                    <AccordionContent className="pr-2">
-                      <MobileNavLink href="/about/history">
-                        تاریخچه ما
+                  {
+                    input.about.menu_items.length ?
+                      <AccordionItem value="item-3">
+                        <AccordionTrigger>{input.about.title}</AccordionTrigger>
+                        <AccordionContent className="pr-2">
+                          {
+                            input.about.menu_items.map((project) => (
+                              <MobileNavLink href={project.url}>
+                                {project.title}
+                              </MobileNavLink>
+                            ))
+                          }
+                        </AccordionContent>
+                      </AccordionItem>
+                      :
+                      <MobileNavLink href={input.about.url}>
+                        {input.about.title}
                       </MobileNavLink>
-                      <MobileNavLink href="/about/team">تیم ما</MobileNavLink>
-                      <MobileNavLink href="/about/values">
-                        ارزش‌های ما
-                      </MobileNavLink>
-                    </AccordionContent>
-                  </AccordionItem>
+                  }
                 </Accordion>
 
                 {/* Simple Links */}
-                <MobileNavLink href="/group">گروه ساختمانی لژ</MobileNavLink>
-                <MobileNavLink href="/contact">تماس با ما</MobileNavLink>
+                {
+                  input.lodge.menu_items.length ?
+                    <AccordionItem value="item-4">
+                      <AccordionTrigger>{input.lodge.title}</AccordionTrigger>
+                      <AccordionContent className="pr-2">
+                        {
+                          input.lodge.menu_items.map((project) => (
+                            <MobileNavLink href={project.url}>
+                              {project.title}
+                            </MobileNavLink>
+                          ))
+                        }
+                      </AccordionContent>
+                    </AccordionItem>
+                    :
+                    <MobileNavLink href={input.lodge.url}>
+                      {input.lodge.title}
+                    </MobileNavLink>
+                }
+
+                {
+                  input.contact.menu_items.length ?
+                    <AccordionItem value="item-5">
+                      <AccordionTrigger>{input.contact.title}</AccordionTrigger>
+                      <AccordionContent className="pr-2">
+                        {
+                          input.contact.menu_items.map((project) => (
+                            <MobileNavLink href={project.url}>
+                              {project.title}
+                            </MobileNavLink>
+                          ))
+                        }
+                      </AccordionContent>
+                    </AccordionItem>
+                    :
+                    <MobileNavLink href={input.contact.url}>
+                      {input.contact.title}
+                    </MobileNavLink>
+                }
               </nav>
             </DrawerContent>
           </Drawer>
@@ -294,7 +360,7 @@ export default function Navbar() {
         {/* === Logo === */}
         <div className="flex items-center">
           <Link href="/">
-            <Image src={logo} alt="Logo" width={40} height={40} />
+            <Image src={input.logo} alt="Logo" width={40} height={40} />
           </Link>
         </div>
       </div>
