@@ -189,17 +189,17 @@ const main_page_json = {
     "stats": [
       {
         "name": "راه و ترابری",
-        "number": "5",
+        "number": 5,
         "url": "#"
       },
       {
         "name": "تاسیسات و تجهیزات",
-        "number": "5",
+        "number": 5,
         "url": "#"
       },
       {
         "name": "ساختمان و ابنیه",
-        "number": "2",
+        "number": 2,
         "url": "#"
       }
     ],
@@ -468,7 +468,7 @@ export default function Home() {
             <div className="bg-transparent w-full flex justify-center items-center -translate-y-12">
               <ProjectStats input={main_page_json.stats} />
             </div>
-            <Services />
+            <Services input={main_page_json.services} />
           </div>
           <div className="bg-[linear-gradient(135deg,rgb(230,230,230)_32%,rgb(250,250,250)_100%)]">
             <Lodge />
