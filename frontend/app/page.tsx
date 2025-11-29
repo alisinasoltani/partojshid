@@ -242,11 +242,11 @@ const main_page_json = {
   "lodge_projects": [
     {
       "name": "پروژه سرو",
-      "image": "images/lodge_sarv_project4.png"
+      "image": "/images/lodge_sarv_project4.png"
     },
     {
       "name": "پروژه لژ 1",
-      "image": "images/lodge_1_project.png"
+      "image": "/images/lodge_1_project.png"
     }
   ],
   "licenses": {
@@ -471,7 +471,7 @@ export default function Home() {
             <Services input={main_page_json.services} />
           </div>
           <div className="bg-[linear-gradient(135deg,rgb(230,230,230)_32%,rgb(250,250,250)_100%)]">
-            <Lodge />
+            <Lodge input={main_page_json.lodge} />
             <MainLodgeProjects />
           </div>
           <div className="bg-[linear-gradient(95deg,rgb(230,230,230)_-10%,rgb(250,250,250)_100%)]">
