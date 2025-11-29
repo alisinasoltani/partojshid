@@ -70,8 +70,8 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
               <motion.p className="mb-8 max-w-md lg:max-w-lg text-base text-muted-foreground irsans_med" variants={itemVariants}>
                 {description}
               </motion.p>
-              {subtitle.map((sub) => (
-                <motion.p className='mb-2 irsans_reg'>
+              {subtitle.map((sub, index) => (
+                <motion.p className='mb-2 irsans_reg' key={index}>
                   {sub}
                 </motion.p>
               ))}

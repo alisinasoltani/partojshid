@@ -16,284 +16,287 @@ import MainLodgeProjects from "@/components/MainLodgeProjects";
 import Image from "next/image";
 
 const main_page_json = {
-    "title": "پرتو جی شید",
-    "navbar": {
-        "logo": "/images/favicon.ico",
-        "about": {
-            "title": "درباره ما",
-            "menu_items": [
-                {
-                    "title": "در یک نگاه",
-                    "description": "",
-                    "url": "#"
-                },
-                {
-                    "title": "",
-                    "description": "تاریخچه",
-                    "url": "#"
-                },
-                {
-                    "title": "استراتژی",
-                    "description": "",
-                    "url": "#"
-                },
-                {
-                    "title": "مدیریت",
-                    "description": "",
-                    "url": "#"
-                }
-            ],
-            "url": ""
-        },
-        "activities": {
-            "title": "فعالیت ها",
-            "menu_items": [
-                {
-                    "title": "طراحی و اجرا",
-                    "description": "اجرای پروژه‌های ساختمانی از صفر تا صد.",
-                    "url": "#"
-                },
-                {
-                    "title": "پروژه های پیش فروش",
-                    "description": "پیش فروش پروژه های در حال ساخت گروه ساختمانی لژ.",
-                    "url": "#"
-                },
-                {
-                    "title": "پروژه های فعال",
-                    "description": "پرتو جی شید با فعالیت در زمینه های ابنیه و تاسیسات در حال ادامه فعالیت های خود می باشد.",
-                    "url": "#"
-                },
-                {
-                    "title": "مشارکت در ساخت",
-                    "description": "گروه ساختمانی لژ",
-                    "url": "#"
-                }
-            ],
-            "url": ""
-        },
-        "projects": {
-            "title": "پروژه ها",
-            "menu_items": [],
-            "url": ""
-        },
-        "lodge": {
-            "title": "کروه ساختمانی لژ",
-            "menu_items": [],
-            "url": ""
-        },
-        "contact": {
-            "title": "تماس با ما",
-            "menu_items": [],
-            "url": ""
-        }
-    },
+  "title": "پرتو جی شید",
+  "navbar": {
+    "logo": "/images/favicon.ico",
     "about": {
-        "title": "درباره ما",
-        "description": "شرکت مهندسی پرتو جی شید با بیش از 20 سال سابقه و با نیت خدمت و کمک به عمران و آبادانی کشور و با بکارگیری پرسنل مجرب و توانمند در زمینه پروژه های عمرانی با موضوع ابنیه ، تاسیسات ، راه و ترابری و آب و فاضلاب مشغول به فعالیت می باشد و در راستای اجرای سیستم مدیریت یکپارچه (IMS) و همچنین سیستم مدیریت کیفیت پروژه ISO 10006 اهداف خود را به ثمر می رساند.",
-        "subitle": [
-            "+20 سال فعالیت حرفه ای",
-            "+12 پروژه عمرانی تحویل شده با ارزش بیش 100 از میلیارد ریال در سطح کشور و استان اصفهان"
-        ],
-        "image": "/images/ejlas.jpg"
+      "title": "درباره ما",
+      "menu_items": [
+        {
+          "title": "در یک نگاه",
+          "description": "",
+          "url": "#"
+        },
+        {
+          "title": "",
+          "description": "تاریخچه",
+          "url": "#"
+        },
+        {
+          "title": "استراتژی",
+          "description": "",
+          "url": "#"
+        },
+        {
+          "title": "مدیریت",
+          "description": "",
+          "url": "#"
+        }
+      ],
+      "url": ""
+    },
+    "activities": {
+      "title": "فعالیت ها",
+      "menu_items": [
+        {
+          "title": "طراحی و اجرا",
+          "description": "اجرای پروژه‌های ساختمانی از صفر تا صد.",
+          "url": "#"
+        },
+        {
+          "title": "پروژه های پیش فروش",
+          "description": "پیش فروش پروژه های در حال ساخت گروه ساختمانی لژ.",
+          "url": "#"
+        },
+        {
+          "title": "پروژه های فعال",
+          "description": "پرتو جی شید با فعالیت در زمینه های ابنیه و تاسیسات در حال ادامه فعالیت های خود می باشد.",
+          "url": "#"
+        },
+        {
+          "title": "مشارکت در ساخت",
+          "description": "گروه ساختمانی لژ",
+          "url": "#"
+        }
+      ],
+      "url": ""
     },
     "projects": {
-        "row1": [
-            {
-                "name": "مرکز همایش های بین المللی اصفهان",
-                "projectUrl": "projects/ejlas",
-                "imageUrl": "./images/projects/ejlas/ejlas10.jpg"
-            },
-            {
-                "name": "مرکز همایش های بین المللی اصفهان",
-                "projectUrl": "projects/ejlas",
-                "imageUrl": "./images/Slide7.jpg"
-            },
-            {
-                "name": "مرکز همایش های بین المللی اصفهان",
-                "projectUrl": "projects/ejlas",
-                "imageUrl": "./images/projects/ejlas/ejlas11.jpg"
-            },
-            {
-                "name": "مرکز همایش های بین المللی اصفهان",
-                "projectUrl": "projects/ejlas",
-                "imageUrl": "./images/Slide6.jpg"
-            },
-            {
-                "name": "مرکز همایش های بین المللی اصفهان",
-                "projectUrl": "projects/ejlas",
-                "imageUrl": "./images/Slide16.jpg"
-            }
-        ],
-        "row2": [
-            {
-                "name": "استخر دانشگاه علوم پزشکی",
-                "projectUrl": "#",
-                "imageUrl": "./images/projects/pool/pool_11.jpg"
-            },
-            {
-                "name": "مجموعه فرهنگی حسین آباد",
-                "projectUrl": "#",
-                "imageUrl": "./images/projects/culture/culture_2.jpg"
-            },
-            {
-                "name": "پروژه کوثر 2",
-                "projectUrl": "#",
-                "imageUrl": "./images/projects/kousar2/kousar_4.jpg"
-            },
-            {
-                "name": "مرکز رشد و فناوری دانشگاه صنعتی",
-                "projectUrl": "#",
-                "imageUrl": "./images/projects/grTech/GrTech_4.jpg"
-            },
-            {
-                "name": "کوثر 2",
-                "projectUrl": "#",
-                "imageUrl": "./images/slide20.png"
-            }
-        ],
-        "row3": [
-            {
-                "name": "مجموعه فرهنگی حسین آباد",
-                "projectUrl": "#",
-                "imageUrl": "./images/Slide1.jpg"
-            },
-            {
-                "name": "مرکز رشد و فناوری دانشگاه صنعتی",
-                "projectUrl": "#",
-                "imageUrl": "./images/projects/grTech/GrTech_1.jpg"
-            },
-            {
-                "name": "استخر دانشگاه علوم پزشکی",
-                "projectUrl": "#",
-                "imageUrl": "./images/Slide12.jpg"
-            },
-            {
-                "name": "زمین ورزشی غرب",
-                "projectUrl": "#",
-                "imageUrl": "./images/projects/sportsField/4.jpg"
-            },
-            {
-                "name": "مجموعه فرهنگی حسین آباد",
-                "projectUrl": "#",
-                "imageUrl": "./images/Slide1.jpg"
-            },
-            {
-                "name": "کوثر 2",
-                "projectUrl": "#",
-                "imageUrl": "./images/slide20.png"
-            }
-        ]
+      "title": "پروژه ها",
+      "menu_items": [],
+      "url": ""
     },
-    "stats": [
-        {
-            "name": "راه و ترابری",
-            "number": "5",
-            "url": "#"
-        },
-        {
-            "name": "تاسیسات و تجهیزات",
-            "number": "5",
-            "url": "#"
-        },
-        {
-            "name": "ساختمان و ابنیه",
-            "number": "2",
-            "url": "#"
-        }
-    ],
-    "services": [
-        {
-            "id": 1,
-            "title": "طراحی و اجرا",
-            "videoUrl": "/videos/design.mp4",
-            "initialGrow": 1,
-            "finalGrow": 1
-        },
-        {
-            "id": 2,
-            "title": "مشارکت در ساخت",
-            "videoUrl": "/videos/construction.mp4",
-            "initialGrow": 1,
-            "finalGrow": 2
-        },
-        {
-            "id": 3,
-            "title": "پروژه های پیش فروش",
-            "videoUrl": "/videos/presale.mp4",
-            "initialGrow": 1,
-            "finalGrow": 2
-        },
-        {
-            "id": 4,
-            "title": "پروژه های فعال",
-            "videoUrl": "/videos/active.mp4",
-            "initialGrow": 1,
-            "finalGrow": 1
-        }
-    ],
     "lodge": {
-        "title": "گروه ساختمانی لژ",
-        "description": "مشارکت در ساخت، ساخت و اجرا، سرمایه گذاری و ...  \n بیش از ۲۰ سال سابقه \n از طراحی تا اجرا",
-        "lodge_logo": "images/Lodge.png"
+      "title": "کروه ساختمانی لژ",
+      "menu_items": [],
+      "url": ""
     },
-    "lodge_projects": [
-        {
-            "name": "پروژه سرو",
-            "image": "images/lodge_sarv_project4.png"
-        },
-        {
-            "name": "پروژه لژ 1",
-            "image": "images/lodge_1_project.png"
-        }
-    ],
-    "licenses": {
-        "title": "گواهینامه ها",
-        "pictures": [
-            {
-                "id": "1",
-                "title": "ISO 9003:2018",
-                "logo": "iao-9001.png"
-            },
-            {
-                "id": "2",
-                "title": "ISO 9003:2018",
-                "logo": "iso-9003.png"
-            },
-            {
-                "id": "3",
-                "title": "ISO 9003:2018",
-                "logo": "iso-14001.png"
-            },
-            {
-                "id": "4",
-                "title": "ISO 9003:2018",
-                "logo": "iso-22000.png"
-            },
-            {
-                "id": "5",
-                "title": "ISO 9003:2018",
-                "logo": "iao-9001.png"
-            },
-            {
-                "id": "6",
-                "title": "ISO 9003:2018",
-                "logo": "iso-9003.png"
-            }
-        ]
-    },
-    "footer": {
-        "title": "شرکت پرتو جی شید (سهامی خاص)",
-        "contact": {
-            "title": "تماس با ما",
-            "address": "خیابان چهارباغ بالا شریعتی شرقی رو به روی بانک آینده ساختمان الماس طبقه ۳ واحد ۱۲",
-            "cellphone": "09013682870",
-            "phone": "03136286668",
-            "email": "pjs.civil@gmail.com",
-            "instagram": "https://instagram.com",
-            "whatsapp": "images/whatsapp.jpg",
-            "telegram": "https://t.me/Pjs_co"
-        }
+    "contact": {
+      "title": "تماس با ما",
+      "menu_items": [],
+      "url": ""
     }
+  },
+  "about": {
+    "title": "درباره ما",
+    "description": "شرکت مهندسی پرتو جی شید با بیش از 20 سال سابقه و با نیت خدمت و کمک به عمران و آبادانی کشور و با بکارگیری پرسنل مجرب و توانمند در زمینه پروژه های عمرانی با موضوع ابنیه ، تاسیسات ، راه و ترابری و آب و فاضلاب مشغول به فعالیت می باشد و در راستای اجرای سیستم مدیریت یکپارچه (IMS) و همچنین سیستم مدیریت کیفیت پروژه ISO 10006 اهداف خود را به ثمر می رساند.",
+    "subitle": [
+      "+20 سال فعالیت حرفه ای",
+      "+12 پروژه عمرانی تحویل شده با ارزش بیش 100 از میلیارد ریال در سطح کشور و استان اصفهان"
+    ],
+    "image": "/images/ejlas.jpg"
+  },
+  "projects": {
+    "row1": [
+      {
+        "name": "مرکز همایش های بین المللی اصفهان",
+        "projectUrl": "projects/ejlas",
+        "imageUrl": "./images/projects/ejlas/ejlas10.jpg"
+      },
+      {
+        "name": "مرکز همایش های بین المللی اصفهان",
+        "projectUrl": "projects/ejlas",
+        "imageUrl": "./images/Slide7.jpg"
+      },
+      {
+        "name": "مرکز همایش های بین المللی اصفهان",
+        "projectUrl": "projects/ejlas",
+        "imageUrl": "./images/projects/ejlas/ejlas11.jpg"
+      },
+      {
+        "name": "مرکز همایش های بین المللی اصفهان",
+        "projectUrl": "projects/ejlas",
+        "imageUrl": "./images/Slide6.jpg"
+      },
+      {
+        "name": "مرکز همایش های بین المللی اصفهان",
+        "projectUrl": "projects/ejlas",
+        "imageUrl": "./images/Slide16.jpg"
+      }
+    ],
+    "row2": [
+      {
+        "name": "استخر دانشگاه علوم پزشکی",
+        "projectUrl": "#",
+        "imageUrl": "./images/projects/pool/pool_11.jpg"
+      },
+      {
+        "name": "مجموعه فرهنگی حسین آباد",
+        "projectUrl": "#",
+        "imageUrl": "./images/projects/culture/culture_2.jpg"
+      },
+      {
+        "name": "پروژه کوثر 2",
+        "projectUrl": "#",
+        "imageUrl": "./images/projects/kousar2/kousar_4.jpg"
+      },
+      {
+        "name": "مرکز رشد و فناوری دانشگاه صنعتی",
+        "projectUrl": "#",
+        "imageUrl": "./images/projects/grTech/GrTech_4.jpg"
+      },
+      {
+        "name": "کوثر 2",
+        "projectUrl": "#",
+        "imageUrl": "./images/slide20.png"
+      }
+    ],
+    "row3": [
+      {
+        "name": "مجموعه فرهنگی حسین آباد",
+        "projectUrl": "#",
+        "imageUrl": "./images/Slide1.jpg"
+      },
+      {
+        "name": "مرکز رشد و فناوری دانشگاه صنعتی",
+        "projectUrl": "#",
+        "imageUrl": "./images/projects/grTech/GrTech_1.jpg"
+      },
+      {
+        "name": "استخر دانشگاه علوم پزشکی",
+        "projectUrl": "#",
+        "imageUrl": "./images/Slide12.jpg"
+      },
+      {
+        "name": "زمین ورزشی غرب",
+        "projectUrl": "#",
+        "imageUrl": "./images/projects/sportsField/4.jpg"
+      },
+      {
+        "name": "مجموعه فرهنگی حسین آباد",
+        "projectUrl": "#",
+        "imageUrl": "./images/Slide1.jpg"
+      },
+      {
+        "name": "کوثر 2",
+        "projectUrl": "#",
+        "imageUrl": "./images/slide20.png"
+      }
+    ]
+  },
+  "stats": {
+    "title": "پروژه ها",
+    "stats": [
+      {
+        "name": "راه و ترابری",
+        "number": "5",
+        "url": "#"
+      },
+      {
+        "name": "تاسیسات و تجهیزات",
+        "number": "5",
+        "url": "#"
+      },
+      {
+        "name": "ساختمان و ابنیه",
+        "number": "2",
+        "url": "#"
+      }
+    ],
+  },
+  "services": [
+    {
+      "id": 1,
+      "title": "طراحی و اجرا",
+      "videoUrl": "/videos/design.mp4",
+      "initialGrow": 1,
+      "finalGrow": 1
+    },
+    {
+      "id": 2,
+      "title": "مشارکت در ساخت",
+      "videoUrl": "/videos/construction.mp4",
+      "initialGrow": 1,
+      "finalGrow": 2
+    },
+    {
+      "id": 3,
+      "title": "پروژه های پیش فروش",
+      "videoUrl": "/videos/presale.mp4",
+      "initialGrow": 1,
+      "finalGrow": 2
+    },
+    {
+      "id": 4,
+      "title": "پروژه های فعال",
+      "videoUrl": "/videos/active.mp4",
+      "initialGrow": 1,
+      "finalGrow": 1
+    }
+  ],
+  "lodge": {
+    "title": "گروه ساختمانی لژ",
+    "description": "مشارکت در ساخت، ساخت و اجرا، سرمایه گذاری و ...  \n بیش از ۲۰ سال سابقه \n از طراحی تا اجرا",
+    "lodge_logo": "images/Lodge.png"
+  },
+  "lodge_projects": [
+    {
+      "name": "پروژه سرو",
+      "image": "images/lodge_sarv_project4.png"
+    },
+    {
+      "name": "پروژه لژ 1",
+      "image": "images/lodge_1_project.png"
+    }
+  ],
+  "licenses": {
+    "title": "گواهینامه ها",
+    "pictures": [
+      {
+        "id": "1",
+        "title": "ISO 9003:2018",
+        "logo": "iao-9001.png"
+      },
+      {
+        "id": "2",
+        "title": "ISO 9003:2018",
+        "logo": "iso-9003.png"
+      },
+      {
+        "id": "3",
+        "title": "ISO 9003:2018",
+        "logo": "iso-14001.png"
+      },
+      {
+        "id": "4",
+        "title": "ISO 9003:2018",
+        "logo": "iso-22000.png"
+      },
+      {
+        "id": "5",
+        "title": "ISO 9003:2018",
+        "logo": "iao-9001.png"
+      },
+      {
+        "id": "6",
+        "title": "ISO 9003:2018",
+        "logo": "iso-9003.png"
+      }
+    ]
+  },
+  "footer": {
+    "title": "شرکت پرتو جی شید (سهامی خاص)",
+    "contact": {
+      "title": "تماس با ما",
+      "address": "خیابان چهارباغ بالا شریعتی شرقی رو به روی بانک آینده ساختمان الماس طبقه ۳ واحد ۱۲",
+      "cellphone": "09013682870",
+      "phone": "03136286668",
+      "email": "pjs.civil@gmail.com",
+      "instagram": "https://instagram.com",
+      "whatsapp": "images/whatsapp.jpg",
+      "telegram": "https://t.me/Pjs_co"
+    }
+  }
 };
 
 export default function Home() {
@@ -460,10 +463,10 @@ export default function Home() {
             />
           </div>
           <HeroSectionDemo input={main_page_json.about} />
-          <Slider />
+          <Slider input={main_page_json.projects} />
           <div className="bg-[linear-gradient(35deg,rgb(230,230,230)_35%,rgb(250,250,250)_72%,rgb(255,255,255)_100%)]">
             <div className="bg-transparent w-full flex justify-center items-center -translate-y-12">
-              <ProjectStats />
+              <ProjectStats input={main_page_json.stats} />
             </div>
             <Services />
           </div>

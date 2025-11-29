@@ -5,126 +5,22 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Slider() {
-  const row1Ref = useRef(null);
-  const row2Ref = useRef(null);
-  const row3Ref = useRef(null);
+interface Project {
+  name: String;
+  projectUrl: String;
+  imageUrl: String;
+}
 
-  // const images = [
-  //   { name: "پروژه سرو", projectUrl: "#", imageUrl: "./images/Slide1.jpg" },
-  //   {
-  //     name: "استخر دانشگاه علوم پزشکی",
-  //     projectUrl: "#",
-  //     imageUrl: "./images/Slide10.jpg",
-  //   },
-  //   {
-  //     name: "مرکز همایش های بین المللی اصفهان",
-  //     projectUrl: "#",
-  //     imageUrl: "./images/Slide11.jpg",
-  //   },
-  //   {
-  //     name: "استخر دانشگاه علوم پزشکی",
-  //     projectUrl: "#",
-  //     imageUrl: "./images/Slide12.jpg",
-  //   },
-  //   {
-  //     name: "استخر دانشگاه علوم پزشکی",
-  //     projectUrl: "#",
-  //     imageUrl: "./images/Slide13.jpg",
-  //   },
-  //   {
-  //     name: "مرکز همایش های بین المللی اصفهان",
-  //     projectUrl: "#",
-  //     imageUrl: "./images/Slide14.jpg",
-  //   },
-  //   {
-  //     name: "مرکز همایش های بین المللی اصفهان",
-  //     projectUrl: "#",
-  //     imageUrl: "./images/Slide16.jpg",
-  //   },
-  //   { name: "کوثر 2", projectUrl: "#", imageUrl: "./images/slide20.png" },
-  // ];
+interface Input {
+  row1: Project[];
+  row2: Project[];
+  row3: Project[];
+}
 
-  const row1_images = [
-    {
-      name: "مرکز همایش های بین المللی اصفهان",
-      projectUrl: "projects/ejlas",
-      imageUrl: "./images/projects/ejlas/ejlas10.jpg",
-    },
-    {
-      name: "مرکز همایش های بین المللی اصفهان",
-      projectUrl: "projects/ejlas",
-      imageUrl: "./images/Slide7.jpg",
-    },
-    {
-      name: "مرکز همایش های بین المللی اصفهان",
-      projectUrl: "projects/ejlas",
-      imageUrl: "./images/projects/ejlas/ejlas11.jpg",
-    },
-    {
-      name: "مرکز همایش های بین المللی اصفهان",
-      projectUrl: "projects/ejlas",
-      imageUrl: "./images/Slide6.jpg",
-    },
-    {
-      name: "مرکز همایش های بین المللی اصفهان",
-      projectUrl: "projects/ejlas",
-      imageUrl: "./images/Slide16.jpg",
-    },
-  ];
-
-  const row2_images = [
-    {
-      name: "استخر دانشگاه علوم پزشکی",
-      projectUrl: "#",
-      imageUrl: "./images/projects/pool/pool_11.jpg",
-    },
-    {
-      name: "مجموعه فرهنگی حسین آباد",
-      projectUrl: "#",
-      imageUrl: "./images/projects/culture/culture_2.jpg",
-    },
-    {
-      name: "پروژه کوثر 2",
-      projectUrl: "#",
-      imageUrl: "./images/projects/kousar2/kousar_4.jpg",
-    },
-    {
-      name: "مرکز رشد و فناوری دانشگاه صنعتی",
-      projectUrl: "#",
-      imageUrl: "./images/projects/grTech/GrTech_4.jpg",
-    },
-    { name: "کوثر 2", projectUrl: "#", imageUrl: "./images/slide20.png" },
-  ];
-
-  const row3_images = [
-    {
-      name: "مجموعه فرهنگی حسین آباد",
-      projectUrl: "#",
-      imageUrl: "./images/Slide1.jpg",
-    },
-    {
-      name: "مرکز رشد و فناوری دانشگاه صنعتی",
-      projectUrl: "#",
-      imageUrl: "./images/projects/grTech/GrTech_1.jpg",
-    },
-    {
-      name: "استخر دانشگاه علوم پزشکی",
-      projectUrl: "#",
-      imageUrl: "./images/Slide12.jpg",
-    },
-    {
-      name: "زمین ورزشی غرب",
-      projectUrl: "#",
-      imageUrl: "./images/projects/sportsField/4.jpg",
-    },
-    {
-      name: "مجموعه فرهنگی حسین آباد",
-      projectUrl: "#",
-      imageUrl: "./images/Slide1.jpg",
-    },
-    { name: "کوثر 2", projectUrl: "#", imageUrl: "./images/slide20.png" },
-  ];
+export default function Slider({ input }: { input: Input }) {
+  const row1Ref = useRef<HTMLDivElement>(null);
+  const row2Ref = useRef<HTMLDivElement>(null);
+  const row3Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
@@ -136,7 +32,7 @@ export default function Slider() {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const animateRow = (rowRef, direction) => {
+    const animateRow = (rowRef: any, direction: any) => {
       const row = rowRef.current;
       if (!row) return;
 
@@ -151,7 +47,7 @@ export default function Slider() {
       }
 
       const existingClones = row.querySelectorAll(".cloned-content");
-      existingClones.forEach((clone) => clone.remove());
+      existingClones.forEach((clone: any) => clone.remove());
 
       const numClones = 4;
       for (let i = 0; i < numClones; i++) {
@@ -210,10 +106,10 @@ export default function Slider() {
     };
   }, []);
 
-  const CarouselItem = ({ src, alt }) => {
+  const CarouselItem = ({ src , alt }: { src: any , alt: any }) => {
     const nameRef = useRef(null);
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: any) => {
       const itemRect = e.currentTarget.getBoundingClientRect();
       const centerX = itemRect.left + itemRect.width / 2;
       const centerY = itemRect.top + itemRect.height / 2;
@@ -252,11 +148,6 @@ export default function Slider() {
           src={src.imageUrl}
           alt={src.name}
           className="w-full h-full object-cover"
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src =
-              "https://placehold.co/300x200/cccccc/white?text=Error";
-          }}
         />
         <span className="absolute inset-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)] text-white text-xl group-hover:opacity-100 opacity-0 transition-opacity duration-300 rounded-lg">
           <span
@@ -282,7 +173,7 @@ export default function Slider() {
           className="flex flex-row items-center whitespace-nowrap will-change-transform"
         >
           <div className="carousel-content-container flex">
-            {row1_images.map((src, index) => (
+            {input.row1.map((src, index) => (
               <CarouselItem
                 key={`row1-${index}`}
                 src={src}
@@ -299,7 +190,7 @@ export default function Slider() {
           className="flex flex-row-reverse items-center whitespace-nowrap will-change-transform"
         >
           <div className="carousel-content-container flex">
-            {row2_images.map((src, index) => (
+            {input.row2.map((src: any, index: any) => (
               <CarouselItem
                 key={`row2-${index}`}
                 src={src}
@@ -316,7 +207,7 @@ export default function Slider() {
           className="flex flex-row items-center whitespace-nowrap will-change-transform"
         >
           <div className="carousel-content-container flex">
-            {row3_images.map((src, index) => (
+            {input.row3.map((src: any, index: any) => (
               <CarouselItem
                 key={`row3-${index}`}
                 src={src}
