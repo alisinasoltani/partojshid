@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function DemoOne() {
+export default function DemoOne({ title }: { title: string }) {
   const containerRef = useRef(null);
   const contentRef = useRef(null);
 
@@ -54,7 +54,7 @@ export default function DemoOne() {
           className="mt-16 rounded-4xl w-[92vw] h-[88vh] overflow-hidden flex flex-col items-center justify-center relative shadow-md will-change-transform z-10"
         >
           <SyntheticHero
-            title="پرتو جی شید"
+            title={title}
             description=""
           />
           {/* Parto Jeyshid */}

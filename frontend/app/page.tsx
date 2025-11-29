@@ -448,7 +448,7 @@ export default function Home() {
           </svg>
         </div>
         <Navbar input={main_page_json.navbar} />
-        <DemoOne />
+        <DemoOne title={main_page_json.title} />
         <div className="relative">
           <div className="absolute inset-0 z-0">
             <Image
@@ -459,7 +459,7 @@ export default function Home() {
               priority={true}
             />
           </div>
-          <HeroSectionDemo />
+          <HeroSectionDemo input={main_page_json.about} />
           <Slider />
           <div className="bg-[linear-gradient(35deg,rgb(230,230,230)_35%,rgb(250,250,250)_72%,rgb(255,255,255)_100%)]">
             <div className="bg-transparent w-full flex justify-center items-center -translate-y-12">
