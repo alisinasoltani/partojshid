@@ -9,14 +9,28 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import whatsappQRCode from "@/public/images/whatsapp.jpg";
+// import whatsappQRCode from "@/public/images/whatsapp.jpg";
 
-export const Footer = () => {
+interface Input {
+  title: string,
+  contact: {
+    title: string,
+    address: string,
+    cellphone: string,
+    phone: string,
+    email: string,
+    instagram: string,
+    whatsapp: string,
+    telegram: string
+  }
+}
+
+export const Footer = ({ input }: { input: Input }) => {
   return (
     <div className="bg-[#050730] text-white p-8 md:p-12 irsans_reg" dir="rtl">
       {/* Component Title */}
       <h1 className="text-3xl irsans_med text-right mb-10 text-gray-100">
-        شرکت پرتو جی شید (سهامی خاص)
+        {input.title}
       </h1>
 
       {/* Main Grid Layout */}
@@ -25,33 +39,33 @@ export const Footer = () => {
         {/* === Column 1: Contact Info === */}
         <div className="flex flex-col border-0 md:border-l-2 border-[#5E55FF] pl-2" id="contact">
           <h2 className="text-2xl irsans_med mb-5 inline-block">
-            تماس با ما
+            {input.contact.title}
           </h2>
           <ul className="space-y-4 text-gray-200">
             <li className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-white mt-1 shrink-0" aria-label="آدرس" />
               <span>
-                خیابان چهارباغ بالا شریعتی شرقی رو به روی بانک آینده ساختمان الماس طبقه ۳ واحد ۱۲
+                {input.contact.address}
               </span>
             </li>
             <li className="flex items-center gap-3">
               <Smartphone className="w-5 h-5 text-white shrink-0" aria-label="موبایل" />
-              <span>09013682870</span>
+              <span>{input.contact.cellphone}</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-white shrink-0" aria-label="تلفن" />
-              <span>03136286668</span>
+              <span>{input.contact.phone}</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-white shrink-0" aria-label="ایمیل" />
-              <span>pjs.civil@gmail.com</span>
+              <span>{input.contact.email}</span>
             </li>
           </ul>
 
           {/* Instagram Button */}
           <div className='flex gap-2'>
             <a
-              href="https://www.instagram.com"
+              href={input.contact.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="md:max-w-36 mt-6 inline-flex items-center justify-center gap-2 bg-linear-to-r from-purple-600 via-pink-600 to-orange-500 text-white px-5 py-2.5 rounded-lg font-medium transition-transform hover:scale-105 sm:w-auto"
@@ -62,9 +76,7 @@ export const Footer = () => {
             <Dialog>
               <DialogTrigger asChild>
                 {/* This is your original link, converted to a button to trigger the modal */}
-                <button
-                  className="md:max-w-36 cursor-pointer mt-6 inline-flex items-center justify-center gap-2 bg-linear-to-r from-[#25D366] via-[#128c7e] to-[#075e74] text-white px-5 py-2.5 rounded-lg font-medium transition-transform hover:scale-105 sm:w-auto"
-                >
+                <button className="md:max-w-36 cursor-pointer mt-6 inline-flex items-center justify-center gap-2 bg-linear-to-r from-[#25D366] via-[#128c7e] to-[#075e74] text-white px-5 py-2.5 rounded-lg font-medium transition-transform hover:scale-105 sm:w-auto">
                   <FaWhatsapp className="w-4 h-4 md:w-5 md:h-5 flex justify-center items-center pb-0.5" />
                   <span className='text-[14px] flex justify-center items-center h-full'>Whatsapp</span>
                 </button>
@@ -77,8 +89,8 @@ export const Footer = () => {
 
                 {/* The image you requested inside the modal */}
                 <div className="mt-4">
-                  <Image
-                    src={whatsappQRCode}
+                  <img
+                    src={input.contact.whatsapp}
                     alt="Jeyshid Whatsapp"
                     width={500}
                     className="rounded-md object-cover w-full"
@@ -87,7 +99,7 @@ export const Footer = () => {
               </DialogContent>
             </Dialog>
             <a
-              href="https://t.me/Pjs_co"
+              href={input.contact.telegram}
               target="_blank"
               rel="noopener noreferrer"
               className="md:max-w-36 mt-6 inline-flex items-center justify-center gap-2 bg-linear-to-r from-[#37AFE2] to-[#1B92D1] text-white px-5 py-2.5 rounded-lg font-medium transition-transform hover:scale-105 sm:w-auto"

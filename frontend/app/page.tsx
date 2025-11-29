@@ -293,7 +293,7 @@ const main_page_json = {
       "phone": "03136286668",
       "email": "pjs.civil@gmail.com",
       "instagram": "https://instagram.com",
-      "whatsapp": "images/whatsapp.jpg",
+      "whatsapp": "/images/whatsapp.jpg",
       "telegram": "https://t.me/Pjs_co"
     }
   }
@@ -308,40 +308,28 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Promise 1: The minimum display time (3 seconds)
     const minTimePromise = new Promise<void>((resolve) => {
       setTimeout(resolve, 4000);
     });
 
-    // Promise 2: The content (fonts, window.load) is ready
     const contentLoadPromise = new Promise<void>((resolve) => {
       const handleLoad = () => resolve();
 
-      // Use document.fonts.ready for fonts
       const checkFonts = () => {
         document.fonts.ready.then(handleLoad).catch(handleLoad);
       };
 
-      // Check if the page is already loaded
       if (document.readyState === "complete") {
         checkFonts();
       } else {
-        // Wait for the window to load all initial assets
         window.addEventListener("load", checkFonts, { once: true });
       }
     });
 
-    // Wait for BOTH promises to resolve
     Promise.all([minTimePromise, contentLoadPromise]).then(() => {
-      // Both the 3-second timer and the content loading are done
       setIsLoading(false);
     });
-
-    // No cleanup function is strictly needed here because
-    // the 'load' event is { once: true } and the promises
-    // will only resolve once.
-
-  }, []); // Empty array ensures this runs only once on mount
+  }, []);
 
   useEffect(() => {
     const minTimePromise = new Promise<void>((resolve) => {
@@ -367,15 +355,14 @@ export default function Home() {
 
   useEffect(() => {
     if (!isLoading) {
-      // Animate the loading screen out
       gsap.to(loadingScreenRef.current, {
         opacity: 0,
-        duration: 0.5, // Animation duration in seconds
+        duration: 0.5,
         ease: "power2.inOut",
-        pointerEvents: "none", // Makes the div non-interactive after animating
+        pointerEvents: "none",
       });
     }
-  }, [isLoading]); // This effect runs whenever 'isLoading' changes
+  }, [isLoading]);
 
   useEffect(() => {
     if (isLoading) return;
@@ -472,7 +459,7 @@ export default function Home() {
             <Licenses input={main_page_json.licenses} />
           </div>
         </div>
-        <Footer />
+        <Footer input={main_page_json.footer} />
       </div>
     </>
   );
