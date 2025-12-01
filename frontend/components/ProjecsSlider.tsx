@@ -12,9 +12,9 @@ interface Project {
 }
 
 interface Input {
-  row1: Project[];
-  row2: Project[];
-  row3: Project[];
+  row1?: Project[];
+  row2?: Project[];
+  row3?: Project[];
 }
 
 export default function Slider({ input }: { input: Input }) {
@@ -184,7 +184,7 @@ export default function Slider({ input }: { input: Input }) {
         </div>
       </div>
 
-      <div className="w-full overflow-hidden mb-2">
+      {/* <div className="w-full overflow-hidden mb-2">
         <div
           ref={row2Ref}
           className="flex flex-row-reverse items-center whitespace-nowrap will-change-transform"
@@ -199,7 +199,7 @@ export default function Slider({ input }: { input: Input }) {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="w-full overflow-hidden">
         <div

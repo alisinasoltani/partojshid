@@ -2,7 +2,7 @@ import Image from "next/image";
 import lodge_projects_icon from "@/public/icons/lodge_projects_icon.svg";
 import lodge_licenses_icon from "@/public/icons/lodge_licenses_icon.svg";
 import lodge_connect_icon from "@/public/icons/lodge_connect_icon.svg";
-import lodge_logo from "@/public/images/Lodge.png";
+import lodge_logo from "@/public/icons/lodge_logo.svg";
 import Link from "next/link";
 
 interface Input {

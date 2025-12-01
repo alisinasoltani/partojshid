@@ -94,98 +94,98 @@ const main_page_json = {
       "+20 سال فعالیت حرفه ای",
       "+12 پروژه عمرانی تحویل شده با ارزش بیش 100 از میلیارد ریال در سطح کشور و استان اصفهان"
     ],
-    "image": "/images/ejlas.jpg"
+    "image": "/images/ejlas.avif"
   },
   "projects": {
     "row1": [
       {
         "name": "مرکز همایش های بین المللی اصفهان",
         "projectUrl": "projects/ejlas",
-        "imageUrl": "./images/projects/ejlas/ejlas10.jpg"
+        "imageUrl": "./images/projects/ejlas/ejlas10.avif"
       },
       {
         "name": "مرکز همایش های بین المللی اصفهان",
         "projectUrl": "projects/ejlas",
-        "imageUrl": "./images/Slide7.jpg"
+        "imageUrl": "./images/Slide7.avif"
       },
       {
         "name": "مرکز همایش های بین المللی اصفهان",
         "projectUrl": "projects/ejlas",
-        "imageUrl": "./images/projects/ejlas/ejlas11.jpg"
+        "imageUrl": "./images/projects/ejlas/ejlas11.avif"
       },
       {
         "name": "مرکز همایش های بین المللی اصفهان",
         "projectUrl": "projects/ejlas",
-        "imageUrl": "./images/Slide6.jpg"
+        "imageUrl": "./images/Slide6.avif"
       },
       {
         "name": "مرکز همایش های بین المللی اصفهان",
         "projectUrl": "projects/ejlas",
-        "imageUrl": "./images/Slide16.jpg"
+        "imageUrl": "./images/Slide16.avif"
       }
     ],
-    "row2": [
-      {
-        "name": "استخر دانشگاه علوم پزشکی",
-        "projectUrl": "#",
-        "imageUrl": "./images/projects/pool/pool_11.jpg"
-      },
-      {
-        "name": "مجموعه فرهنگی حسین آباد",
-        "projectUrl": "#",
-        "imageUrl": "./images/projects/culture/culture_2.jpg"
-      },
-      {
-        "name": "پروژه کوثر 2",
-        "projectUrl": "#",
-        "imageUrl": "./images/projects/kousar2/kousar_4.jpg"
-      },
-      {
-        "name": "مرکز رشد و فناوری دانشگاه صنعتی",
-        "projectUrl": "#",
-        "imageUrl": "./images/projects/grTech/GrTech_4.jpg"
-      },
-      {
-        "name": "کوثر 2",
-        "projectUrl": "#",
-        "imageUrl": "./images/slide20.png"
-      }
-    ],
+    // "row2": [
+    //   {
+    //     "name": "استخر دانشگاه علوم پزشکی",
+    //     "projectUrl": "#",
+    //     "imageUrl": "./images/projects/pool/pool_4.avif"
+    //   },
+    //   {
+    //     "name": "مجموعه فرهنگی حسین آباد",
+    //     "projectUrl": "#",
+    //     "imageUrl": "./images/projects/culture/culture_2.avif"
+    //   },
+    //   {
+    //     "name": "پروژه کوثر 2",
+    //     "projectUrl": "#",
+    //     "imageUrl": "./images/projects/kousar2/kousar_8.avif"
+    //   },
+    //   {
+    //     "name": "مرکز رشد و فناوری دانشگاه صنعتی",
+    //     "projectUrl": "#",
+    //     "imageUrl": "./images/projects/grTech/GrTech_4.avif"
+    //   },
+    //   {
+    //     "name": "کوثر 2",
+    //     "projectUrl": "#",
+    //     "imageUrl": "./images/slide20.avif"
+    //   }
+    // ],
     "row3": [
       {
         "name": "مجموعه فرهنگی حسین آباد",
         "projectUrl": "#",
-        "imageUrl": "./images/Slide1.jpg"
+        "imageUrl": "./images/Slide1.avif"
       },
       {
         "name": "مرکز رشد و فناوری دانشگاه صنعتی",
         "projectUrl": "#",
-        "imageUrl": "./images/projects/grTech/GrTech_1.jpg"
+        "imageUrl": "./images/projects/grTech/GrTech_1.avif"
       },
       {
         "name": "استخر دانشگاه علوم پزشکی",
         "projectUrl": "#",
-        "imageUrl": "./images/Slide12.jpg"
-      },
-      {
-        "name": "زمین ورزشی غرب",
-        "projectUrl": "#",
-        "imageUrl": "./images/projects/sportsField/4.jpg"
+        "imageUrl": "./images/Slide12.avif"
       },
       {
         "name": "مجموعه فرهنگی حسین آباد",
         "projectUrl": "#",
-        "imageUrl": "./images/Slide1.jpg"
+        "imageUrl": "./images/Slide1.avif"
+      },
+      {
+        "name": "زمین ورزشی غرب",
+        "projectUrl": "#",
+        "imageUrl": "./images/projects/sportsField/7.avif"
       },
       {
         "name": "کوثر 2",
         "projectUrl": "#",
-        "imageUrl": "./images/slide20.png"
-      }
+        "imageUrl": "./images/slide20.avif"
+      },
     ]
   },
   "stats": {
-    "title": "پروژه ها",
+    "title": "رتبه ها",
     "stats": [
       {
         "name": "راه و ترابری",
@@ -237,16 +237,16 @@ const main_page_json = {
   "lodge": {
     "title": "گروه ساختمانی لژ",
     "description": "مشارکت در ساخت، ساخت و اجرا، سرمایه گذاری و ...  \n بیش از ۲۰ سال سابقه \n از طراحی تا اجرا",
-    "lodge_logo": "images/Lodge.png"
+    "lodge_logo": "images/Lodge.avif"
   },
   "lodge_projects": [
     {
       "name": "پروژه سرو",
-      "image": "/images/lodge_sarv_project4.png"
+      "image": "/images/lodge_sarv_project4.avif"
     },
     {
       "name": "پروژه لژ 1",
-      "image": "/images/lodge_1_project.png"
+      "image": "/images/lodge_1_project.avif"
     }
   ],
   "licenses": {
@@ -255,32 +255,32 @@ const main_page_json = {
       {
         "id": "1",
         "title": "ISO 9003:2018",
-        "logo": "iao-9001.png"
+        "logo": "iso9001.jpg"
       },
       {
         "id": "2",
         "title": "ISO 9003:2018",
-        "logo": "iso-9003.png"
+        "logo": "iso9003.jpg"
       },
       {
         "id": "3",
         "title": "ISO 9003:2018",
-        "logo": "iso-14001.png"
+        "logo": "iso14001.jpg"
       },
       {
         "id": "4",
         "title": "ISO 9003:2018",
-        "logo": "iso-22000.png"
+        "logo": "iso22000.jpg"
       },
       {
         "id": "5",
         "title": "ISO 9003:2018",
-        "logo": "iao-9001.png"
+        "logo": "iso9001.jpg"
       },
       {
         "id": "6",
         "title": "ISO 9003:2018",
-        "logo": "iso-9003.png"
+        "logo": "iso9003.jpg"
       }
     ]
   },
@@ -293,7 +293,7 @@ const main_page_json = {
       "phone": "03136286668",
       "email": "pjs.civil@gmail.com",
       "instagram": "https://instagram.com",
-      "whatsapp": "/images/whatsapp.jpg",
+      "whatsapp": "/images/whatsapp.avif",
       "telegram": "https://t.me/Pjs_co"
     }
   }

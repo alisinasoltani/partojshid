@@ -1,7 +1,6 @@
 import { MapPin, Smartphone, Phone, Mail, Instagram } from 'lucide-react';
 import { FaWhatsapp } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
-import Image from 'next/image';
 import {
   Dialog,
   DialogContent,
@@ -9,7 +8,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-// import whatsappQRCode from "@/public/images/whatsapp.jpg";
 
 interface Input {
   title: string,

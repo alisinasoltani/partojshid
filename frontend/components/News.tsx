@@ -86,7 +86,7 @@ const mainProject: ProjectPost = {
   href: "",
   // Replace with your actual image path
   imageUrl:
-    "/images/DesignAndExe.jpg",
+    "/images/DesignAndExe.avif",
 };
 
 const otherProjects: ProjectPost[] = [

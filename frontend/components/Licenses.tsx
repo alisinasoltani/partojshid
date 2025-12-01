@@ -30,7 +30,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({ certificate }) => {
             </h3>
             {/* Placeholder Logo */}
             <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white/10">
-                <Image width={96} height={96} className="rounded-full" src={`/images/${certificate.logo}`} alt={certificate.title} />
+                <Image width={100} height={100} className="rounded-full" src={`/images/${certificate.logo}`} alt={certificate.title} />
             </div>
         </div>
     );
