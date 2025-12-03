@@ -20,12 +20,14 @@
 package main
 
 import (
-	"log"
+	"os"
 	"time"
+	"net/http"
 
 	"github.com/alisinasoltani/partojshid/config"
 	_ "github.com/alisinasoltani/partojshid/docs"
 	"github.com/alisinasoltani/partojshid/internal/database"
+	"github.com/alisinasoltani/partojshid/internal/handler/auth"
 	"github.com/alisinasoltani/partojshid/internal/handler/projecthandler"
 	"github.com/alisinasoltani/partojshid/internal/handler/userhandler"
 	"github.com/alisinasoltani/partojshid/internal/middlewares"
@@ -34,8 +36,11 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"github.com/alisinasoltani/partojshid/internal/handler/auth"
+	"github.com/labstack/gommon/log"
 	"github.com/swaggo/echo-swagger"
+	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
+	"gopkg.in/natefinch/lumberjack.v2"
 )
 
 var validate *validator.Validate
@@ -47,6 +52,8 @@ func main() {
 	// Connect to DB
 	database.Get()
 
+	// SETUP LOGGING — FILE WITH MONTHLY ROTATION
+
 	validate = validator.New(validator.WithRequiredStructEnabled())
 
 	// In-memory rate limiter (used by middlewares)
@@ -56,6 +63,18 @@ func main() {
 	// Echo
 	e := echo.New()
 	e.Static("/uploads", "uploads")
+	e.Logger = newEchoLogger()
+
+	// Fix Postman/curl double-read EOF bug globally
+	e.Pre(func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			if c.Request().Method == http.MethodOptions {
+				return c.NoContent(http.StatusOK)
+			}
+			c.Request().Body = http.MaxBytesReader(c.Response(), c.Request().Body, 1024*1024)
+			return next(c)
+		}
+	})
 
 	// Swagger UI
 	e.GET("/swagger/*", echoSwagger.WrapHandler, func(next echo.HandlerFunc) echo.HandlerFunc {
@@ -70,6 +89,7 @@ func main() {
 
 	// Global middlewares
 	e.Use(middleware.RequestID())
+	e.Use(middleware.Logger())
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
 		Format: `{"time":"${time_rfc3339}","id":"${id}","remote_ip":"${remote_ip}",` +
 			`"method":"${method}","uri":"${uri}","status":${status},"error":"${error}"}` + "\n",
@@ -158,4 +178,38 @@ func main() {
 	log.Printf(" → Admin users: http://localhost:%s/api/users (admin only)", cfg.Port)
 
 	log.Fatal(e.Start(":" + cfg.Port))
+}
+
+func newEchoLogger() echo.Logger {
+	// Create logs directory
+	os.MkdirAll("logs", 0755)
+
+	// Rotate logs monthly
+	writer := zapcore.AddSync(&lumberjack.Logger{
+		Filename:   "logs/app.log",
+		MaxSize:    100, // MB
+		MaxBackups: 12,  // keep 12 months
+		MaxAge:     365, // days
+		LocalTime:  true,
+		Compress:   true,
+	})
+
+	// JSON format
+	core := zapcore.NewCore(
+		zapcore.NewJSONEncoder(zap.NewProductionEncoderConfig()),
+		writer,
+		zap.InfoLevel,
+	)
+
+	// Create zap logger + use Echo's official adapter
+	zapLogger := zap.New(core)
+	echoLogger := log.New("partojshid") // Echo's logger
+	echoLogger.SetLevel(log.INFO)
+	echoLogger.SetOutput(writer) // write to rotating file
+	echoLogger.SetHeader("${time_rfc3339} ${level} ${prefix} ${message}")
+
+	// Also sync on exit
+	defer zapLogger.Sync()
+
+	return echoLogger
 }

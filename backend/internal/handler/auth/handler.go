@@ -29,8 +29,14 @@ func NewHandler() *Handler {
 // @Failure      401  {object}  middlewares.ErrorResponse
 // @Router       /auth/login [post]
 func (h *Handler) Login(c echo.Context) error {
+	// fixes double-read EOF
+	c.Request().Body = http.MaxBytesReader(c.Response(), c.Request().Body, 1024*1024)
 	var req dto.LoginRequest
 	if err := c.Bind(&req); err != nil {
+		if err.Error() == "EOF" || err == http.ErrBodyReadAfterClose {
+			// It's a preflight OPTIONS request — ignore
+			return c.NoContent(http.StatusOK)
+		}
 		return err // ← validation auto-triggered
 	}
 
