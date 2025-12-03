@@ -22,7 +22,6 @@ package main
 import (
 	"os"
 	"time"
-	"net/http"
 
 	"github.com/alisinasoltani/partojshid/config"
 	_ "github.com/alisinasoltani/partojshid/docs"
@@ -31,7 +30,7 @@ import (
 	"github.com/alisinasoltani/partojshid/internal/handler/projecthandler"
 	"github.com/alisinasoltani/partojshid/internal/handler/userhandler"
 	"github.com/alisinasoltani/partojshid/internal/middlewares"
-	"github.com/alisinasoltani/partojshid/internal/pkg/ratelimiter"
+	// "github.com/alisinasoltani/partojshid/internal/pkg/ratelimiter"
 	"github.com/go-playground/validator/v10"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/labstack/echo/v4"
@@ -57,8 +56,7 @@ func main() {
 	validate = validator.New(validator.WithRequiredStructEnabled())
 
 	// In-memory rate limiter (used by middlewares)
-	limiter := ratelimiter.New()                              // ← fixed: used
-	rateLimits := middlewares.NewRateLimitMiddleware(limiter) // ← now limiter is used
+	rateLimits := middlewares.RateLimits
 
 	// Echo
 	e := echo.New()
@@ -66,15 +64,7 @@ func main() {
 	e.Logger = newEchoLogger()
 
 	// Fix Postman/curl double-read EOF bug globally
-	e.Pre(func(next echo.HandlerFunc) echo.HandlerFunc {
-		return func(c echo.Context) error {
-			if c.Request().Method == http.MethodOptions {
-				return c.NoContent(http.StatusOK)
-			}
-			c.Request().Body = http.MaxBytesReader(c.Response(), c.Request().Body, 1024*1024)
-			return next(c)
-		}
-	})
+	e.Pre(middleware.RemoveTrailingSlash())
 
 	// Swagger UI
 	e.GET("/swagger/*", echoSwagger.WrapHandler, func(next echo.HandlerFunc) echo.HandlerFunc {
@@ -88,20 +78,29 @@ func main() {
 	})
 
 	// Global middlewares
-	e.Use(middleware.RequestID())
 	e.Use(middleware.Logger())
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
 		Format: `{"time":"${time_rfc3339}","id":"${id}","remote_ip":"${remote_ip}",` +
 			`"method":"${method}","uri":"${uri}","status":${status},"error":"${error}"}` + "\n",
 	}))
-	e.Use(middleware.Recover())
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"*"},
-		AllowMethods: []string{echo.GET, echo.POST, echo.PUT, echo.DELETE},
-		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAuthorization},
+		AllowOrigins: []string{"http://localhost:3000", "http://127.0.0.1:3000"},         // Explicit for dev; add your prod domain later
+		AllowMethods: []string{echo.GET, echo.POST, echo.PUT, echo.DELETE, echo.OPTIONS}, // Explicitly include OPTIONS
+		AllowHeaders: []string{
+			echo.HeaderOrigin,
+			echo.HeaderContentType,
+			echo.HeaderAuthorization,
+			echo.HeaderAccept,
+			echo.HeaderXRequestedWith,
+		},
+		AllowCredentials: true,  // Required if using cookies/JWT in future
+		MaxAge:           86400, // Cache preflight for 24 hours
 	}))
+	e.Pre(middleware.RemoveTrailingSlash())
+	e.Use(middleware.BodyLimit("1M")) // ← safe body limit
+	e.Use(middleware.Recover())       // ← built-in, safe
+	e.Use(middleware.RequestID())
 	e.Use(middlewares.ValidationMiddleware())
-	e.Use(middlewares.CustomErrorHandler())
 
 	// Health check
 	e.GET("/health", func(c echo.Context) error {
@@ -172,12 +171,11 @@ func main() {
 	// Start server
 	cfg := config.Load()
 	log.Printf("Server starting on http://localhost:%s", config.Load().Port)
-	log.Fatal(e.Start(":" + config.Load().Port))
+	log.Fatal(e.Start(":" + cfg.Port))
 	log.Printf("Health → Health:     http://localhost:%s/health", cfg.Port)
 	log.Printf(" → Projects:   http://localhost:%s/api/projects", cfg.Port)
 	log.Printf(" → Admin users: http://localhost:%s/api/users (admin only)", cfg.Port)
 
-	log.Fatal(e.Start(":" + cfg.Port))
 }
 
 func newEchoLogger() echo.Logger {
