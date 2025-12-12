@@ -9,9 +9,12 @@ import Image from "next/image";
 import hero_image from "@/public/images/partoLogo2.png";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import CanvasRecorder from "./CanvasRecorder";
 
 // FIX 1: Corrected plugin registration
 gsap.registerPlugin(SplitText);
+
+const LOOP_DURATION = 20;
 
 interface ShaderPlaneProps {
     vertexShader: string;
@@ -31,7 +34,10 @@ const ShaderPlane = ({
     useFrame((state) => {
         if (meshRef.current) {
             const material = meshRef.current.material as THREE.ShaderMaterial;
-            material.uniforms.u_time.value = state.clock.elapsedTime * 0.5;
+
+            const t = state.clock.elapsedTime % LOOP_DURATION;
+
+            material.uniforms.u_time.value = t * 0.5;
             material.uniforms.u_resolution.value.set(size.width, size.height, 1.0);
         }
     });
@@ -162,6 +168,7 @@ const SyntheticHero = ({
                         fragmentShader={fragmentShader}
                         uniforms={shaderUniforms}
                     />
+                    <CanvasRecorder />
                 </Canvas>
             </div>
 

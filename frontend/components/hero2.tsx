@@ -1,64 +1,64 @@
+"use client";
 
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import hero_image from "@/public/images/partoLogo2.png";
+import Image from "next/image";
 
-import React, { useLayoutEffect, useRef } from 'react';
-import SyntheticHero from "@/components/synthetic-hero";
-// Note: In a real Next.js app, you might need to import these dynamically
-// or ensures this component is marked with 'use client'
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function DemoOne({ title }: { title: string }) {
-  const containerRef = useRef(null);
-  const contentRef = useRef(null);
-
-  // useLayoutEffect(() => {
-  //   // GSAP Context for clean React integration
-  //   const ctx = gsap.context(() => {
-  //     gsap.fromTo(contentRef.current,
-  //       {
-  //         width: '92vw',
-  //         height: '88vh',
-  //         borderRadius: 32,
-  //       },
-  //       {
-  //         // Target state (full screen)
-  //         width: '100vw',
-  //         height: '100vh',
-  //         borderRadius: 0,
-  //         ease: 'none', // Linear is best for scroll scrubbing
-  //         scrollTrigger: {
-  //           trigger: containerRef.current,
-  //           start: 'top top', // Start when top of container meets top of viewport
-  //           end: '+=100%',   // Duration of the pinning (100% of viewport height)
-  //           pin: true,       // Pin the container while animating
-  //           scrub: true,     // Smoothly link animation to scroll position
-  //           // markers: true // Uncomment to see debug markers
-  //         },
-  //       });
-  //   }, containerRef);
-
-  //   return () => ctx.revert(); // Cleanup on unmount
-  // }, []);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
 
   return (
+    <div
+      ref={containerRef}
+      className="w-screen h-screen flex flex-col relative bg-gray-200 items-center justify-center overflow-hidden"
+    >
+      {/* ANIMATING CONTENT */}
       <div
-        ref={containerRef}
-        className="w-screen h-screen flex flex-col relative bg-white items-center justify-center overflow-hidden"
+        ref={contentRef}
+        className="mt-16 rounded-4xl w-[92vw] h-[88vh] overflow-hidden
+                   flex flex-col items-center justify-center
+                   relative shadow-md will-change-transform z-10"
       >
-        {/* ANIMATING CONTENT - The element that expands */}
-        {/* Note: Removed native translation/margin classes that might fight GSAP centering */}
-        <div
-          ref={contentRef}
-          className="mt-16 rounded-4xl w-[92vw] h-[88vh] overflow-hidden flex flex-col items-center justify-center relative shadow-md will-change-transform z-10"
+        {/* ✅ VIDEO BACKGROUND */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
         >
-          <SyntheticHero
-            title={title}
-            description=""
+          {/* Primary (Chrome / Edge / Firefox) */}
+          <source
+            src="/videos/synthetic-hero-background.webm"
+            type="video/webm"
           />
-          {/* Parto Jeyshid */}
+
+          {/* ✅ Fallback (Safari / iOS) */}
+          <source
+            src="/videos/synthetic-hero-background.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        {/* ✅ FOREGROUND CONTENT */}
+        <div className="relative z-50 flex flex-col items-center text-center px-6">
+          <div className="flex flex-col md:flex-row-reverse justify-center items-center gap-8 md:gap-4">
+            <Image src={hero_image} alt="hero image" width={200} />
+            <h1
+              className="irsans_bold text-6xl md:text-8xl font-black bg-linear-to-t from-[#5E55FF] to-black bg-clip-text text-transparent max-w-4xl pb-4"
+            >
+              {title}
+            </h1>
+          </div>
         </div>
       </div>
+    </div>
   );
 }

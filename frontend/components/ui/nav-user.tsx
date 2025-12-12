@@ -51,13 +51,13 @@ export function NavUser({
       <SidebarMenuItem>
         <Avatar>
           <AvatarFallback className="bg-gray-400 text-black">
-            {user.username[0].toUpperCase()}
+            {user?.username[0].toUpperCase()}
           </AvatarFallback>
         </Avatar>
         <div>
-          <p className="font-medium">{user.username}</p>
-          <Badge variant={user.role === 'admin' ? 'destructive' : 'secondary'}>
-            {user.role}
+          <p className="font-medium">{user?.username}</p>
+          <Badge variant={user?.role === 'admin' ? 'destructive' : 'secondary'}>
+            {user?.role}
           </Badge>
         </div>
         <LogoutButton />

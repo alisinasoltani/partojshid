@@ -273,7 +273,7 @@ export default function Navbar({ input }: { input: Input }) {
               >
                 فعالیت ها
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="bg-white">
+              <NavigationMenuContent className="z-110 bg-white/98 backdrop-blur-md border-b border-gray-200">
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]" style={{ direction: 'rtl' }}>
                   <ListItem
                     href="#"
@@ -322,7 +322,7 @@ export default function Navbar({ input }: { input: Input }) {
               >
                 درباره ما
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="bg-white">
+              <NavigationMenuContent className="z-110 bg-white/98 backdrop-blur-lg border-b border-gray-200">
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]" style={{ direction: 'rtl' }}>
                   {/* <li className="row-span-3">
                     <NavigationMenuLink asChild>

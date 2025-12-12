@@ -1,7 +1,7 @@
 import React from "react";
-import { ArrowLeft, Calendar } from "lucide-react";
-import Image from "next/image"; // Using next/image for optimization
-import Link from "next/link";
+import { Calendar } from "lucide-react";
+import Image from "next/image";
+import ProjectButton from "./ProjectButton";
 
 // --- Type Definitions ---
 
@@ -11,24 +11,6 @@ type ProjectPost = {
   date: string;
   href: string;
   imageUrl?: string; // Optional: only for the main post
-};
-
-// --- Reusable Sub-Components ---
-
-/**
- * A reusable button for project cards.
- */
-const ProjectButton = ({ href }: { href: string }) => {
-  return (
-    <button
-      // Using bg-[] for the specific hex code
-      className="flex flex-row items-center gap-2 rounded-full bg-[#5E55FF] px-4 py-1.5 text-sm text-white transition-transform hover:scale-105"
-    >
-      {/* Text from image */}
-      <Link href={href ?? "#"} className="irsans_med">مطالعه بیشتر</Link>
-      <ArrowLeft size={16} />
-    </button>
-  );
 };
 
 /**
@@ -142,7 +124,7 @@ const News: React.FC = () => {
             className="z-0"
           />
           {/* This div is the blurred box at the bottom */}
-          <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col justify-between rounded-lg bg-[#1E1D26]/30 p-4 text-white backdrop-blur-md z-10">
+          <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col justify-between rounded-lg bg-[#1E1D26]/30 p-4 text-white backdrop-blur-md">
             {/* Top row of the box (Date) */}
             <div className="mb-10 flex justify-start">
               <ProjectDate date={mainProject.date} className="text-white" />

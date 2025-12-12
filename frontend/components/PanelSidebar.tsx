@@ -4,15 +4,18 @@ import * as React from "react"
 import {
   AudioWaveform,
   BookOpen,
-  Bot,
+  ShieldUser,
   Command,
   Frame,
-  GalleryVerticalEnd,
+  StickyNote,
   Map,
   PieChart,
   Settings2,
-  SquareTerminal,
+  LayoutTemplate,
 } from "lucide-react"
+
+import logo from "@/public/images/partoLogo.png"
+import Image from "next/image"
 
 import { useQuery } from '@tanstack/react-query';
 import Cookies from 'js-cookie';
@@ -30,114 +33,25 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 
-type User = {
-  username: string;
-  email?: string;
-  role: string;
-  full_name?: string;
-};
-
 // This is sample data.
 const data = {
-  teams: [
-    {
-      name: "Acme Inc",
-      logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
-  ],
   navMain: [
     {
-      title: "Playground",
+      title: "Pages",
       url: "#",
-      icon: SquareTerminal,
+      icon: LayoutTemplate,
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "Jeyshid",
           url: "#",
         },
         {
-          title: "Starred",
+          title: "Lodge",
           url: "#",
         },
         {
-          title: "Settings",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Models",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
+          title: "Projects",
           url: "#",
         },
       ],
@@ -145,19 +59,14 @@ const data = {
   ],
   projects: [
     {
-      name: "Design Engineering",
+      name: "Blogs",
       url: "#",
-      icon: Frame,
+      icon: StickyNote,
     },
     {
-      name: "Sales & Marketing",
+      name: "User Management",
       url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
+      icon: ShieldUser,
     },
   ],
 }
@@ -166,7 +75,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const token = Cookies.get('jeyshid');
 
   const { data: user, isLoading } = useQuery({
-    queryKey: ['user'],
+    queryKey: ['jeyshid'],
     queryFn: async () => {
       const res = await fetch('/api/auth/me', {
         headers: { Authorization: `Bearer ${token}` },
@@ -178,17 +87,24 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     staleTime: 5 * 60 * 1000,
   });
 
-  if (isLoading) {
-    return <Skeleton className="h-10 w-40" />;
-  }
+  // if (isLoading) {
+  //   return <Sidebar {...props}>
+  //     <SidebarHeader>
+  //       {/* <Image src={logo} width={24} alt="jeyshid logo" /> */}
+  //       {/* Jeyshid */}
+  //     </SidebarHeader>
+  //     <SidebarContent>{/* ... */}</SidebarContent>
+  //     <SidebarFooter>
+  //       <Skeleton className="h-10 w-40" />
+  //     </SidebarFooter>
+  //   </Sidebar>;
+  // }
 
-  if (!user) {
-    return <span className="text-sm text-gray-500">Guest</span>;
-  }
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+      <SidebarHeader className="flex flex-row px-4 justify-start items-center gap-2">
+        <Image src={logo} width={24} alt="jeyshid logo" />
+        <h1 className="font-bold">Jeyshid</h1>
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />

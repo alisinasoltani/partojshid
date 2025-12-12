@@ -124,34 +124,7 @@ const main_page_json = {
         "imageUrl": "./images/Slide16.avif"
       }
     ],
-    // "row2": [
-    //   {
-    //     "name": "استخر دانشگاه علوم پزشکی",
-    //     "projectUrl": "#",
-    //     "imageUrl": "./images/projects/pool/pool_4.avif"
-    //   },
-    //   {
-    //     "name": "مجموعه فرهنگی حسین آباد",
-    //     "projectUrl": "#",
-    //     "imageUrl": "./images/projects/culture/culture_2.avif"
-    //   },
-    //   {
-    //     "name": "پروژه کوثر 2",
-    //     "projectUrl": "#",
-    //     "imageUrl": "./images/projects/kousar2/kousar_8.avif"
-    //   },
-    //   {
-    //     "name": "مرکز رشد و فناوری دانشگاه صنعتی",
-    //     "projectUrl": "#",
-    //     "imageUrl": "./images/projects/grTech/GrTech_4.avif"
-    //   },
-    //   {
-    //     "name": "کوثر 2",
-    //     "projectUrl": "#",
-    //     "imageUrl": "./images/slide20.avif"
-    //   }
-    // ],
-    "row3": [
+    "row2": [
       {
         "name": "مجموعه فرهنگی حسین آباد",
         "projectUrl": "#",
@@ -165,7 +138,7 @@ const main_page_json = {
       {
         "name": "استخر دانشگاه علوم پزشکی",
         "projectUrl": "#",
-        "imageUrl": "./images/Slide12.avif"
+        "imageUrl": "./images/Slide10.avif"
       },
       {
         "name": "مجموعه فرهنگی حسین آباد",
@@ -292,7 +265,7 @@ const main_page_json = {
       "cellphone": "09013682870",
       "phone": "03136286668",
       "email": "pjs.civil@gmail.com",
-      "instagram": "https://instagram.com",
+      "instagram": "https://www.instagram.com/pjs.civil",
       "whatsapp": "/images/whatsapp.avif",
       "telegram": "https://t.me/Pjs_co"
     }
@@ -401,7 +374,7 @@ export default function Home() {
       </div>
 
       <div
-        className="overflow-x-hidden bg-white"
+        className="overflow-x-hidden bg-gray-200"
         style={{ visibility: isLoading ? "hidden" : "visible" }}
       >
         <div
@@ -444,17 +417,17 @@ export default function Home() {
           </div>
           <HeroSectionDemo input={main_page_json.about} />
           <Slider input={main_page_json.projects} />
-          <div className="bg-[linear-gradient(35deg,rgb(230,230,230)_35%,rgb(250,250,250)_72%,rgb(255,255,255)_100%)]">
+          <div className="bg-[linear-gradient(35deg,rgb(229 231 235)_35%,rgb(230,230,230)_72%,rgb(255,255,255)_100%)]">
             <div className="bg-transparent w-full flex justify-center items-center -translate-y-12">
               <ProjectStats input={main_page_json.stats} />
             </div>
             <Services input={main_page_json.services} />
           </div>
-          <div className="bg-[linear-gradient(135deg,rgb(230,230,230)_32%,rgb(250,250,250)_100%)]">
+          <div className="bg-[linear-gradient(135deg,rgb(229 231 235)_32%,rgb(255,255,255)_100%)]">
             <Lodge input={main_page_json.lodge} />
             <MainLodgeProjects />
           </div>
-          <div className="bg-[linear-gradient(95deg,rgb(230,230,230)_-10%,rgb(250,250,250)_100%)]">
+          <div className="bg-[linear-gradient(95deg,rgb(229 231 235)_-10%,rgb(250,250,250)_100%)]">
             <News />
             <Licenses input={main_page_json.licenses} />
           </div>
