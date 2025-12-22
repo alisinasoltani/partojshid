@@ -44,7 +44,7 @@ const data = {
       items: [
         {
           title: "Jeyshid",
-          url: "#",
+          url: "/panel/jeyshid",
         },
         {
           title: "Lodge",
@@ -52,7 +52,7 @@ const data = {
         },
         {
           title: "Projects",
-          url: "#",
+          url: "/panel/projects",
         },
       ],
     },

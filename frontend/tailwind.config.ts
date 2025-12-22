@@ -1,15 +1,10 @@
 // tailwind.config.ts
 
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
-  // ... (darkMode, content, etc.)
   theme: {
-    // ... (container, etc.)
     extend: {
-      // ... (colors, etc.)
-      
-      // Make sure these keyframes are here
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -28,7 +23,7 @@ const config = {
           to: { height: "0" },
         },
       },
-      // Make sure these animations are here
+
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
@@ -38,16 +33,13 @@ const config = {
     },
   },
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}', // <-- Is this present?
-    './app/**/*.{ts,tsx}',       // <-- Is this present?
-    './src/**/*.{ts,tsx}',     // <-- Is this present (if you use a /src dir)?
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
-  
-  // --- 🚨 THIS IS THE MOST IMPORTANT PART ---
+
   plugins: [require("tailwindcss-animate")],
-  // --- 🚨 ---
+} satisfies Config;
 
-} satisfies Config
-
-export default config
+export default config;

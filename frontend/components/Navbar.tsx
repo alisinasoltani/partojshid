@@ -127,7 +127,7 @@ export default function Navbar({ input }: { input: Input }) {
                 {/* Accordion for nested links */}
                 <Accordion type="single" collapsible className="w-full">
                   {
-                    input.projects.menu_items.length ?
+                    input?.projects?.menu_items?.length ?
                       <AccordionItem value="item-1">
                         <AccordionTrigger>{input.projects.title}</AccordionTrigger>
                         <AccordionContent className="pr-2">
@@ -191,7 +191,7 @@ export default function Navbar({ input }: { input: Input }) {
 
                 {/* Simple Links */}
                 {
-                  input.lodge.menu_items.length ?
+                  input?.lodge?.menu_items?.length ?
                     <AccordionItem value="item-4">
                       <AccordionTrigger>{input.lodge.title}</AccordionTrigger>
                       <AccordionContent className="pr-2">
@@ -211,7 +211,7 @@ export default function Navbar({ input }: { input: Input }) {
                 }
 
                 {
-                  input.contact.menu_items.length ?
+                  input?.contact?.menu_items?.length ?
                     <AccordionItem value="item-5">
                       <AccordionTrigger>{input.contact.title}</AccordionTrigger>
                       <AccordionContent className="pr-2">
