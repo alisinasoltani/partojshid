@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"sync"
+	"time"
 
 	"github.com/alisinasoltani/partojshid/config"
 	"github.com/jmoiron/sqlx"
@@ -34,6 +35,7 @@ func Get() *sqlx.DB {
 		db.SetMaxOpenConns(25)
 		db.SetMaxIdleConns(25)
 		db.SetConnMaxLifetime(5 * 60 * 1_000_000_000) // 5 minutes
+		db.SetConnMaxIdleTime(1 * time.Minute)
 
 		if err = db.Ping(); err != nil {
 			log.Fatalf("Failed to ping database: %v", err)

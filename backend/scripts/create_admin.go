@@ -15,8 +15,8 @@ func createAdmin() {
 	config.Load()
 	db := database.Get()
 
-	username := "admin"
-	password := "Admin123!"
+	username := "pouyadn"
+	password := "partopjs1382"
 
 	hash, err := argon2.Hash(password)
 	if err != nil {
@@ -25,7 +25,7 @@ func createAdmin() {
 
 	user := model.User{
 		Username:     username,
-		Email:        "admin@local.test",
+		Email:        "p1381217@gmail.com",
 		PasswordHash: hash,
 		FullName:     "Super Admin",
 		Role:         "admin",
@@ -39,7 +39,11 @@ func createAdmin() {
 	}
 
 	log.Println("Admin created successfully!")
-	log.Println("Username: admin")
-	log.Println("Password: Admin123!")
+	log.Println("Username: ", username)
+	log.Println("Password: ", password)
 	log.Println("Now login with: POST /api/auth/login")
 }
+
+// func main() {
+// 	createAdmin()
+// }

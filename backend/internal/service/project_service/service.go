@@ -9,6 +9,20 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
+func strPtr(s *string) string {
+	if s == nil {
+		return ""
+	}
+	return *s
+}
+
+func stringPtrOrNil(s string) *string {
+	if s == "" {
+		return nil
+	}
+	return &s
+}
+
 type Service struct {
 	db *sqlx.DB
 }
@@ -18,10 +32,10 @@ func New() *Service {
 }
 
 type ListParams struct {
-	Page     int
-	PerPage  int
-	Public   bool // true = only visible projects (for public endpoint)
-	Editor   bool // true = allow non-visible (for admin/editor)
+	Page    int
+	PerPage int
+	Public  bool // true = only visible projects (for public endpoint)
+	Editor  bool // true = allow non-visible (for admin/editor)
 }
 
 type projectWithTotal struct {
@@ -71,7 +85,37 @@ func (s *Service) List(params ListParams) (*project.PaginatedProjectsResponse, e
 	}
 
 	for i, p := range projects {
-		resp.Data[i] = toResponse(p.Project) // ← use embedded model.Project
+		projResp := toResponse(p.Project)
+
+		// Fetch images for this project
+		var images []model.ProjectImage
+		err := s.db.Select(&images, `
+        SELECT id, project_id, image_path, alt_text, sort_order, created_at
+        FROM project_images
+        WHERE project_id = ?
+        ORDER BY sort_order ASC, created_at ASC`, p.ID)
+		if err != nil {
+			return nil, err
+		}
+
+		imgResponses := make([]project.ImageResponse, len(images))
+		for j, img := range images {
+			alt := ""
+			if img.AltText != nil {
+				alt = *img.AltText
+			}
+			imgResponses[j] = project.ImageResponse{
+				ID:        img.ID,
+				ProjectID: img.ProjectID,
+				ImageURL:  img.ImagePath,
+				AltText:   alt,
+				SortOrder: img.SortOrder,
+				CreatedAt: img.CreatedAt.Format(time.RFC3339),
+			}
+		}
+
+		projResp.Images = imgResponses
+		resp.Data[i] = *projResp
 	}
 
 	return resp, nil
@@ -84,7 +128,7 @@ func (s *Service) Get(id uint) (*project.ProjectResponse, error) {
 		return nil, err
 	}
 	resp := toResponse(p)
-	return &resp, nil
+	return resp, nil
 }
 
 func (s *Service) Create(req project.CreateProjectRequest, userID uint) (*project.ProjectResponse, error) {
@@ -92,8 +136,8 @@ func (s *Service) Create(req project.CreateProjectRequest, userID uint) (*projec
 		Slug:            req.Slug,
 		FullName:        req.FullName,
 		Description:     req.Description,
-		StartedAt:       req.StartedAt,
-		EndedAt:         req.EndedAt,
+		StartedAt:       stringPtrOrNil(req.StartedAt),
+		EndedAt:         stringPtrOrNil(req.EndedAt),
 		StartedAtJalali: req.StartedAtJalali,
 		EndedAtJalali:   req.EndedAtJalali,
 		Employer:        req.Employer,
@@ -121,7 +165,7 @@ func (s *Service) Create(req project.CreateProjectRequest, userID uint) (*projec
 	p.ID = uint(id)
 
 	resp := toResponse(p)
-	return &resp, nil
+	return resp, nil
 }
 
 func (s *Service) Update(id uint, req project.UpdateProjectRequest) (*project.ProjectResponse, error) {
@@ -183,21 +227,23 @@ func (s *Service) Delete(id uint) error {
 	return err
 }
 
-func toResponse(p model.Project) project.ProjectResponse {
-	return project.ProjectResponse{
-		ID:              p.ID,
-		Slug:            p.Slug,
-		FullName:        p.FullName,
-		Description:     p.Description,
-		StartedAt:       p.StartedAt,
-		EndedAt:         p.EndedAt,
-		StartedAtJalali: p.StartedAtJalali,
-		EndedAtJalali:   p.EndedAtJalali,
-		Employer:        p.Employer,
-		IsVisible:       p.IsVisible,
-		DisplayOrder:    p.DisplayOrder,
-		CreatedBy:       p.CreatedBy,
-		CreatedAt:       p.CreatedAt.Format(time.RFC3339),
-		UpdatedAt:       p.UpdatedAt.Format(time.RFC3339),
-	}
+func toResponse(p model.Project) *project.ProjectResponse {
+	resp := &project.ProjectResponse{
+        ID:              p.ID,
+        Slug:            p.Slug,
+        FullName:        p.FullName,
+        Description:     strPtr(p.Description),
+        StartedAt:       strPtr(p.StartedAt),
+        EndedAt:         strPtr(p.EndedAt),
+        StartedAtJalali: strPtr(p.StartedAtJalali),
+        EndedAtJalali:   strPtr(p.EndedAtJalali),
+        Employer:        p.Employer,
+        IsVisible:       p.IsVisible,
+        DisplayOrder:    p.DisplayOrder,
+        CreatedBy:       p.CreatedBy,
+        CreatedAt:       p.CreatedAt.Format(time.RFC3339),
+        UpdatedAt:       p.UpdatedAt.Format(time.RFC3339),
+        Images:          []project.ImageResponse{},
+    }
+    return resp
 }

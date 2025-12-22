@@ -3,23 +3,20 @@ package projecthandler
 import (
 	"net/http"
 	"strconv"
+	"fmt"
 
 	"github.com/alisinasoltani/partojshid/internal/dto/project"
 	"github.com/labstack/echo/v4"
 )
 
-const maxFileSize = 5 * 1024 * 1024 // 5 MB
-
 // UploadImage godoc
 // @Summary      Upload image to project
-// @Description  Upload a single image (max 5MB, jpg/png/webp)
+// @Description  Provide image path (handled by frontend), alt text, and sort order
 // @Tags         Projects (Admin)
-// @Accept       multipart/form-data
+// @Accept       json
 // @Produce      json
 // @Param        id         path      int       true  "Project ID"
-// @Param        image      formData  file      true  "Image file"
-// @Param        alt_text   formData  string    false "Alt text (max 255 chars)"
-// @Param        sort_order formData  int       false "Sort order" minimum(0)
+// @Param        body       body      project.UploadImageRequest  true  "Image data"
 // @Security     BearerAuth
 // @Success      201  {object}  project.ImageResponse
 // @Failure      400  {object}  middlewares.ErrorResponse
@@ -27,26 +24,14 @@ const maxFileSize = 5 * 1024 * 1024 // 5 MB
 // @Failure      403  {object}  middlewares.ErrorResponse
 // @Router       /projects/{id}/images [post]
 func (h *Handler) UploadImage(c echo.Context) error {
-	c.Request().Body = http.MaxBytesReader(c.Response(), c.Request().Body, maxFileSize)
-
 	projectID, _ := strconv.ParseUint(c.Param("id"), 10, 32)
-
-	file, err := c.FormFile("image")
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, "image file required")
-	}
-	src, err := file.Open()
-	if err != nil {
-		return err
-	}
-	defer src.Close()
 
 	var req project.UploadImageRequest
 	if err := c.Bind(&req); err != nil {
-		return err // ← validation auto-triggered (max=255 on alt_text, min=0 on sort_order)
+		return err // validation auto-triggered
 	}
 
-	img, err := h.service.UploadImage(uint(projectID), src, file, req)
+	img, err := h.service.UploadImage(uint(projectID), req.ImagePath, req)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
@@ -88,4 +73,42 @@ func (h *Handler) DeleteImage(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 	}
 	return c.NoContent(http.StatusNoContent)
+}
+
+// UpdateImage godoc
+// @Summary      Update image details
+// @Description  Update alt text or sort order for an image
+// @Tags         Projects (Admin)
+// @Accept       json
+// @Produce      json
+// @Param        id         path      int  true  "Project ID"
+// @Param        image_id   path      int  true  "Image ID"
+// @Param        body       body      project.UpdateImageRequest  true  "Update data"
+// @Security     BearerAuth
+// @Success      200  {object}  project.ImageResponse
+// @Failure      400  {object}  middlewares.ErrorResponse
+// @Failure      401  {object}  middlewares.ErrorResponse
+// @Failure      403  {object}  middlewares.ErrorResponse
+// @Router       /projects/{id}/images/{image_id} [put]
+func (h *Handler) UpdateImage(c echo.Context) error {
+    projectIDStr := c.Param("id")
+    imageIDStr := c.Param("image_id")
+    fmt.Printf("UPDATE IMAGE REQUEST: project_id=%s, image_id=%s\n", projectIDStr, imageIDStr)
+
+    imageID, _ := strconv.ParseUint(imageIDStr, 10, 32)
+
+    var req project.UpdateImageRequest
+    if err := c.Bind(&req); err != nil {
+        fmt.Printf("Bind error: %v\n", err)
+        return err
+    }
+
+    fmt.Printf("Request body: %+v\n", req)
+
+    img, err := h.service.UpdateImage(uint(imageID), req)
+    if err != nil {
+        fmt.Printf("Service error: %v\n", err)
+        return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+    }
+    return c.JSON(http.StatusOK, img)
 }

@@ -28,6 +28,7 @@ import (
 	"github.com/alisinasoltani/partojshid/internal/database"
 	"github.com/alisinasoltani/partojshid/internal/handler/auth"
 	"github.com/alisinasoltani/partojshid/internal/handler/projecthandler"
+	"github.com/alisinasoltani/partojshid/internal/handler/sitehandler"
 	"github.com/alisinasoltani/partojshid/internal/handler/userhandler"
 	"github.com/alisinasoltani/partojshid/internal/middlewares"
 	// "github.com/alisinasoltani/partojshid/internal/pkg/ratelimiter"
@@ -45,9 +46,6 @@ import (
 var validate *validator.Validate
 
 func main() {
-	// Load config
-	config.Load()
-
 	// Connect to DB
 	database.Get()
 
@@ -60,11 +58,7 @@ func main() {
 
 	// Echo
 	e := echo.New()
-	e.Static("/uploads", "uploads")
 	e.Logger = newEchoLogger()
-
-	// Fix Postman/curl double-read EOF bug globally
-	e.Pre(middleware.RemoveTrailingSlash())
 
 	// Swagger UI
 	e.GET("/swagger/*", echoSwagger.WrapHandler, func(next echo.HandlerFunc) echo.HandlerFunc {
@@ -111,6 +105,7 @@ func main() {
 	projectH := projecthandler.NewHandler()
 	userH := userhandler.NewHandler()
 	authHandler := auth.NewHandler()
+	siteH := sitehandler.NewHandler()
 
 	// Auth routes
 	auth := e.Group("/api/auth")
@@ -123,29 +118,38 @@ func main() {
 
 	// Public routes
 	public := e.Group("/api/projects")
-	// @tags Projects
-	public.GET("", projectH.List, rateLimits["global"])
-	// @tags Projects
-	public.GET("/:id", projectH.Get, rateLimits["global"])
+	public.Use(rateLimits["global"]) // Apply global rate limit to ALL project routes
+	public.Use(middlewares.AuthJWT())
+	// Public routes (no additional middleware)
+	{
+		// @tags Projects
+		public.GET("", projectH.List)
+		// @tags Projects
+		public.GET("/:id", projectH.Get)
+		// @tags Projects
+		public.GET("/:id/images", projectH.ListImages)
+	}
 
 	// Editor routes
-	editor := e.Group("/api/projects")
+	editor := public.Group("") // Empty prefix for subgroup; inherits parent middlewares
 	editor.Use(
 		middlewares.AuthJWT(),
 		middlewares.RequireEditorOrAdmin(),
-		rateLimits["write"],
+		rateLimits["write"], // Write-specific limit for protected actions
 	)
-	// @tags Projects (Admin)
 	{
+		// @tags Projects (Admin)
 		editor.POST("", projectH.Create)
 		// @tags Projects (Admin)
 		editor.PUT("/:id", projectH.Update)
 		// @tags Projects (Admin)
 		editor.DELETE("/:id", projectH.Delete)
-		// @tags Projects (Admin)
-		editor.GET("", projectH.List)
-		// @tags Projects (Admin)
-		editor.GET("/:id", projectH.Get)
+		// Optionally re-expose filtered list/get here if needed for editors (they already inherit public ones)
+		// editor.GET("", projectH.List)  // Avoid re-registering to prevent conflicts
+		// editor.GET("/:id", projectH.Get)
+		editor.POST("/:id/images", projectH.UploadImage)
+		editor.PUT("/:id/images/:image_id", projectH.UpdateImage)
+		editor.DELETE("/:id/images/:image_id", projectH.DeleteImage)
 	}
 
 	// Admin users
@@ -168,9 +172,25 @@ func main() {
 		admin.DELETE("/:id", userH.Delete)
 	}
 
+	siteGroup := e.Group("/api/site")
+	{
+		// Public GET
+		siteGroup.GET("", siteH.Get)
+
+		// Admin-only CRUD
+		adminSite := siteGroup.Group("")
+		adminSite.Use(
+			middlewares.AuthJWT(),
+			middlewares.RequireRole("admin"), // ONLY admin
+			rateLimits["write"],
+		)
+		adminSite.PUT("", siteH.Update)
+		adminSite.DELETE("", siteH.Delete) // optional
+	}
+
 	// Start server
 	cfg := config.Load()
-	log.Printf("Server starting on http://localhost:%s", config.Load().Port)
+	log.Printf("Server starting on http://localhost:%s", cfg.Port)
 	log.Fatal(e.Start(":" + cfg.Port))
 	log.Printf("Health → Health:     http://localhost:%s/health", cfg.Port)
 	log.Printf(" → Projects:   http://localhost:%s/api/projects", cfg.Port)

@@ -3,6 +3,7 @@ package projecthandler
 import (
 	"net/http"
 	"strconv"
+	"fmt"
 
 	"github.com/alisinasoltani/partojshid/internal/dto/project"
 	"github.com/alisinasoltani/partojshid/internal/service/project_service"
@@ -32,12 +33,20 @@ func NewHandler() *Handler {
 // @Router       /projects [get]
 func (h *Handler) List(c echo.Context) error {
 	page, _ := strconv.Atoi(c.QueryParam("page"))
-	if page < 1 { page = 1 }
+	if page < 1 {
+		page = 1
+	}
 	perPage, _ := strconv.Atoi(c.QueryParam("per_page"))
-	if perPage < 1 || perPage > 100 { perPage = 10 }
-
+	if perPage < 1 || perPage > 100 {
+		perPage = 10
+	}
+	
 	isEditor := c.Get("role") != nil && (c.Get("role").(string) == "admin" || c.Get("role").(string) == "editor")
 	editorMode := c.QueryParam("editor") == "1" && isEditor
+	
+	role := c.Get("role")
+	fmt.Printf("Role from JWT: %v (type: %T)\n", role, role)
+	fmt.Printf("isEditor: %v, editor param: %s\n", isEditor, c.QueryParam("editor"))
 
 	params := project_service.ListParams{
 		Page:    page,

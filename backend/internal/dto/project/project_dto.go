@@ -26,21 +26,23 @@ type UpdateProjectRequest struct {
 	DisplayOrder    *int    `json:"display_order,omitempty"`
 }
 
+// Add this field to ProjectResponse struct
 type ProjectResponse struct {
-	ID              uint    `json:"id"`
-	Slug            string  `json:"slug"`
-	FullName        string  `json:"full_name"`
-	Description     *string `json:"description,omitempty"`
-	StartedAt       string  `json:"started_at"`
-	EndedAt         string  `json:"ended_at"`
-	StartedAtJalali *string `json:"started_at_jalali,omitempty"`
-	EndedAtJalali   *string `json:"ended_at_jalali,omitempty"`
-	Employer        string  `json:"employer"`
-	IsVisible       bool    `json:"is_visible"`
-	DisplayOrder    int     `json:"display_order"`
-	CreatedBy       string  `json:"created_by"`
-	CreatedAt       string  `json:"created_at"`
-	UpdatedAt       string  `json:"updated_at"`
+	ID              uint   `json:"id"`
+	Slug            string `json:"slug"`
+	FullName        string `json:"full_name"`
+	Description     string `json:"description"`
+	StartedAt       string `json:"started_at"`
+	EndedAt         string `json:"ended_at"`
+	StartedAtJalali string `json:"started_at_jalali"`
+	EndedAtJalali   string `json:"ended_at_jalali"`
+	Employer        string `json:"employer"`
+	IsVisible       bool   `json:"is_visible"`
+	DisplayOrder    int    `json:"display_order"`
+	CreatedBy       string `json:"created_by"`
+	CreatedAt       string `json:"created_at"`
+	UpdatedAt       string `json:"updated_at"`
+	Images []ImageResponse `json:"images,omitempty"`
 }
 
 type PaginatedProjectsResponse struct {

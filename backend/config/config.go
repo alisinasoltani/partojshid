@@ -48,10 +48,10 @@ func Load() *Config {
 			AppEnv:          getEnv("APP_ENV", "development"),
 			Port:             getEnv("PORT", "8080"),
 
-			DBHost:          getEnv("DB_HOST", "localhost"),
-			DBUser:          getEnv("DB_USER", "jeyshid"),
-			DBPassword:      getEnv("DB_PASSWORD", ""),
-			DBName:          getEnv("DB_NAME", "jeyshid"),
+			DBHost:          getEnv("DB_HOST", "remote-fanhab.runflare.com:31762"),
+			DBUser:          getEnv("DB_USER", "root"),
+			DBPassword:      getEnv("DB_PASSWORD", "asn7NCUnkYJcTeG4zk4h"),
+			DBName:          getEnv("DB_NAME", "server3dbgo_db"),
 			DBSSLMode:       getEnv("DB_SSL_MODE", "disable"),
 
 			JWTSecret:       getEnv("JWT_SECRET", ""),
